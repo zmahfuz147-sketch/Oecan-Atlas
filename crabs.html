@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The World of Crabs — OceanAtlas</title>
+    <meta name="description"
+        content="Explore crab diversity, deep-sea species from Asian and European waters, fossil crabs, reproduction, diets, and remarkable adaptations." />
+    <meta name="theme-color" content="#041d3d" />
+
+    <!-- Same typography as OceanAtlas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    /* ==================================================
+   CRAB PAGE — DEEP SEA EXPEDITION DESIGN
+   All custom styling is isolated to crab-page.
+================================================== */
+
+/* PAGE ATMOSPHERE */
+
+.crab-page {
+    background-color: var(--navy-950);
+}
+
+/* ==================================================
+   1. EXPEDITION HERO
+================================================== */
+
+.crab-page .hero {
+    min-height: auto;
+    display: block;
+    text-align: left;
+
+    padding: calc(var(--nav-h) + 65px) 24px 190px;
+
+    background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(83, 216, 251, 0.13),
+            transparent 28rem
+        ),
+        radial-gradient(
+            circle at 12% 75%,
+            rgba(244, 213, 141, 0.08),
+            transparent 24rem
+        ),
+        linear-gradient(
+            145deg,
+            rgba(4, 29, 61, 0.97),
+            rgba(1, 8, 23, 0.98)
+        );
+}
+
+.crab-page .hero-content {
+    max-width: 1180px;
+    width: 100%;
+    margin: 0 auto;
+
+    padding: clamp(28px, 5vw, 60px);
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(139, 233, 253, 0.2);
+    border-radius: 28px;
+
+    box-shadow: 0 25px 65px rgba(1, 8, 23, 0.4);
+
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+.crab-page .hero-kicker {
+    color: var(--aqua);
+    letter-spacing: 0.2em;
+}
+
+.crab-page .hero-title {
+    color: #fff;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    text-align: left;
+    max-width: 750px;
+}
+
+.crab-page .hero-sub {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 720px;
+    color: var(--ink-dim);
+}
+
+.crab-page .hero-cta {
+    justify-content: flex-start;
+}
+
+.crab-page .hero .btn-ghost {
+    color: var(--ink);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.crab-page .hero .btn-ghost:hover {
+    color: var(--aqua-soft);
+    border-color: var(--aqua);
+}
+
+.crab-page .hero-chips {
+    justify-content: flex-start;
+}
+
+.crab-page .hero-chips li {
+    background: rgba(3, 18, 38, 0.7);
+    border: 1px solid rgba(139, 233, 253, 0.2);
+    color: var(--ink);
+}
+
+.crab-page .scroll-hint {
+    display: none;
+}
+
+.crab-page .hero-wave {
+    height: 100px;
+}
+
+/* Keep swimming crab animations */
+
+.crab-page .crab-swim-lane {
+    bottom: 20px;
+    opacity: 0.85;
+}
+
+/* ==================================================
+   2. EXPEDITION CHAPTER SECTIONS
+================================================== */
+
+.crab-page .section {
+    max-width: 1160px;
+
+    margin: 34px auto;
+
+    padding: clamp(30px, 5vw, 56px)
+             clamp(20px, 4vw, 44px);
+
+    border: 1px solid rgba(139, 233, 253, 0.13);
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    box-shadow: 0 18px 42px rgba(1, 8, 23, 0.18);
+}
+
+/* Editorial section headings */
+
+.crab-page .section-head {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 10px 32px;
+
+    align-items: end;
+
+    margin-bottom: 36px;
+}
+
+.crab-page .section-head .kicker {
+    grid-column: 1 / -1;
+    color: var(--sand);
+    letter-spacing: 0.18em;
+}
+
+.crab-page .section-head h2 {
+    grid-column: 1;
+    grid-row: 2;
+
+    font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.crab-page .section-head .lead {
+    grid-column: 2;
+    grid-row: 2;
+
+    color: var(--ink-dim);
+    align-self: end;
+
+    padding-bottom: 5px;
+}
+
+/* ==================================================
+   3. SPECIMEN CARDS
+================================================== */
+
+.crab-page .species-card,
+.crab-page .fact-tile {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 74, 124, 0.3),
+            rgba(2, 13, 32, 0.75)
+        );
+
+    border: 1px solid rgba(139, 233, 253, 0.17);
+
+    border-top: 2px solid rgba(244, 213, 141, 0.55);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.crab-page .species-card:hover,
+.crab-page .fact-tile:hover {
+
+    transform: translateY(-7px);
+
+    border-color: var(--aqua);
+
+    box-shadow:
+        0 22px 48px rgba(1, 8, 23, 0.4),
+        0 0 22px rgba(83, 216, 251, 0.1);
+}
+
+.crab-page .species-name {
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.crab-page .species-sci {
+    color: var(--aqua-soft);
+}
+
+.crab-page .species-fact {
+    line-height: 1.75;
+}
+
+/* Specimen icons */
+
+.crab-page .species-icon {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(244, 213, 141, 0.2),
+            rgba(83, 216, 251, 0.08)
+        );
+
+    border: 1px solid rgba(244, 213, 141, 0.3);
+}
+
+/* ==================================================
+   4. STATISTICS PANELS
+================================================== */
+
+.crab-page .profile-panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 74, 124, 0.32),
+            rgba(2, 13, 32, 0.82)
+        );
+
+    border: 1px solid rgba(139, 233, 253, 0.2);
+
+    border-radius: 24px;
+    padding: clamp(22px, 4vw, 36px);
+}
+
+.crab-page .vital-box {
+    background: rgba(1, 8, 23, 0.45);
+    border-color: rgba(139, 233, 253, 0.2);
+}
+
+.crab-page .vital-box dd {
+    color: var(--sand);
+}
+
+.crab-page .zone-stats li {
+    background: rgba(83, 216, 251, 0.08);
+    border: 1px solid rgba(83, 216, 251, 0.2);
+    border-radius: 999px;
+}
+
+/* ==================================================
+   5. INFORMATION DETAILS
+================================================== */
+
+.crab-page .data-note {
+    padding: 14px 18px;
+
+    border-left: 3px solid var(--sand);
+
+    background: rgba(244, 213, 141, 0.055);
+
+    border-radius: 0 12px 12px 0;
+
+    line-height: 1.7;
+}
+
+/* ==================================================
+   6. WAVE TRANSITIONS
+================================================== */
+
+.crab-page .wave-divider:not(.hero-wave) {
+    height: 55px;
+    opacity: 0.55;
+}
+
+/* ==================================================
+   7. FOOTER
+================================================== */
+
+.crab-page .site-footer {
+    margin-top: 55px;
+}
+
+/* ==================================================
+   8. RESPONSIVE DESIGN
+================================================== */
+
+@media (max-width: 860px) {
+
+    .crab-page .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .crab-page .section-head .kicker,
+    .crab-page .section-head h2,
+    .crab-page .section-head .lead {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+}
+
+@media (max-width: 620px) {
+
+    .crab-page .hero {
+        padding: calc(var(--nav-h) + 45px) 16px 145px;
+    }
+
+    .crab-page .hero-content {
+        padding: 26px 20px;
+        border-radius: 20px;
+    }
+
+    .crab-page .section {
+        margin: 22px 12px;
+        padding: 28px 19px;
+        border-radius: 19px;
+    }
+
+    .crab-page .section-head {
+        margin-bottom: 28px;
+    }
+
+}
+    /* ================= CRAB SWIMMING ANIMATION ================= */
+
+    .crab-swim-lane {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 132px;
+        height: 176px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .crab-svg-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .crab-swimmer {
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 176px;
+        height: 112px;
+        opacity: 0.94;
+        filter: drop-shadow(0 10px 16px rgba(1, 8, 23, 0.22));
+        animation: crab-traverse 31s linear infinite;
+        will-change: transform;
+    }
+
+    .crab-swimmer--small {
+        top: 88px;
+        width: 104px;
+        height: 68px;
+        opacity: 0.62;
+        animation-duration: 43s;
+        animation-delay: -17s;
+    }
+
+    .crab-swimmer--reverse {
+        top: 45px;
+        width: 132px;
+        height: 84px;
+        opacity: 0.48;
+        animation-name: crab-traverse-reverse;
+        animation-duration: 38s;
+        animation-delay: -9s;
+    }
+
+    .crab-art {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        animation: crab-bob 2.8s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    /* Moving legs */
+
+    .crab-legs-left,
+    .crab-legs-right {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: crab-paddle 0.72s ease-in-out infinite alternate;
+    }
+
+    .crab-legs-right {
+        animation-delay: -0.36s;
+    }
+
+    /* Moving claws */
+
+    .crab-claw-left,
+    .crab-claw-right {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: crab-claw 1.5s ease-in-out infinite alternate;
+    }
+
+    .crab-claw-right {
+        animation-delay: -0.75s;
+    }
+
+    /* Swimming across the screen */
+
+    @keyframes crab-traverse {
+        from {
+            transform: translate3d(100vw, 0, 0);
+        }
+
+        to {
+            transform: translate3d(-220px, 0, 0);
+        }
+    }
+
+    /* Another crab swims in the opposite direction */
+
+    @keyframes crab-traverse-reverse {
+        from {
+            transform: translate3d(-180px, 0, 0) scaleX(-1);
+        }
+
+        to {
+            transform: translate3d(100vw, 0, 0) scaleX(-1);
+        }
+    }
+
+    /* Gentle swimming movement */
+
+    @keyframes crab-bob {
+        0%, 100% {
+            transform: translateY(0) rotate(-2deg);
+        }
+
+        50% {
+            transform: translateY(-9px) rotate(2deg);
+        }
+    }
+
+    @keyframes crab-paddle {
+        from {
+            transform: rotate(-8deg);
+        }
+
+        to {
+            transform: rotate(8deg);
+        }
+    }
+
+    @keyframes crab-claw {
+        from {
+            transform: rotate(-5deg);
+        }
+
+        to {
+            transform: rotate(7deg);
+        }
+    }
+
+    /* Mobile adjustments */
+
+    @media (max-width: 620px) {
+        .crab-swim-lane {
+            bottom: 104px;
+            height: 126px;
+        }
+
+        .crab-swimmer {
+            width: 126px;
+            height: 82px;
+        }
+
+        .crab-swimmer--small {
+            top: 66px;
+            width: 78px;
+            height: 52px;
+        }
+
+        .crab-swimmer--reverse {
+            top: 32px;
+            width: 94px;
+            height: 62px;
+        }
+    }
+
+    /* Accessibility */
+
+    @media (prefers-reduced-motion: reduce) {
+        .crab-swimmer,
+        .crab-art,
+        .crab-legs-left,
+        .crab-legs-right,
+        .crab-claw-left,
+        .crab-claw-right {
+            animation: none;
+        }
+
+        .crab-swimmer {
+            left: 8%;
+            transform: none;
+        }
+
+        .crab-swimmer--small {
+            left: 72%;
+        }
+
+        .crab-swimmer--reverse {
+            left: 43%;
+        }
+    }
+</style>
+    <link rel="icon"
+        href="data:image/svg+xml,*<*&#x73;vg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>*<*&#x74;ext y='.9em' font-size='90'>&#127754;*<*/text>*<*/svg>" />
+</head>
+
+<body class="crab-page">
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="ocean-bg" id="oceanBg" aria-hidden="true"></div>
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <noscript>
+        <div class="noscript-note">🌊 Enable JavaScript for the page's navigation and motion effects. All crab information remains readable without it.</div>
+    </noscript>
+
+    <!-- ======================= NAVIGATION ======================= -->
+    <header class="site-nav" id="siteNav">
+        <nav class="nav-inner" aria-label="Primary">
+            <a class="brand" href="index.html#home" aria-label="OceanAtlas — home">
+                <span class="brand-wave" aria-hidden="true">🌊</span>
+                <span class="brand-text">Ocean<em>Atlas</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
+                aria-controls="navMenu" aria-label="Open navigation menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+                <li><a class="nav-link" href="index.html#species">Species</a></li>
+                <li><a class="nav-link" href="index.html#zones">Ocean zones</a></li>
+               <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="#facts">Facts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- ======================= 1 · HERO ======================= -->
+        <section class="hero" id="home" aria-label="The world of crabs">
+            <!-- ================= SWIMMING CRABS ================= -->
+
+<svg class="crab-svg-defs" aria-hidden="true" focusable="false">
+
+    <symbol id="crab-swim-shape" viewBox="0 0 220 140">
+
+        <!-- Legs -->
+        <g fill="none" stroke="#ff8f6b" stroke-width="8"
+            stroke-linecap="round" stroke-linejoin="round">
+
+            <g class="crab-legs-left">
+                <path d="M82 66 C62 56 53 56 37 63" />
+                <path d="M78 80 C57 75 48 81 31 91" />
+                <path d="M83 92 C66 97 58 107 46 119" />
+            </g>
+
+            <g class="crab-legs-right">
+                <path d="M138 66 C158 56 167 56 183 63" />
+                <path d="M142 80 C163 75 172 81 189 91" />
+                <path d="M137 92 C154 97 162 107 174 119" />
+            </g>
+
+            <path d="M77 48 C57 36 48 30 39 27" />
+            <path d="M143 48 C163 36 172 30 181 27" />
+
+        </g>
+
+        <!-- Left claw -->
+        <g class="crab-claw-left"
+            stroke="#f4d58d"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M41 29 C25 15 12 22 11 36 C19 43 31 42 41 29Z"
+                fill="#ff8f6b" />
+
+            <path d="M13 34 L5 25 M14 36 L4 43" fill="none" />
+        </g>
+
+        <!-- Right claw -->
+        <g class="crab-claw-right"
+            stroke="#f4d58d"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M179 29 C195 15 208 22 209 36 C201 43 189 42 179 29Z"
+                fill="#ff8f6b" />
+
+            <path d="M207 34 L215 25 M206 36 L216 43" fill="none" />
+        </g>
+
+        <!-- Eyes -->
+        <path d="M75 25 C84 7 96 8 103 25 M145 25 C136 7 124 8 117 25"
+            fill="none"
+            stroke="#f4d58d"
+            stroke-width="5"
+            stroke-linecap="round" />
+
+        <circle cx="103" cy="23" r="6" fill="#eaf6ff" />
+        <circle cx="117" cy="23" r="6" fill="#eaf6ff" />
+
+        <circle cx="104" cy="23" r="2.6" fill="#063059" />
+        <circle cx="116" cy="23" r="2.6" fill="#063059" />
+
+        <!-- Crab body -->
+        <path
+            d="M65 67 C65 39 87 27 110 27 C133 27 155 39 155 67 C155 93 138 107 110 107 C82 107 65 93 65 67Z"
+            fill="#ff8f6b"
+            stroke="#f4d58d"
+            stroke-width="5" />
+
+        <path d="M79 73 C88 83 98 88 110 88 C122 88 132 83 141 73"
+            fill="none"
+            stroke="#f4d58d"
+            stroke-width="4"
+            stroke-linecap="round"
+            opacity="0.9" />
+
+        <path d="M91 48 C98 42 104 40 110 40 C116 40 122 42 129 48"
+            fill="none"
+            stroke="#eaf6ff"
+            stroke-width="3"
+            stroke-linecap="round"
+            opacity="0.55" />
+
+    </symbol>
+
+</svg>
+
+<!-- Three animated crabs -->
+
+<div class="crab-swim-lane" aria-hidden="true">
+
+    <!-- Main crab -->
+    <div class="crab-swimmer">
+        <svg class="crab-art" viewBox="0 0 220 140">
+            <use href="#crab-swim-shape"></use>
+        </svg>
+    </div>
+
+    <!-- Small crab -->
+    <div class="crab-swimmer crab-swimmer--small">
+        <svg class="crab-art" viewBox="0 0 220 140">
+            <use href="#crab-swim-shape"></use>
+        </svg>
+    </div>
+
+    <!-- Crab swimming backwards -->
+    <div class="crab-swimmer crab-swimmer--reverse">
+        <svg class="crab-art" viewBox="0 0 220 140">
+            <use href="#crab-swim-shape"></use>
+        </svg>
+    </div>
+
+</div>
+
+<!-- ================= END SWIMMING CRABS ================= -->
+            <div class="hero-content">
+                <p class="hero-kicker">OceanAtlas · Marine life field guide</p>
+                <h1 class="hero-title" id="heroTitle">The World of Crabs</h1>
+                <p class="hero-sub">
+                    From tiny shore-dwellers to giant spider crabs and strange animals living beside deep-sea vents,
+                    crabs have conquered an astonishing range of habitats. Meet the true crabs, their crab-like
+                    relatives, and the species that reveal how inventive life beneath the waves can be.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="exploreBtn" type="button">
+                        Explore crab life
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-ghost" href="#asian">Meet the deep-sea crabs</a>
+                </div>
+                <ul class="hero-chips" aria-label="Crab guide highlights">
+                    <li>🦀 Approx. 7,600+ living true-crab species</li>
+                    <li>🌊 From shorelines to deep slopes</li>
+                    <li>🧬 More than one crab-shaped family tree</li>
+                </ul>
+            </div>
+            <div class="scroll-hint" aria-hidden="true">
+                <span class="mouse"><span class="wheel"></span></span>
+                <span class="scroll-hint-text">Scroll to explore</span>
+            </div>
+            <div class="wave-divider hero-wave" aria-hidden="true">
+                <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= 2 · HOW MANY CRABS? ======================= -->
+        <section class="section" id="count" aria-labelledby="countHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">01 · The numbers</p>
+                <h2 id="countHeading">How many crabs exist?</h2>
+                <p class="lead">The answer depends on what scientists mean by “crab.” Taxonomists distinguish true crabs from several crab-shaped relatives.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-hero-top">
+                    <div class="profile-icon" aria-hidden="true">🦀</div>
+                    <div class="profile-heading">
+                        <p class="kicker">Living true crabs · Brachyura</p>
+                        <h2>Approx. 7,600+</h2>
+                        <p class="profile-hook">Described living species of true crabs</p>
+                    </div>
+                </div>
+                <p class="profile-overview">
+                    A 2024 review of crab fossils and evolution reports more than 7,600 known living Brachyura species.
+                    This is a rounded scientific snapshot, not a permanent final count. New species are described,
+                    and names are revised when researchers compare specimens and genetic evidence. Hermit crabs,
+                    king crabs, and horseshoe crabs are not included in the true-crab total.
+                    <a class="card-cta" href="#source-1">Source [1] <span class="cta-arrow">↗</span></a>
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>What is counted?</dt>
+                        <dd>True crabs (Brachyura)</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Fossil record</dt>
+                        <dd>Approx. 3,000+ fossil true-crab species</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Why it changes</dt>
+                        <dd>New descriptions and taxonomic revisions</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Counts are approximate and depend on the taxonomic source and its update date. The World Register
+                    of Marine Species (WoRMS) is one place to check accepted marine names and current taxonomic records.
+                    <a class="card-cta" href="#source-2">WoRMS <span class="cta-arrow">↗</span></a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 3 · CRAB GROUPS ======================= -->
+        <section class="section" id="groups" aria-labelledby="groupsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">02 · Meet the groups</p>
+                <h2 id="groupsHeading">Five animals people call “crabs”</h2>
+                <p class="lead">Some are true crabs. Others evolved a similar body shape along a different branch of the arthropod family tree.</p>
+            </header>
+
+            <div class="species-grid" data-reveal-group>
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🦀</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Brachyura</span><span class="badge zone-sunlight">True crab</span></div>
+                    <h3 class="species-name">True crabs</h3>
+                    <p class="species-sci">Infraorder Brachyura</p>
+                    <p class="species-fact"><strong>Size:</strong> Approx. a few millimetres to several dozen centimetres across the carapace, depending on species.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Marine shores, reefs, estuaries, freshwater, and land.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Their abdomen is short and folded beneath the body; the front pair of legs usually forms claws.</p>
+                    <a class="card-cta" href="#source-1">Explore the classification <span class="cta-arrow">→</span></a>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🐚</div>
+                    <div class="badge-row"><span class="badge zone-twilight">Anomura</span><span class="badge zone-coastal">Crab-like relative</span></div>
+                    <h3 class="species-name">Hermit crabs</h3>
+                    <p class="species-sci">Superfamily Paguroidea</p>
+                    <p class="species-fact"><strong>Size:</strong> Usually small to medium, from tiny marine species to much larger forms; size varies widely.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Rocky shores, reefs, sandy bottoms, deep sea, and—in some lineages—land.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Many protect their soft, curved abdomen inside an empty snail shell, changing shells as they grow.</p>
+                    <a class="card-cta" href="#source-3">Explore Anomura <span class="cta-arrow">→</span></a>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">👑</div>
+                    <div class="badge-row"><span class="badge zone-twilight">Anomura</span><span class="badge zone-abyss">Crab-like relative</span></div>
+                    <h3 class="species-name">King crabs</h3>
+                    <p class="species-sci">Family Lithodidae</p>
+                    <p class="species-fact"><strong>Size:</strong> Red king crabs can reach approx. 1.5 m in leg span and approx. 28 cm in carapace length.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Cold North Pacific waters, from shallow coastal grounds to deeper seafloor.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Despite their crab-like shape, king crabs belong to Anomura and are relatives of hermit crabs—not true crabs.</p>
+                    <a class="card-cta" href="#source-6">Explore king crabs <span class="cta-arrow">→</span></a>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🕷️</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Brachyura</span><span class="badge zone-twilight">Long-legged</span></div>
+                    <h3 class="species-name">Spider crabs</h3>
+                    <p class="species-sci">Common name used for several brachyuran families</p>
+                    <p class="species-fact"><strong>Size:</strong> The Japanese spider crab can reach approx. 3.8 m in leg span and approx. 30 cm across the carapace.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Coastal seabeds and continental slopes; the giant Japanese species lives in the northwestern Pacific.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Young Japanese spider crabs may decorate their shells with kelp or other objects for camouflage.</p>
+                    <a class="card-cta" href="#source-4">Meet the giant spider crab <span class="cta-arrow">→</span></a>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🌙</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Xiphosura</span><span class="badge status-vu">Not a true crab</span></div>
+                    <h3 class="species-name">Horseshoe crabs</h3>
+                    <p class="species-sci">Order Xiphosura</p>
+                    <p class="species-fact"><strong>Size:</strong> Atlantic horseshoe crabs can reach approx. 60 cm in total length, including the tail.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Shallow coastal waters with sandy or muddy bottoms; adults often visit beaches to spawn.</p>
+                    <p class="species-fact"><strong>Fact:</strong> They are not crustacean crabs. Their closest living relatives are arachnids such as spiders and scorpions.</p>
+                    <a class="card-cta" href="#source-5">NOAA: Are they really crabs? <span class="cta-arrow">→</span></a>
+                </article>
+            </div>
+            <p class="data-note">“Crab” is a common name, not a single taxonomic group. The word can describe true crabs and several unrelated or more distant crab-shaped relatives.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 4 · ASIAN DEEP-SEA CRABS ======================= -->
+        <section class="section" id="asian" aria-labelledby="asianHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">03 · Asia · Deep water</p>
+                <h2 id="asianHeading">Crabs of Asian deep seas</h2>
+                <p class="lead">Japan’s Pacific margin, the Sea of Japan, and the Okinawa Trough hold remarkable animals—from enormous scavengers to small vent-dwellers with bacterial partners.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 01</span>
+                    <h3 class="species-name">Japanese spider crab</h3>
+                    <p class="species-sci">Macrocheira kaempferi</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 200–550 m</li>
+                        <li>Size: carapace up to approx. 30 cm; leg span up to approx. 3.8 m</li>
+                        <li>Range: northwestern Pacific, around Japan</li>
+                    </ul>
+                    <p>One of the largest living crabs by leg span. It walks across deep seabeds searching for dead animals, decaying material, and algae. Young crabs may attach kelp or other objects to their shells as camouflage.</p>
+                    <a class="card-cta" href="#source-4">Sources [4] <span class="cta-arrow">↗</span></a>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 02</span>
+                    <h3 class="species-name">Hairy vent crab</h3>
+                    <p class="species-sci">Shinkaia crosnieri</p>
+                    <ul class="zone-stats">
+                        <li>Depth records: approx. 692–1,931 m</li>
+                        <li>Size: carapace length approx. 5 cm</li>
+                        <li>Habitat: hydrothermal vents, especially the Okinawa Trough</li>
+                    </ul>
+                    <p>This pale, bristly galatheid is a squat-lobster relative in Anomura, not a true Brachyura crab. Chemosynthetic bacteria live on its hair-like setae, and research shows the animal digests and absorbs these bacterial partners as a food source.</p>
+                    <a class="card-cta" href="#source-7">Sources [7] <span class="cta-arrow">↗</span></a>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 03</span>
+                    <h3 class="species-name">Red snow crab</h3>
+                    <p class="species-sci">Chionoecetes japonicus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 480–2,300 m in Japanese records</li>
+                        <li>Size: up to approx. 10 cm carapace width in SeaLifeBase records</li>
+                        <li>Range: northwestern Pacific, including Japanese waters</li>
+                    </ul>
+                    <p>Its deep red colour and swollen branchial regions help distinguish it from the more familiar snow crab, <em>Chionoecetes opilio</em>. It is associated with cold, deep seafloor habitats.</p>
+                    <a class="card-cta" href="#source-8">Sources [8] <span class="cta-arrow">↗</span></a>
+                </article>
+            </div>
+            <p class="data-note">Depth records and maximum sizes can differ between databases, locations, sexes, and survey methods. Values above are approximate reference ranges, not limits for every individual.</p>
+        </section>
+
+        <!-- ======================= 5 · EUROPEAN DEEP-SEA CRABS ======================= -->
+        <section class="section" id="europe" aria-labelledby="europeHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">04 · Europe · North Atlantic</p>
+                <h2 id="europeHeading">Crabs of European deep waters</h2>
+                <p class="lead">The continental slopes of the Northeast Atlantic shelter red deep-water crabs, burrowing species, and carriers that transport living camouflage on their backs.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 01</span>
+                    <h3 class="species-name">Deep-sea red crab</h3>
+                    <p class="species-sci">Chaceon affinis</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 400–1,500 m in the Northeast Atlantic</li>
+                        <li>Size: female carapace length up to approx. 17.7 cm; males up to approx. 15.5 cm in SeaLifeBase records</li>
+                        <li>Habitat: continental slopes, seamounts, and deep-water banks</li>
+                    </ul>
+                    <p>A large geryonid true crab found on deep Atlantic bottoms. It is commercially fished in parts of the Northeast Atlantic, so its fisheries and population data are monitored.</p>
+                    <a class="card-cta" href="#source-9">Sources [9] <span class="cta-arrow">↗</span></a>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 02</span>
+                    <h3 class="species-name">Three-spined deep-sea crab</h3>
+                    <p class="species-sci">Geryon trispinosus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: usually approx. 30–700 m; records farther south reach approx. 1,800 m</li>
+                        <li>Size: male carapace width approx. 9.8 cm</li>
+                        <li>Habitat: soft sediment on Northeast Atlantic bottoms</li>
+                    </ul>
+                    <p>This red-to-brick-red crab lives on soft seabeds and burrows into the sediment. The HELCOM information sheet notes that females are slightly smaller than males and that available population data are limited.</p>
+                    <a class="card-cta" href="#source-10">Source [10] <span class="cta-arrow">↗</span></a>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 03</span>
+                    <h3 class="species-name">Carrier crab</h3>
+                    <p class="species-sci">Paromola cuvieri</p>
+                    <ul class="zone-stats">
+                        <li>Depth: usually approx. 150–345 m; recorded down to approx. 1,000 m</li>
+                        <li>Size: carapace length up to approx. 16 cm</li>
+                        <li>Range: eastern Atlantic, from European waters southward</li>
+                    </ul>
+                    <p>Its specially positioned rear legs can hold objects over its back. Sponges, corals, and sea fans have been observed being carried, probably helping the crab camouflage itself and deter predators.</p>
+                    <a class="card-cta" href="#source-11">Source [11] <span class="cta-arrow">↗</span></a>
+                </article>
+            </div>
+            <p class="data-note">The Northeast Atlantic depth and size ranges above are based on regional surveys and species accounts; local records may fall outside the typical range.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 6 · EXTINCT CRABS ======================= -->
+        <section class="section" id="fossils" aria-labelledby="fossilsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">05 · Deep time</p>
+                <h2 id="fossilsHeading">Famous crabs from the fossil record</h2>
+                <p class="lead">Fossils preserve experiments in crab shape that no longer exist. These extinct species are known from fossil material, not living populations.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 01</span>
+                    <h3 class="species-name">Callichimaera perplexa</h3>
+                    <p class="species-sci">“The beautiful chimera”</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 95–90 million years ago, Cretaceous</li>
+                        <li>Size: carapace length approx. 6.6–15.1 mm; width approx. 3.8–9.6 mm in the studied sample</li>
+                        <li>Found in: Colombia and the United States</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> This small, unusual true crab had large exposed eyes and paddle-like swimming legs. Its body looked unlike the familiar crab shape, and researchers interpret it as a specialised swimmer rather than a larval stage.</p>
+                    <a class="card-cta" href="#source-12">Source [12] <span class="cta-arrow">↗</span></a>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 02</span>
+                    <h3 class="species-name">Cretapsara athanata</h3>
+                    <p class="species-sci">A small Cretaceous crab preserved in amber</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 99 million years ago, Cretaceous</li>
+                        <li>Size: Needs verification</li>
+                        <li>Found in: Myanmar, preserved in amber</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> The amber specimen preserves delicate details, including eyes, antennae, mouthparts, and gills. The published description establishes its age and locality; the exact body measurement is marked for verification here rather than estimated from an illustration.</p>
+                    <a class="card-cta" href="#source-13">Source [13] <span class="cta-arrow">↗</span></a>
+                </article>
+            </div>
+            <p class="data-note">A 2024 review records more than approx. 3,000 fossil true-crab species across Jurassic, Cretaceous, and Cenozoic deposits. The fossil record is incomplete and continues to change as new material is described. <a class="card-cta" href="#source-1">Source [1] <span class="cta-arrow">↗</span></a></p>
+        </section>
+
+        <!-- ======================= 7 · REPRODUCTION ======================= -->
+        <section class="section" id="reproduction" aria-labelledby="reproductionHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">06 · Life cycle</p>
+                <h2 id="reproductionHeading">How crabs reproduce</h2>
+                <p class="lead">Many crabs begin life as tiny planktonic larvae. Their route from egg to adult includes dramatic changes in body shape and repeated moulting.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-facts-grid">
+                    <article class="fact-tile">
+                        <span class="fact-num">01 · COURTSHIP</span>
+                        <h3 class="species-name">Finding a mate</h3>
+                        <p>In many species, courtship and mating are linked to the female’s moult. A male may guard or carry a female before she sheds her old shell, then mate with her while her new shell is still soft. This pattern varies across crab groups.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">02 · EGGS</span>
+                        <h3 class="species-name">A protected brood</h3>
+                        <p>After fertilisation, the female attaches the eggs to swimmerets beneath her abdomen. The egg mass can look like a sponge, so an egg-carrying female is often called a “sponge crab.” She carries and ventilates the brood until hatching.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">03 · ZOEA</span>
+                        <h3 class="species-name">Tiny drifting larvae</h3>
+                        <p>In many marine true crabs, eggs hatch into zoea larvae. These small, often spiny larvae drift in the plankton and feed as they develop, moulting between larval stages.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">04 · MEGALOPA</span>
+                        <h3 class="species-name">The crab-like transition</h3>
+                        <p>The zoea changes into a megalopa: a larval stage with a more crab-like body and developing legs. It can swim and crawl before settling into a suitable bottom habitat.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">05 · MOULTING</span>
+                        <h3 class="species-name">Growing a new shell</h3>
+                        <p>Young crabs settle and moult into miniature juveniles. Because the hard external skeleton cannot expand like skin, a crab must shed it and harden a larger new shell as it grows.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">A NOTE ON VARIATION</span>
+                        <h3 class="species-name">Not every crab follows the same script</h3>
+                        <p>Larval stages, egg-carrying behaviour, timing, and habitat shifts differ among species. Some freshwater and land crabs have shortened development or hatch as more developed young.</p>
+                    </article>
+                </div>
+                <p class="profile-note">The zoea → megalopa → juvenile sequence is a common marine-crab pattern, illustrated here with blue crab and red king crab life-history references. <a class="card-cta" href="#source-14">Sources [14] <span class="cta-arrow">↗</span></a></p>
+            </div>
+        </section>
+
+        <!-- ======================= 8 · DIET ======================= -->
+        <section class="section" id="diet" aria-labelledby="dietHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">07 · Food webs</p>
+                <h2 id="dietHeading">What do crabs eat?</h2>
+                <p class="lead">There is no single crab diet. Many species are flexible feeders, switching between food sources as conditions change.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SCAVENGERS</span>
+                    <h3 class="species-name">The ocean clean-up crew</h3>
+                    <p>Many spider crabs and other seabed walkers eat dead or decaying fish, crustaceans, invertebrates, algae, and organic scraps that settle on the bottom. Scavenging helps recycle nutrients.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">PREDATORS</span>
+                    <h3 class="species-name">Claws for catching prey</h3>
+                    <p>Predatory crabs may crush molluscs, capture worms, attack other crustaceans, or take small fish. Their claws can grip, tear, cut, or crush food depending on their shape.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">GRAZERS & OMNIVORES</span>
+                    <h3 class="species-name">A varied menu</h3>
+                    <p>Some species browse on algae and plant material; others mix these with carrion and small animals. Opportunistic feeding lets many crabs use whatever suitable food is available.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP-SEA SPECIALISTS</span>
+                    <h3 class="species-name">Food from bacteria</h3>
+                    <p>At hydrothermal vents, <em>Shinkaia crosnieri</em> obtains nutrition from chemosynthetic bacteria living on its bristly setae. This is a striking example of an animal using microbial partners as a food source.</p>
+                    <a class="card-cta" href="#source-7">Source [7] <span class="cta-arrow">↗</span></a>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 9 · BEHAVIOUR ======================= -->
+        <section class="section" id="behavior" aria-labelledby="behaviorHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">08 · Adaptations</p>
+                <h2 id="behaviorHeading">Behaviour and special abilities</h2>
+                <p class="lead">Crabs use camouflage, movement, shelter, and partnerships to solve the everyday problems of survival.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">CAMOUFLAGE</span>
+                    <h3 class="species-name">Wear the seafloor</h3>
+                    <p>Young Japanese spider crabs may attach kelp or other objects to their shells. Carrier crabs use their rear legs to hold sponges, corals, or sea fans above the body.</p>
+                    <a class="card-cta" href="#source-4">Sources [4] <span class="cta-arrow">↗</span></a>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">MIGRATION</span>
+                    <h3 class="species-name">Moving with the seasons</h3>
+                    <p>Red king crabs make seasonal movements between shallower mating and moulting grounds and deeper feeding areas. The route and timing depend on the population and local conditions.</p>
+                    <a class="card-cta" href="#source-6">Source [6] <span class="cta-arrow">↗</span></a>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">BURROWING</span>
+                    <h3 class="species-name">Hide beneath the sediment</h3>
+                    <p><em>Geryon trispinosus</em> lives on soft seabeds and burrows into sediment. Burying can provide shelter and help an animal remain less visible on an exposed bottom.</p>
+                    <a class="card-cta" href="#source-10">Source [10] <span class="cta-arrow">↗</span></a>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEFENSIVE PARTNERSHIPS</span>
+                    <h3 class="species-name">A living shield</h3>
+                    <p>Some hermit crabs carry sea anemones on their shells. The anemone’s stinging cells can help deter predators, while the anemone gains transport and access to food scraps. Researchers describe some of these behaviours as animal-assisted tool use; it is not the same as using a manufactured tool.</p>
+                    <a class="card-cta" href="#source-15">Source [15] <span class="cta-arrow">↗</span></a>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 10 · DID YOU KNOW ======================= -->
+        <section class="section" id="facts" aria-labelledby="factsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">09 · Did you know?</p>
+                <h2 id="factsHeading">Five facts to take to the surface</h2>
+                <p class="lead">The crab family tree is stranger—and older—than its familiar sideways walk suggests.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 01</span>
+                    <h3 class="species-name">Crab shape evolved more than once</h3>
+                    <p>The crab-like body plan evolved independently in several crustacean lineages. This repeated evolutionary change is called carcinisation.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 02</span>
+                    <h3 class="species-name">Horseshoe crabs are not crabs</h3>
+                    <p>They are chelicerates, more closely related to spiders and scorpions than to crustacean crabs. Their blue, copper-based blood is important in biomedical testing.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 03</span>
+                    <h3 class="species-name">A crab with a huge reach</h3>
+                    <p>The Japanese spider crab can have an approximate leg span of 3.8 m, although its long legs are relatively delicate.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 04</span>
+                    <h3 class="species-name">A meal growing on its body</h3>
+                    <p>The deep-sea <em>Shinkaia crosnieri</em> digests bacterial partners living on its bristles, gaining nutrition from microbes associated with hydrothermal vents.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 05</span>
+                    <h3 class="species-name">The fossil record is full of surprises</h3>
+                    <p>More than approx. 3,000 fossil true-crab species have been reported in the scientific literature, including forms unlike any living crab.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 11 · SOURCES ======================= -->
+        <section class="section" id="sources" aria-labelledby="sourcesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">10 · References</p>
+                <h2 id="sourcesHeading">Sources and further reading</h2>
+                <p class="lead">The facts on this page draw on taxonomic databases, museum and government species guides, research papers, and regional marine assessments.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <nav class="footer-links" aria-label="Crab information sources">
+                    <ul>
+                        <li id="source-1"><a href="https://palaeo-electronica.org/content/2024/5285-fossil-calibrations-true-crabs" target="_blank" rel="noopener">[1] Luque et al. (2024), Palaeontologia Electronica — living and fossil true-crab diversity.</a></li>
+                        <li id="source-2"><a href="https://www.marinespecies.org/aphia.php?p=stats" target="_blank" rel="noopener">[2] World Register of Marine Species (WoRMS) — accepted marine names and taxonomic records.</a></li>
+                        <li id="source-3"><a href="https://www.museum.qld.gov.au/learn-and-discover/animals-of-queensland/crustaceans/hermit-crabs-squat-lobsters-and-allies" target="_blank" rel="noopener">[3] Queensland Museum — hermit crabs, squat lobsters, and Anomura.</a> <a href="https://academic.oup.com/sysbio/article/60/5/616/1646743" target="_blank" rel="noopener">Related research on hermit-to-king crab evolution.</a></li>
+                        <li id="source-4"><a href="https://ocean.si.edu/ocean-life/invertebrates/japanese-spider-crab" target="_blank" rel="noopener">[4] Smithsonian Ocean — Japanese spider crab, size, and shell decoration.</a> <a href="https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/japanese-spider-crab" target="_blank" rel="noopener">Monterey Bay Aquarium — depth, range, size, and diet.</a></li>
+                        <li id="source-5"><a href="https://oceanservice.noaa.gov/facts/horseshoe-crab.html" target="_blank" rel="noopener">[5] NOAA Ocean Service — horseshoe crab classification, ecology, and blue blood.</a> <a href="https://www.nationalzoo.si.edu/animals/horseshoe-crab" target="_blank" rel="noopener">Smithsonian National Zoo — physical description and size.</a></li>
+                        <li id="source-6"><a href="https://www.adfg.alaska.gov/index.cfm?adfg=redkingcrab.printerfriendly" target="_blank" rel="noopener">[6] Alaska Department of Fish and Game — red king crab size, life history, moulting, and migration.</a></li>
+                        <li id="source-7"><a href="https://www.godac.jamstec.go.jp/bismal/e/view/9000078" target="_blank" rel="noopener">[7] JAMSTEC Biological Information System for Marine Life — Shinkaia crosnieri occurrence and depth records.</a> <a href="https://www.jamstec.go.jp/e/about/press_release/archive/2014/20141014.pdf" target="_blank" rel="noopener">JAMSTEC research release — size and bacterial nutrition.</a></li>
+                        <li id="source-8"><a href="https://crabs-japan.linnaeus.naturalis.nl/linnaeus_ng/app/views/species/nsr_taxon.php?cat=TAB_DESCRIPTION&amp;id=33582" target="_blank" rel="noopener">[8] Crabs of Japan — Chionoecetes japonicus description and Japanese depth records.</a> <a href="https://www.sealifebase.org/country/CountrySpeciesSummary.php?c_code=392&amp;genusname=Chionoecetes&amp;lang=English&amp;speciesname=japonicus" target="_blank" rel="noopener">SeaLifeBase — size and distribution data.</a></li>
+                        <li id="source-9"><a href="https://academic.oup.com/icesjms/article/65/2/148/734408" target="_blank" rel="noopener">[9] ICES Journal of Marine Science — Northeast Atlantic deep-water red crab Chaceon affinis.</a> <a href="https://sealifebase.org/FieldGuide/FieldGuideSummary.php?GenusName=Chaceon&amp;SpeciesName=affinis&amp;print=&amp;sps=" target="_blank" rel="noopener">SeaLifeBase — size and depth summary.</a></li>
+                        <li id="source-10"><a href="https://helcom.fi/wp-content/uploads/2019/08/HELCOM-RedList-All-SIS_Benthic-Invertebrates.pdf" target="_blank" rel="noopener">[10] HELCOM Red List Species Information Sheets — Geryon trispinosus habitat, depth, size, and burrowing.</a></li>
+                        <li id="source-11"><a href="https://www.shetland.uhi.ac.uk/research/discovery-zone/carrier-crab/" target="_blank" rel="noopener">[11] University of the Highlands and Islands, Shetland — Paromola cuvieri carrier crab.</a></li>
+                        <li id="source-12"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6482010/" target="_blank" rel="noopener">[12] Luque et al. (2019), Science Advances — Callichimaera perplexa fossil crab.</a></li>
+                        <li id="source-13"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8528423/" target="_blank" rel="noopener">[13] Luque et al. (2021) — Cretapsara athanata preserved in Cretaceous Myanmar amber.</a></li>
+                        <li id="source-14"><a href="https://www.cbf.org/resources/blue-crab-lifecycle/" target="_blank" rel="noopener">[14] Chesapeake Bay Foundation — blue crab mating, eggs, zoea, and megalopa stages.</a> <a href="https://www.adfg.alaska.gov/index.cfm?adfg=redkingcrab.printerfriendly" target="_blank" rel="noopener">Alaska Department of Fish and Game — red king crab development and moulting.</a></li>
+                        <li id="source-15"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027413/" target="_blank" rel="noopener">[15] Review: Tool use by aquatic animals — hermit crabs carrying anemones for protection.</a></li>
+                    </ul>
+                </nav>
+                <p class="profile-note">Approximate values are labelled “approx.” where sources or populations vary. “Needs verification” is used where a confident measurement was not established from the cited material. This page is an educational overview, not a substitute for a taxonomic database or a scientific species assessment.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer" id="contact">
+        <div class="wave-divider footer-wave" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a class="brand footer-brand" href="index.html#home">
+                        <span class="brand-wave" aria-hidden="true">🌊</span>
+                        <span class="brand-text">Ocean<em>Atlas</em></span>
+                    </a>
+                    <p>An educational field guide to the life and science of our blue planet. This crab page is built with plain HTML, CSS, and a small page-specific JavaScript file, with GSAP for motion.</p>
+                    <p class="footer-sources">Facts referenced from <strong>NOAA</strong>, <strong>Smithsonian</strong>, <strong>WoRMS</strong>, <strong>JAMSTEC</strong>, and scientific publications.</p>
+                </div>
+
+                <nav class="footer-col footer-links" aria-label="Footer">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html#climate">Ocean climate</a></li>
+                        <li><a href="index.html#species">Species explorer</a></li>
+                        <li><a href="#groups">Crab groups</a></li>
+                        <li><a href="#asian">Asian deep-sea crabs</a></li>
+                        <li><a href="#europe">European deep-sea crabs</a></li>
+                        <li><a href="#fossils">Fossil crabs</a></li>
+                        <li><a href="#sources">Sources</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col footer-news">
+                    <h3>Stay in the current</h3>
+                    <p>One gentle email a month with ocean science worth knowing. Front-end demo only — nothing is sent anywhere.</p>
+                    <form id="newsletterForm" novalidate>
+                        <label class="sr-only" for="emailInput">Email address</label>
+                        <div class="field-row">
+                            <input id="emailInput" name="email" type="email" placeholder="you@example.com" required
+                                aria-describedby="formMsg" />
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 OceanAtlas · Made with 💙 for the blue planet · Crab measurements are approximate where noted.</p>
+                <button class="btn btn-ghost back-to-top" id="backToTop" type="button">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 20V6m0 0l-6 6m6-6l6 6" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Back to the surface
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Same GSAP + ScrollTrigger versions used by OceanAtlas -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="crabs-page.js"></script>
+</body>
+
+</html>

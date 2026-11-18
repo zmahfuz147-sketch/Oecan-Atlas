@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - OceanAtlas</title>
+    <meta name="description"
+        content="Discover the purpose, sources, and principles behind OceanAtlas, an interactive field guide to the blue planet.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+
+    <!-- PASTE MY NAV HERE -->
+
+    <div class="about-depth-readout" aria-live="polite" aria-label="Current ocean depth">
+        <span class="about-depth-readout-label">CURRENT DEPTH</span>
+        <strong id="about-current-depth">0 m</strong>
+    </div>
+
+    <main class="about-page" id="about-page">
+
+        <!-- HERO: THE OCEAN SURFACE -->
+        <section class="about-hero about-depth-section" data-about-depth="0 m"
+            aria-labelledby="about-hero-title">
+
+            <div class="about-hero-atmosphere" aria-hidden="true">
+                <div class="about-light-rays"></div>
+
+                <span class="about-bubble about-bubble-one"></span>
+                <span class="about-bubble about-bubble-two"></span>
+                <span class="about-bubble about-bubble-three"></span>
+                <span class="about-bubble about-bubble-four"></span>
+            </div>
+
+            <div class="about-container about-hero-content about-reveal">
+
+                <span class="about-depth-tag about-depth-tag-surface">
+                    DEPTH 0 m
+                </span>
+
+                <p class="about-eyebrow">A SHORT DIVE</p>
+
+                <h1 id="about-hero-title">About OceanAtlas</h1>
+
+                <p class="about-hero-subtitle">
+                    An interactive field guide to the blue planet.
+                </p>
+
+                <a class="about-button about-hero-button" href="#about-purpose">
+                    Begin the descent
+                    <span aria-hidden="true">↓</span>
+                </a>
+
+            </div>
+
+            <div class="about-scroll-note" aria-hidden="true">
+                <span class="about-scroll-line"></span>
+                SCROLL TO DESCEND
+            </div>
+
+        </section>
+
+
+        <div class="about-depths" id="about-depths">
+
+            <!-- WAVE DIVIDER -->
+            <div class="about-wave-divider" aria-hidden="true">
+                <svg class="about-wave-svg" viewBox="0 0 1440 28"
+                    preserveAspectRatio="none">
+                    <path class="about-wave-path"
+                        d="M0 14 C120 2 240 26 360 14 S600 2 720 14 S960 26 1080 14 S1320 2 1440 14" />
+                </svg>
+            </div>
+
+
+            <!-- OUR PURPOSE -->
+            <section class="about-section about-purpose-section about-depth-section"
+                id="about-purpose" data-about-depth="200 m">
+
+                <div class="about-container about-reveal">
+
+                    <span class="about-depth-tag">
+                        DEPTH 200 m
+                    </span>
+
+                    <p class="about-section-kicker">WHY WE EXIST</p>
+
+                    <h2 class="about-section-title">Our purpose</h2>
+
+                    <div class="about-glass-card about-purpose-card">
+                        <p>
+                            OceanAtlas began as a practice project and grew into something I hope is useful to anyone curious about the ocean. It brings together climate indicators, marine species, regional profiles, and an interactive map in one place, designed to be clear, visual, and easy to explore.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FREE AND INDEPENDENT -->
+            <section class="about-section about-promises-section about-depth-section"
+                data-about-depth="1,000 m">
+
+                <div class="about-container about-reveal">
+
+                    <span class="about-depth-tag">
+                        DEPTH 1,000 m
+                    </span>
+
+                    <p class="about-section-kicker">OPEN KNOWLEDGE</p>
+
+                    <h2 class="about-section-title">Free and independent</h2>
+
+                    <p class="about-section-description">
+                        OceanAtlas is completely free. There are no ads, no sign-ups, and no tracking. It exists to share knowledge, not to sell anything.
+                    </p>
+
+                    <div class="about-promise-grid">
+
+                        <article class="about-promise-card">
+                            <span class="about-promise-emoji" aria-hidden="true">🚫</span>
+                            <h3>No ads</h3>
+                            <p>A calm, uninterrupted experience.</p>
+                        </article>
+
+                        <article class="about-promise-card">
+                            <span class="about-promise-emoji" aria-hidden="true">🧭</span>
+                            <h3>No sign-ups</h3>
+                            <p>Explore without creating an account.</p>
+                        </article>
+
+                        <article class="about-promise-card">
+                            <span class="about-promise-emoji" aria-hidden="true">🔒</span>
+                            <h3>No tracking</h3>
+                            <p>Your visit stays yours.</p>
+                        </article>
+
+                    </div>
+
+
+                    <!-- WHAT YOU WILL FIND HERE -->
+                    <div class="about-discover">
+
+                        <div class="about-discover-heading">
+                            <p class="about-section-kicker">EXPLORE THE ATLAS</p>
+                            <h3>What you will find here</h3>
+                        </div>
+
+                        <div class="about-link-grid">
+
+                            <a class="about-link-card" href="index.html#climate">
+                                <span class="about-link-icon" aria-hidden="true">🌡️</span>
+                                <span class="about-link-name">Climate data</span>
+                                <span class="about-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                            <a class="about-link-card" href="species.html">
+                                <span class="about-link-icon" aria-hidden="true">🐋</span>
+                                <span class="about-link-name">Marine species</span>
+                                <span class="about-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                            <a class="about-link-card" href="south-asia.html">
+                                <span class="about-link-icon" aria-hidden="true">🌏</span>
+                                <span class="about-link-name">Regions</span>
+                                <span class="about-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                            <a class="about-link-card" href="map.html">
+                                <span class="about-link-icon" aria-hidden="true">🗺️</span>
+                                <span class="about-link-name">Atlas Map</span>
+                                <span class="about-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                            <a class="about-link-card" href="index.html#zones">
+                                <span class="about-link-icon" aria-hidden="true">🌊</span>
+                                <span class="about-link-name">Ocean zones</span>
+                                <span class="about-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- WAVE DIVIDER -->
+            <div class="about-wave-divider" aria-hidden="true">
+                <svg class="about-wave-svg" viewBox="0 0 1440 28"
+                    preserveAspectRatio="none">
+                    <path class="about-wave-path"
+                        d="M0 14 C120 2 240 26 360 14 S600 2 720 14 S960 26 1080 14 S1320 2 1440 14" />
+                </svg>
+            </div>
+
+
+            <!-- OUR SOURCES -->
+            <section class="about-section about-sources-section about-depth-section"
+                data-about-depth="4,000 m">
+
+                <div class="about-container about-reveal">
+
+                    <span class="about-depth-tag">
+                        DEPTH 4,000 m
+                    </span>
+
+                    <p class="about-section-kicker">BUILT ON RESEARCH</p>
+
+                    <h2 class="about-section-title">Our sources</h2>
+
+                    <div class="about-glass-card about-sources-card">
+
+                        <p>
+                            The information on this site is gathered from reputable scientific and conservation sources, including NOAA, NASA, the IUCN Red List, FishBase, and the IPCC. Each fact was reviewed against these sources before publication. Many figures, such as temperatures, depths, and population estimates, are approximate and rounded for educational use.
+                        </p>
+
+                        <div class="about-source-badges" aria-label="Information sources">
+                            <span class="about-source-badge">NOAA</span>
+                            <span class="about-source-badge">NASA</span>
+                            <span class="about-source-badge">IUCN Red List</span>
+                            <span class="about-source-badge">FishBase</span>
+                            <span class="about-source-badge">IPCC</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- WAVE DIVIDER -->
+            <div class="about-wave-divider" aria-hidden="true">
+                <svg class="about-wave-svg" viewBox="0 0 1440 28"
+                    preserveAspectRatio="none">
+                    <path class="about-wave-path"
+                        d="M0 14 C120 2 240 26 360 14 S600 2 720 14 S960 26 1080 14 S1320 2 1440 14" />
+                </svg>
+            </div>
+
+
+            <!-- ACCURACY AND CORRECTIONS -->
+            <section class="about-section about-accuracy-section about-depth-section"
+                data-about-depth="6,000 m">
+
+                <div class="about-container about-reveal">
+
+                    <span class="about-depth-tag">
+                        DEPTH 6,000 m
+                    </span>
+
+                    <p class="about-section-kicker">STAYING ACCOUNTABLE</p>
+
+                    <h2 class="about-section-title">Accuracy and corrections</h2>
+
+                    <div class="about-correction-card">
+
+                        <div class="about-correction-icon" aria-hidden="true">
+                            ✦
+                        </div>
+
+                        <p>
+                            Every effort has been made to keep this content accurate, but errors can still slip through, and scientific data changes as new research is published. If you spot a mistake or have a suggestion, please write to us at
+                            <a href="mailto:abdullahalmahfuz906@gmail.com">abdullahalmahfuz906@gmail.com</a>.
+                            Corrections are always welcome.
+                        </p>
+
+                        <a class="about-button about-correction-button"
+                            href="mailto:abdullahalmahfuz906@gmail.com?subject=OceanAtlas%20correction">
+                            Report a correction
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- WAVE DIVIDER -->
+            <div class="about-wave-divider" aria-hidden="true">
+                <svg class="about-wave-svg" viewBox="0 0 1440 28"
+                    preserveAspectRatio="none">
+                    <path class="about-wave-path"
+                        d="M0 14 C120 2 240 26 360 14 S600 2 720 14 S960 26 1080 14 S1320 2 1440 14" />
+                </svg>
+            </div>
+
+
+            <!-- CONTACT AND THE SEABED -->
+            <section class="about-section about-contact-section about-depth-section"
+                data-about-depth="11,000 m">
+
+                <div class="about-seabed-glow" aria-hidden="true"></div>
+
+                <div class="about-container about-contact-content about-reveal">
+
+                    <span class="about-depth-tag about-depth-tag-deep">
+                        DEPTH 11,000 m
+                    </span>
+
+                    <p class="about-section-kicker">AT THE BOTTOM OF THE OCEAN</p>
+
+                    <h2 class="about-section-title">Stay connected</h2>
+
+                    <p class="about-contact-text">
+                        Questions, corrections, or ideas? Email us at
+                        <a href="mailto:abdullahalmahfuz906@gmail.com">abdullahalmahfuz906@gmail.com</a>.
+                    </p>
+
+                    <p class="about-closing-line">
+                        Thank you for exploring. We hope the ocean leaves you as fascinated as it leaves us.
+                    </p>
+
+                    <a class="about-button about-home-button" href="index.html">
+                        <span aria-hidden="true">←</span>
+                        Back to home
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- PASTE MY FOOTER HERE -->
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="about-page.js"></script>
+    <script defer src="script.js"></script>
+
+</body>
+
+</html>

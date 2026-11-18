@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The World of Sharks &amp; Rays — OceanAtlas</title>
+    <meta name="description"
+        content="Explore shark and ray diversity, deep-sea species, fossil sharks, reproduction, diets, electroreception, and the extraordinary adaptations of these cartilaginous fishes." />
+    <meta name="theme-color" content="#041d3d" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    /* ==================================================
+       SHARKS & RAYS — DEEP SEA EXPEDITION DESIGN
+    ================================================== */
+
+    .sharkray-page {
+        background-color: var(--navy-950);
+    }
+
+    /* ==================================================
+       1. HERO
+    ================================================== */
+
+    .sharkray-page .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: auto;
+        display: block;
+        text-align: left;
+        padding: calc(var(--nav-h) + 65px) 24px 215px;
+        background:
+            radial-gradient(circle at 82% 16%, rgba(83, 216, 251, 0.17), transparent 30rem),
+            radial-gradient(circle at 8% 82%, rgba(244, 213, 141, 0.07), transparent 26rem),
+            linear-gradient(160deg, rgba(4, 29, 61, 0.97), rgba(1, 8, 23, 0.99));
+    }
+
+    .sharkray-page .hero-content {
+        position: relative;
+        z-index: 4;
+        max-width: 1180px;
+        width: 100%;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 60px);
+        text-align: left;
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        border-radius: 28px;
+        box-shadow: 0 25px 65px rgba(1, 8, 23, 0.45);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+    }
+
+    .sharkray-page .hero-kicker {
+        color: var(--aqua);
+        letter-spacing: 0.2em;
+    }
+
+    .sharkray-page .hero-title {
+        color: #fff;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        text-align: left;
+        max-width: 780px;
+    }
+
+    .sharkray-page .hero-sub {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 720px;
+        color: var(--ink-dim);
+    }
+
+    .sharkray-page .hero-cta {
+        justify-content: flex-start;
+    }
+
+    .sharkray-page .hero .btn-ghost {
+        color: var(--ink);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .sharkray-page .hero .btn-ghost:hover {
+        color: var(--aqua-soft);
+        border-color: var(--aqua);
+    }
+
+    .sharkray-page .hero-chips {
+        justify-content: flex-start;
+    }
+
+    .sharkray-page .hero-chips li {
+        background: rgba(3, 18, 38, 0.7);
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        color: var(--ink);
+    }
+
+    .sharkray-page .scroll-hint {
+        display: none;
+    }
+
+    .sharkray-page .hero-wave {
+        height: 100px;
+        z-index: 4;
+    }
+
+    /* ==================================================
+       2. HERO ATMOSPHERE
+    ================================================== */
+
+    .sharkray-page .hero-fx {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .sharkray-page .ray-layer {
+        position: absolute;
+        inset: -20% -25% -10%;
+        background:
+            linear-gradient(100deg, transparent 38%, rgba(139, 233, 253, 0.12) 41%, transparent 44%),
+            linear-gradient(96deg, transparent 52%, rgba(139, 233, 253, 0.08) 55%, transparent 58%),
+            linear-gradient(104deg, transparent 64%, rgba(207, 243, 255, 0.1) 67%, transparent 70%),
+            linear-gradient(92deg, transparent 20%, rgba(139, 233, 253, 0.07) 22.5%, transparent 25%),
+            linear-gradient(108deg, transparent 80%, rgba(207, 243, 255, 0.08) 82.5%, transparent 85%);
+        filter: blur(12px);
+        mix-blend-mode: screen;
+        animation: ray-sway 18s ease-in-out infinite alternate;
+        will-change: transform, opacity;
+    }
+
+    @keyframes ray-sway {
+        from { transform: skewX(-3deg) scaleY(1); opacity: 0.65; }
+        to   { transform: skewX(3deg) scaleY(1.08); opacity: 1; }
+    }
+
+    .sharkray-page .caustic-layer {
+        position: absolute;
+        inset: -12%;
+        background:
+            radial-gradient(circle at 24% 18%, rgba(139, 233, 253, 0.15), transparent 38%),
+            radial-gradient(circle at 74% 42%, rgba(83, 216, 251, 0.13), transparent 46%),
+            radial-gradient(circle at 46% 88%, rgba(244, 213, 141, 0.08), transparent 36%);
+        mix-blend-mode: screen;
+        filter: blur(22px);
+        animation: caustic-drift 28s ease-in-out infinite alternate;
+        will-change: transform;
+    }
+
+    @keyframes caustic-drift {
+        from { transform: translate3d(-3%, 2%, 0) scale(1.04); }
+        to   { transform: translate3d(3%, -2%, 0) scale(1.14); }
+    }
+
+    .sharkray-page .marine-snow {
+        position: absolute;
+        inset: 0;
+    }
+
+    .sharkray-page .snow-flake {
+        position: absolute;
+        border-radius: 50%;
+        background: #dff2ff;
+        animation-name: snow-fall;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        will-change: transform;
+    }
+
+    @keyframes snow-fall {
+        from { transform: translate3d(0, 0, 0); }
+        to   { transform: translate3d(32px, 115vh, 0); }
+    }
+
+    /* ==================================================
+       3. HERO SWIMMERS — RIGHT → LEFT (MATCHES FACING)
+    ================================================== */
+
+    .hero-swim-lane {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 78px;
+        height: 250px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .swim-svg-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .hero-shark-track {
+        position: absolute;
+        left: 0;
+        top: 24px;
+        width: 360px;
+        height: 146px;
+        animation: cross-right-to-left 34s linear infinite;
+        will-change: transform;
+        filter: drop-shadow(0 14px 22px rgba(1, 8, 23, 0.32));
+    }
+
+    .hero-ray-track {
+        position: absolute;
+        left: 0;
+        top: 132px;
+        width: 220px;
+        height: 156px;
+        opacity: 0.9;
+        animation: cross-right-to-left 46s linear infinite;
+        animation-delay: -16s;
+        will-change: transform;
+        filter: drop-shadow(0 12px 20px rgba(1, 8, 23, 0.28));
+    }
+
+    .hero-shark-track svg,
+    .hero-ray-track svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    .hero-shark-bob {
+        width: 100%;
+        height: 100%;
+        animation: shark-bob 4.2s ease-in-out infinite alternate;
+    }
+
+    .hero-ray-bob {
+        width: 100%;
+        height: 100%;
+        animation: ray-bob 5.6s ease-in-out infinite alternate;
+    }
+
+    /* THE shared crossing keyframe — head-first, right to left */
+    @keyframes cross-right-to-left {
+        from { transform: translateX(112vw); }
+        to   { transform: translateX(-420px); }
+    }
+
+    @keyframes shark-bob {
+        from { transform: translateY(0) rotate(-1.2deg); }
+        to   { transform: translateY(-9px) rotate(1.2deg); }
+    }
+
+    @keyframes ray-bob {
+        from { transform: translateY(-7px) rotate(-2deg); }
+        to   { transform: translateY(7px) rotate(2deg); }
+    }
+
+    /* ==================================================
+       4. SVG PART ANIMATIONS
+    ================================================== */
+
+    .shark-tail {
+        transform-box: fill-box;
+        transform-origin: 8% 50%;
+        animation: shark-tail-sway 0.95s ease-in-out infinite alternate;
+    }
+
+    @keyframes shark-tail-sway {
+        from { transform: rotate(-9deg); }
+        to   { transform: rotate(9deg); }
+    }
+
+    .shark-pectoral {
+        transform-box: fill-box;
+        transform-origin: 12% 8%;
+        animation: shark-fin 2.1s ease-in-out infinite alternate;
+    }
+
+    @keyframes shark-fin {
+        from { transform: rotate(-4deg); }
+        to   { transform: rotate(5deg); }
+    }
+
+    .ray-wing-up {
+        transform-box: fill-box;
+        transform-origin: 100% 100%;
+        animation: ray-flap-up 2.4s ease-in-out infinite alternate;
+    }
+
+    .ray-wing-down {
+        transform-box: fill-box;
+        transform-origin: 100% 0%;
+        animation: ray-flap-down 2.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes ray-flap-up {
+        from { transform: rotate(-7deg); }
+        to   { transform: rotate(7deg); }
+    }
+
+    @keyframes ray-flap-down {
+        from { transform: rotate(7deg); }
+        to   { transform: rotate(-7deg); }
+    }
+
+    /* ==================================================
+       5. SCENE STAGES
+    ================================================== */
+
+    .sharkray-page .scene {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: 0;
+    }
+
+    .sharkray-page .scene-label {
+        display: inline-block;
+        margin: 0 0 14px;
+        padding: 6px 14px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--aqua);
+        background: rgba(83, 216, 251, 0.08);
+        border: 1px solid rgba(139, 233, 253, 0.25);
+        border-radius: 999px;
+    }
+
+    .scene-stage {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(139, 233, 253, 0.16);
+        box-shadow: 0 22px 50px rgba(1, 8, 23, 0.35);
+        background:
+            radial-gradient(ellipse at 50% -10%, rgba(139, 233, 253, 0.16), transparent 55%),
+            linear-gradient(180deg, #041d3d 0%, #063057 42%, #031530 100%);
+    }
+
+    .hunt-stage {
+        height: 380px;
+    }
+
+    .glide-stage {
+        height: 320px;
+    }
+
+    /* Ambient rising bubbles */
+    .scene-bubbles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .scene-bubbles span {
+        position: absolute;
+        bottom: -24px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(139, 233, 253, 0.12));
+        border: 1px solid rgba(139, 233, 253, 0.35);
+        animation: scene-bubble-rise linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes scene-bubble-rise {
+        from { transform: translateY(0) translateX(0); opacity: 0; }
+        12%  { opacity: 0.7; }
+        to   { transform: translateY(-440px) translateX(22px); opacity: 0; }
+    }
+
+    /* ==================================================
+       6. SCENE 1 — THE HUNT
+    ================================================== */
+
+    .hunt-shark-track {
+        position: absolute;
+        left: 0;
+        top: 116px;
+        width: 360px;
+        height: 146px;
+        z-index: 4;
+        animation: cross-right-to-left 16s linear infinite;
+        will-change: transform;
+        filter: drop-shadow(0 16px 26px rgba(1, 8, 23, 0.4));
+    }
+
+    .hunt-shark-bob {
+        width: 100%;
+        height: 100%;
+        animation: hunt-shark-lunge 1.9s ease-in-out infinite alternate;
+    }
+
+    @keyframes hunt-shark-lunge {
+        from { transform: translateY(-3px) rotate(-1.6deg); }
+        to   { transform: translateY(5px) rotate(1.6deg); }
+    }
+
+    .hunt-shark-track svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    /* --- fish school --- */
+
+    .fish-school {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    .fish {
+        position: absolute;
+        width: 30px;
+        height: 15px;
+        opacity: 0;
+        animation: fish-startle 16s linear infinite;
+        animation-delay: var(--delay, 0s);
+        will-change: transform, opacity;
+    }
+
+    .fish-body {
+        width: 100%;
+        height: 100%;
+        animation: fish-wiggle 0.9s ease-in-out infinite alternate;
+        animation-delay: var(--wiggle, 0s);
+    }
+
+    .fish-body svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    .fish-body path {
+        fill: #b9d9ef;
+        stroke: #4a7ba7;
+        stroke-width: 1.2;
+        stroke-linejoin: round;
+    }
+
+    .fish-body circle {
+        fill: #0a1628;
+    }
+
+    @keyframes fish-wiggle {
+        from { transform: translateY(-1.5px) rotate(-3deg); }
+        to   { transform: translateY(1.5px) rotate(3deg); }
+    }
+
+    /* The whole hunt loop, perfectly synchronised with the shark's 16s crossing */
+    @keyframes fish-startle {
+        0%   { transform: translate(0, 0); opacity: 0; }
+        6%   { transform: translate(0, 0); opacity: 1; }
+        46%  { transform: translate(0, 0); opacity: 1; }
+        52%  { transform: translate(calc(var(--dx) * 0.2), calc(var(--dy) * 0.2)); opacity: 1; }
+        64%  { transform: translate(var(--dx), var(--dy)); opacity: 1; }
+        74%  { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+        76%  { transform: translate(0, 0); opacity: 0; }
+        100% { transform: translate(0, 0); opacity: 0; }
+    }
+
+    /* JS-spawned trail bubbles behind the shark */
+    .trail-bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(139, 233, 253, 0.18));
+        border: 1px solid rgba(139, 233, 253, 0.55);
+        pointer-events: none;
+        z-index: 5;
+        animation: trail-bubble-rise 1.8s ease-out forwards;
+    }
+
+    @keyframes trail-bubble-rise {
+        from { transform: translateY(0) scale(0.65); opacity: 0.85; }
+        to   { transform: translateY(-52px) scale(1.6); opacity: 0; }
+    }
+
+    /* ==================================================
+       7. SCENE 2 — THE GLIDE (RAY)
+    ================================================== */
+
+    .glide-ray-track {
+        position: absolute;
+        left: 0;
+        top: 66px;
+        width: 260px;
+        height: 184px;
+        z-index: 3;
+        animation: glide-cross 24s ease-in-out infinite;
+        will-change: transform;
+        filter: drop-shadow(0 16px 26px rgba(1, 8, 23, 0.35));
+    }
+
+    .glide-ray-bob {
+        width: 100%;
+        height: 100%;
+        animation: glide-ray-sway 4.8s ease-in-out infinite alternate;
+    }
+
+    .glide-ray-track svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    @keyframes glide-cross {
+        0%   { transform: translateX(110vw) translateY(0); }
+        25%  { transform: translateX(70vw) translateY(-22px); }
+        50%  { transform: translateX(30vw) translateY(14px); }
+        75%  { transform: translateX(-6vw) translateY(-16px); }
+        100% { transform: translateX(-320px) translateY(6px); }
+    }
+
+    @keyframes glide-ray-sway {
+        from { transform: rotate(-3deg); }
+        to   { transform: rotate(3deg); }
+    }
+
+    /* ==================================================
+       8. SECTIONS
+    ================================================== */
+
+    .sharkray-page .section {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: clamp(30px, 5vw, 56px) clamp(20px, 4vw, 44px);
+        border: 1px solid rgba(139, 233, 253, 0.13);
+        border-radius: 26px;
+        background:
+            linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+        box-shadow: 0 18px 42px rgba(1, 8, 23, 0.18);
+    }
+
+    .sharkray-page .section-head {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 10px 32px;
+        align-items: end;
+        margin-bottom: 36px;
+    }
+
+    .sharkray-page .section-head .kicker {
+        grid-column: 1 / -1;
+        color: var(--sand);
+        letter-spacing: 0.18em;
+    }
+
+    .sharkray-page .section-head h2 {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .sharkray-page .section-head .lead {
+        grid-column: 2;
+        grid-row: 2;
+        color: var(--ink-dim);
+        align-self: end;
+        padding-bottom: 5px;
+    }
+
+    .sharkray-page .species-card,
+    .sharkray-page .fact-tile {
+        background:
+            linear-gradient(145deg, rgba(10, 74, 124, 0.3), rgba(2, 13, 32, 0.75));
+        border: 1px solid rgba(139, 233, 253, 0.17);
+        border-top: 2px solid rgba(244, 213, 141, 0.55);
+        border-radius: 20px;
+        padding: 25px;
+        transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .sharkray-page .species-card:hover,
+    .sharkray-page .fact-tile:hover {
+        transform: translateY(-7px);
+        border-color: var(--aqua);
+        box-shadow:
+            0 22px 48px rgba(1, 8, 23, 0.4),
+            0 0 22px rgba(83, 216, 251, 0.12);
+    }
+
+    .sharkray-page .species-name { font-size: 1.1rem; color: #fff; }
+    .sharkray-page .species-sci  { color: var(--aqua-soft); }
+    .sharkray-page .species-fact { line-height: 1.75; }
+
+    .sharkray-page .species-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background:
+            radial-gradient(circle at 30% 25%, rgba(244, 213, 141, 0.2), rgba(83, 216, 251, 0.09));
+        border: 1px solid rgba(244, 213, 141, 0.3);
+    }
+
+    .sharkray-page .profile-panel {
+        background:
+            linear-gradient(145deg, rgba(10, 74, 124, 0.32), rgba(2, 13, 32, 0.82));
+        border: 1px solid rgba(139, 233, 253, 0.2);
+        border-radius: 24px;
+        padding: clamp(22px, 4vw, 36px);
+    }
+
+    .sharkray-page .vital-box {
+        background: rgba(1, 8, 23, 0.45);
+        border-color: rgba(139, 233, 253, 0.2);
+    }
+
+    .sharkray-page .vital-box dd { color: var(--sand); }
+
+    .sharkray-page .zone-stats li {
+        background: rgba(83, 216, 251, 0.08);
+        border: 1px solid rgba(83, 216, 251, 0.2);
+        border-radius: 999px;
+    }
+
+    .sharkray-page .data-note {
+        padding: 14px 18px;
+        border-left: 3px solid var(--sand);
+        background: rgba(244, 213, 141, 0.055);
+        border-radius: 0 12px 12px 0;
+        line-height: 1.7;
+    }
+
+    .sharkray-page .wave-divider:not(.hero-wave) {
+        height: 55px;
+        opacity: 0.55;
+    }
+
+    .sharkray-page .site-footer { margin-top: 55px; }
+
+    /* Size chart */
+    .size-chart {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 8px;
+    }
+
+    .size-row {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.92rem;
+    }
+
+    .size-label { color: var(--ink-dim); font-weight: 500; }
+
+    .size-bar {
+        position: relative;
+        display: block;
+        height: 26px;
+        min-width: 46px;
+        border-radius: 7px;
+        background: linear-gradient(90deg, rgba(83, 216, 251, 0.75), rgba(139, 233, 253, 0.4));
+        box-shadow: 0 0 14px rgba(83, 216, 251, 0.25) inset;
+        transition: transform 0.3s ease;
+    }
+
+    .size-row:hover .size-bar {
+        transform: scaleX(1.015);
+        box-shadow: 0 0 18px rgba(83, 216, 251, 0.35) inset;
+    }
+
+    .size-val {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.74rem;
+        font-weight: 600;
+        color: #03203d;
+        white-space: nowrap;
+    }
+
+    .sharkray-page .glow-tile {
+        border-top-color: rgba(139, 233, 253, 0.9);
+        animation: glow-breathe 5.5s ease-in-out infinite;
+    }
+
+    @keyframes glow-breathe {
+        0%, 100% { box-shadow: 0 0 18px rgba(83, 216, 251, 0.06); }
+        50%      { box-shadow: 0 0 34px rgba(83, 216, 251, 0.22); }
+    }
+
+    /* ==================================================
+       9. RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 860px) {
+        .sharkray-page .section-head {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .sharkray-page .section-head .kicker,
+        .sharkray-page .section-head h2,
+        .sharkray-page .section-head .lead {
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        .size-row { grid-template-columns: 120px 1fr; }
+    }
+
+    @media (max-width: 620px) {
+        .sharkray-page .hero {
+            padding: calc(var(--nav-h) + 45px) 16px 175px;
+        }
+
+        .sharkray-page .hero-content {
+            padding: 26px 20px;
+            border-radius: 20px;
+        }
+
+        .sharkray-page .section {
+            margin: 22px 12px;
+            padding: 28px 19px;
+            border-radius: 19px;
+        }
+
+        .sharkray-page .section-head { margin-bottom: 28px; }
+
+        .hero-swim-lane { bottom: 54px; height: 190px; }
+
+        .hero-shark-track { top: 14px; width: 250px; height: 101px; }
+        .hero-ray-track   { top: 100px; width: 152px; height: 108px; }
+
+        .hunt-stage { height: 300px; }
+
+        .hunt-shark-track {
+            top: 90px;
+            width: 250px;
+            height: 101px;
+        }
+
+        .fish { width: 22px; height: 11px; }
+
+        .glide-stage { height: 250px; }
+
+        .glide-ray-track {
+            top: 48px;
+            width: 184px;
+            height: 130px;
+        }
+
+        .size-row { grid-template-columns: 100px 1fr; gap: 10px; font-size: 0.84rem; }
+        .size-val { font-size: 0.66rem; }
+    }
+
+    /* ==================================================
+       10. REDUCED MOTION
+    ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+        .sharkray-page .ray-layer,
+        .sharkray-page .caustic-layer,
+        .sharkray-page .snow-flake,
+        .hero-shark-track,
+        .hero-ray-track,
+        .hero-shark-bob,
+        .hero-ray-bob,
+        .hunt-shark-track,
+        .hunt-shark-bob,
+        .glide-ray-track,
+        .glide-ray-bob,
+        .fish,
+        .fish-body,
+        .shark-tail,
+        .shark-pectoral,
+        .ray-wing-up,
+        .ray-wing-down,
+        .scene-bubbles span,
+        .trail-bubble,
+        .sharkray-page .glow-tile {
+            animation: none;
+        }
+
+        .hero-shark-track { transform: translateX(6%); }
+        .hero-ray-track   { transform: translateX(64%); }
+        .hunt-shark-track { transform: translateX(58%); }
+        .glide-ray-track  { transform: translateX(18%); }
+        .fish             { opacity: 0.85; }
+    }
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml,*<*&#x73;vg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>*<*&#x74;ext y='.9em' font-size='90'>&#129416;*<*/text>*<*/svg>" />
+</head>
+
+<body class="sharkray-page">
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="ocean-bg" id="oceanBg" aria-hidden="true"></div>
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <noscript>
+        <div class="noscript-note">🌊 Enable JavaScript for navigation and motion effects. All shark and ray information remains readable without it.</div>
+    </noscript>
+
+    <!-- ======================= NAVIGATION ======================= -->
+    <header class="site-nav" id="siteNav">
+        <nav class="nav-inner" aria-label="Primary">
+            <a class="brand" href="index.html#home" aria-label="OceanAtlas — home">
+                <span class="brand-wave" aria-hidden="true">🌊</span>
+                <span class="brand-text">Ocean<em>Atlas</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
+                aria-controls="navMenu" aria-label="Open navigation menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+                <li><a class="nav-link" href="index.html#species">Species</a></li>
+                <li><a class="nav-link" href="index.html#zones">Ocean zones</a></li>
+                <li><a class="nav-link is-active" href="#home" aria-current="page">Sharks &amp; Rays</a></li>
+                <li><a class="nav-link" href="#facts">Facts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- ======================= 1 · HERO ======================= -->
+        <section class="hero" id="home" aria-label="The world of sharks and rays">
+
+            <div class="hero-fx" aria-hidden="true">
+                <div class="ray-layer"></div>
+                <div class="caustic-layer"></div>
+                <div class="marine-snow" id="marineSnow"></div>
+            </div>
+
+            <!-- ================= SVG DEFS ================= -->
+            <svg class="swim-svg-defs" aria-hidden="true" focusable="false">
+                <defs>
+                    <linearGradient id="sharkBodyGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#6f9cc9" />
+                        <stop offset="52%" stop-color="#39648f" />
+                        <stop offset="100%" stop-color="#1d3d63" />
+                    </linearGradient>
+                    <linearGradient id="sharkBellyGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#e4f4ff" />
+                        <stop offset="100%" stop-color="#a4c9e3" />
+                    </linearGradient>
+                    <linearGradient id="rayBodyGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#5b86b4" />
+                        <stop offset="55%" stop-color="#325a84" />
+                        <stop offset="100%" stop-color="#1a3658" />
+                    </linearGradient>
+                </defs>
+
+                <!-- ============ SHARK — FACES LEFT ============ -->
+                <symbol id="shark-shape" viewBox="0 0 320 130">
+                    <!-- Caudal fin -->
+                    <g class="shark-tail">
+                        <path d="M290 66
+                                 C300 48 312 28 320 18
+                                 C316 42 310 60 302 68
+                                 C310 76 316 94 320 118
+                                 C312 108 300 88 290 70 Z"
+                              fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="2.4"
+                              stroke-linejoin="round" />
+                    </g>
+
+                    <!-- Dorsal fins -->
+                    <path d="M140 36 C148 16 168 6 186 10 C176 22 168 32 164 38 Z"
+                          fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="2.2"
+                          stroke-linejoin="round" />
+                    <path d="M218 56 C222 48 230 45 238 48 C232 52 228 56 226 58 Z"
+                          fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="1.6"
+                          stroke-linejoin="round" />
+
+                    <!-- Body -->
+                    <path d="M20 65
+                             C24 48 50 36 90 34
+                             C140 32 190 38 230 50
+                             C260 58 285 66 296 68
+                             C285 72 260 80 230 88
+                             C190 100 140 106 90 104
+                             C50 102 24 82 20 65 Z"
+                          fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="2.4"
+                          stroke-linejoin="round" />
+
+                    <!-- Belly -->
+                    <path d="M44 78
+                             C70 96 120 104 170 102
+                             C215 100 258 88 282 74
+                             C252 94 200 105 148 105
+                             C96 105 60 94 44 78 Z"
+                          fill="url(#sharkBellyGrad)" opacity="0.85" />
+
+                    <!-- Pectoral fin -->
+                    <g class="shark-pectoral">
+                        <path d="M110 92 C118 110 134 124 156 130 C142 118 130 106 126 92 Z"
+                              fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="2.2"
+                              stroke-linejoin="round" />
+                    </g>
+
+                    <!-- Pelvic + anal fins -->
+                    <path d="M196 92 C202 102 210 108 220 112 C210 104 204 98 202 92 Z"
+                          fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="1.6"
+                          stroke-linejoin="round" />
+                    <path d="M238 78 C242 86 248 90 256 92 C248 85 244 81 242 77 Z"
+                          fill="url(#sharkBodyGrad)" stroke="#0f2a45" stroke-width="1.6"
+                          stroke-linejoin="round" />
+
+                    <!-- Gill slits -->
+                    <g stroke="#12314e" stroke-width="2.6" stroke-linecap="round" fill="none" opacity="0.55">
+                        <path d="M76 48 C73 58 73 70 77 82" />
+                        <path d="M83 47 C80 58 80 71 84 83" />
+                        <path d="M90 47 C87 58 87 71 91 83" />
+                        <path d="M97 48 C94 58 94 71 98 82" />
+                        <path d="M104 49 C101 59 101 71 105 81" />
+                    </g>
+
+                    <!-- Mouth -->
+                    <path d="M22 72 C34 82 50 85 64 82" stroke="#12314e" stroke-width="2.4"
+                          fill="none" stroke-linecap="round" opacity="0.65" />
+
+                    <!-- Eye -->
+                    <circle cx="44" cy="60" r="4.4" fill="#0b2545" />
+                    <circle cx="45.4" cy="58.6" r="1.6" fill="#eaf6ff" />
+                </symbol>
+
+                <!-- ============ MANTA-STYLE RAY — FACES LEFT ============ -->
+                <symbol id="manta-ray-shape" viewBox="0 0 280 200">
+                    <!-- Tail -->
+                    <path d="M180 100 C210 100 240 100 270 100"
+                          stroke="#2c4f76" stroke-width="5" stroke-linecap="round" fill="none" />
+
+                    <!-- Upper wing -->
+                    <g class="ray-wing-up">
+                        <path d="M142 92
+                                 C112 62 78 40 52 30
+                                 C60 54 80 76 110 90
+                                 C124 96 134 98 142 98 Z"
+                              fill="url(#rayBodyGrad)" stroke="#0f2a45" stroke-width="2.4"
+                              stroke-linejoin="round" />
+                    </g>
+
+                    <!-- Lower wing -->
+                    <g class="ray-wing-down">
+                        <path d="M142 108
+                                 C112 138 78 160 52 170
+                                 C60 146 80 124 110 110
+                                 C124 104 134 102 142 102 Z"
+                              fill="url(#rayBodyGrad)" stroke="#0f2a45" stroke-width="2.4"
+                              stroke-linejoin="round" />
+                    </g>
+
+                    <!-- Body -->
+                    <ellipse cx="142" cy="100" rx="42" ry="24"
+                             fill="url(#rayBodyGrad)" stroke="#0f2a45" stroke-width="2.4" />
+
+                    <!-- Cephalic fins -->
+                    <path d="M106 94 C90 88 70 84 56 88 C70 94 90 96 106 96 Z"
+                          fill="#3d648f" stroke="#0f2a45" stroke-width="2" stroke-linejoin="round" />
+                    <path d="M106 106 C90 112 70 116 56 112 C70 106 90 104 106 104 Z"
+                          fill="#3d648f" stroke="#0f2a45" stroke-width="2" stroke-linejoin="round" />
+
+                    <!-- Eyes -->
+                    <circle cx="110" cy="93" r="4" fill="#0b2545" />
+                    <circle cx="110" cy="107" r="4" fill="#0b2545" />
+                    <circle cx="111.2" cy="91.8" r="1.4" fill="#eaf6ff" opacity="0.85" />
+                    <circle cx="111.2" cy="105.8" r="1.4" fill="#eaf6ff" opacity="0.85" />
+
+                    <!-- Body markings -->
+                    <g fill="#7fa6cc" opacity="0.45">
+                        <circle cx="150" cy="92" r="3" />
+                        <circle cx="160" cy="102" r="2.6" />
+                        <circle cx="148" cy="110" r="2.8" />
+                        <circle cx="168" cy="96" r="2" />
+                    </g>
+                </symbol>
+
+                <!-- ============ LITTLE FISH ============ -->
+                <symbol id="little-fish" viewBox="0 0 40 20">
+                    <path d="M6 10 C10 4 20 3 28 8 L36 3 L33 10 L36 17 L28 12 C20 17 10 16 6 10 Z" />
+                    <circle cx="11" cy="9" r="1.4" />
+                </symbol>
+            </svg>
+
+            <div class="hero-swim-lane" aria-hidden="true">
+                <div class="hero-shark-track">
+                    <div class="hero-shark-bob">
+                        <svg viewBox="0 0 320 130"><use href="#shark-shape"></use></svg>
+                    </div>
+                </div>
+                <div class="hero-ray-track">
+                    <div class="hero-ray-bob">
+                        <svg viewBox="0 0 280 200"><use href="#manta-ray-shape"></use></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <p class="hero-kicker">OceanAtlas · Marine life field guide</p>
+                <h1 class="hero-title" id="heroTitle">The World of Sharks &amp; Rays</h1>
+                <p class="hero-sub">
+                    Built from cartilage, tuned to electricity, and armed with teeth that never stop
+                    renewing, sharks and rays have patrolled the oceans for more than 400 million years.
+                    They are among the most successful—and most misunderstood—vertebrates ever to swim.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="exploreBtn" type="button">
+                        Explore shark &amp; ray life
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-ghost" href="#hunt">Watch the hunt</a>
+                </div>
+                <ul class="hero-chips" aria-label="Shark and ray guide highlights">
+                    <li>🦈 Approx. 500+ living sharks, 600+ rays</li>
+                    <li>🌊 Sunlit reefs to below 3,500 m</li>
+                    <li>⚡ Cartilage skeletons &amp; electroreception</li>
+                </ul>
+            </div>
+            <div class="wave-divider hero-wave" aria-hidden="true">
+                <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= 2 · HOW MANY? ======================= -->
+        <section class="section" id="count" aria-labelledby="countHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">01 · The numbers</p>
+                <h2 id="countHeading">How many sharks and rays exist?</h2>
+                <p class="lead">Sharks, rays, and skates together make up the Elasmobranchii—the cartilaginous fishes. Their exact count shifts as new species are described.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-hero-top">
+                    <div class="profile-icon" aria-hidden="true">🦈</div>
+                    <div class="profile-heading">
+                        <p class="kicker">Living elasmobranchs · Elasmobranchii</p>
+                        <h2>Approx. 1,200+</h2>
+                        <p class="profile-hook">Described living sharks, rays, and skates combined</p>
+                    </div>
+                </div>
+                <p class="profile-overview">
+                    Modern checklists recognise roughly 500 to 600 living shark species (Selachii) and
+                    more than 600 living rays and skates (Batoidea). Their skeletons are made of flexible
+                    cartilage rather than bone, and their skin is covered in tiny tooth-like scales called
+                    dermal denticles. Rays are, in evolutionary terms, flattened sharks—their gill slits
+                    sit on the underside of the body, and their pectoral fins form broad “wings.”
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>Sharks</dt>
+                        <dd>Approx. 500–600 species (Selachii)</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Rays &amp; skates</dt>
+                        <dd>Approx. 600+ species (Batoidea)</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Why it changes</dt>
+                        <dd>New descriptions and molecular revisions</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Counts are approximate and depend on the taxonomic source and its update date. The World
+                    Register of Marine Species (WoRMS) and the IUCN Red List maintain accepted names and
+                    assessments for many elasmobranch groups.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 3 · GROUPS ======================= -->
+        <section class="section" id="groups" aria-labelledby="groupsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">02 · Meet the groups</p>
+                <h2 id="groupsHeading">Five sharks and rays worth knowing</h2>
+                <p class="lead">From a plankton-eating giant to a venomous river ray, elasmobranchs span an extraordinary range of shapes and hunting styles.</p>
+            </header>
+
+            <div class="species-grid" data-reveal-group>
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🌊</div>
+                    <div class="badge-row"><span class="badge zone-sunlight">Lamniformes</span><span class="badge zone-coastal">Apex predator</span></div>
+                    <h3 class="species-name">Great white shark</h3>
+                    <p class="species-sci">Carcharodon carcharias</p>
+                    <p class="species-fact"><strong>Size:</strong> Typically 4–5.5 m; the largest reliably measured around 6 m.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Temperate and subtropical coastal waters, offshore islands, and open-ocean crossings.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Like some other lamnids, it is partly warm-blooded, retaining metabolic heat to stay active in cool water.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">👑</div>
+                    <div class="badge-row"><span class="badge zone-sunlight">Orectolobiformes</span><span class="badge status-vu">Largest fish</span></div>
+                    <h3 class="species-name">Whale shark</h3>
+                    <p class="species-sci">Rhincodon typus</p>
+                    <p class="species-fact"><strong>Size:</strong> Commonly 10–12 m; the largest confirmed individuals reach roughly 18 m.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Warm surface waters of the tropical and subtropical Indo-Pacific and Atlantic.</p>
+                    <p class="species-fact"><strong>Fact:</strong> A filter feeder that strains plankton through gill rakers—the largest fish eats some of the smallest prey.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🔨</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Carcharhiniformes</span><span class="badge zone-sunlight">Specialised head</span></div>
+                    <h3 class="species-name">Great hammerhead</h3>
+                    <p class="species-sci">Sphyrna mokarran</p>
+                    <p class="species-fact"><strong>Size:</strong> Up to roughly 6 m—the largest hammerhead.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Warm coastal waters, reefs, and offshore shelves worldwide.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Its wide, flattened head carries widely spaced electroreceptors and nostrils, which may help it sweep the seafloor for hidden prey.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🛸</div>
+                    <div class="badge-row"><span class="badge zone-sunlight">Myliobatiformes</span><span class="badge zone-coastal">Gentle giant</span></div>
+                    <h3 class="species-name">Giant oceanic manta ray</h3>
+                    <p class="species-sci">Mobula birostris</p>
+                    <p class="species-fact"><strong>Size:</strong> Wing span commonly 4–5 m; the largest reach about 7 m.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Open tropical and subtropical seas, often near seamounts and cleaning stations.</p>
+                    <p class="species-fact"><strong>Fact:</strong> A filter feeder with forward-pointing cephalic fins that funnel plankton into its mouth. Each ray’s belly pattern is unique, like a fingerprint.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">⚡</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Myliobatiformes</span><span class="badge status-vu">Venomous</span></div>
+                    <h3 class="species-name">Blue-spotted ribbontail ray</h3>
+                    <p class="species-sci">Taeniura lymma</p>
+                    <p class="species-fact"><strong>Size:</strong> Disc width typically around 25–35 cm.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Shallow coral reefs and sandy patches in the Indo-Pacific.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Bright blue spots warn of venomous tail spines. It buries itself in sand by day and hunts molluscs and crustaceans at night.</p>
+                </article>
+            </div>
+            <p class="data-note">“Shark” and “ray” are common names, not strict taxonomic ranks. Rays evolved from shark-like ancestors, and some fossil sharks look much more like rays than like modern sharks.</p>
+        </section>
+
+        <!-- ======================= 4 · SCENE 1 — THE HUNT ======================= -->
+        <section class="scene" id="hunt" aria-labelledby="huntHeading">
+            <p class="scene-label">Scene 01 · The Hunt</p>
+            <h2 id="huntHeading" class="sr-only">A shark surges through a school of small fish that scatter in panic</h2>
+
+            <div class="scene-stage hunt-stage" aria-hidden="true">
+                <div class="scene-bubbles" id="huntBubbles"></div>
+
+                <!-- Fish school -->
+                <div class="fish-school">
+                    <div class="fish" style="left:30%; top:32%; --dx:-130px; --dy:-82px;  --delay:0s;    --wiggle:-0.2s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:34%; top:38%; --dx:-150px; --dy:-52px;  --delay:-0.1s; --wiggle:-0.5s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:38%; top:46%; --dx:-120px; --dy:18px;   --delay:0.1s;  --wiggle:-0.8s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:36%; top:54%; --dx:-140px; --dy:64px;   --delay:-0.05s;--wiggle:-0.3s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:42%; top:30%; --dx:-160px; --dy:-72px;  --delay:0.08s; --wiggle:-0.6s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:44%; top:40%; --dx:-110px; --dy:-28px;  --delay:-0.12s;--wiggle:-1.0s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:46%; top:50%; --dx:-90px;  --dy:34px;   --delay:0.04s; --wiggle:-0.4s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:41%; top:60%; --dx:-130px; --dy:88px;   --delay:-0.08s;--wiggle:-0.7s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:50%; top:34%; --dx:-100px; --dy:-60px;  --delay:0.12s; --wiggle:-0.9s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:52%; top:44%; --dx:-70px;  --dy:12px;   --delay:-0.02s;--wiggle:-0.15s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:48%; top:56%; --dx:-110px; --dy:56px;   --delay:0.06s; --wiggle:-0.55s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:55%; top:38%; --dx:-84px;  --dy:-44px;  --delay:-0.1s; --wiggle:-0.25s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:58%; top:48%; --dx:-64px;  --dy:22px;   --delay:0.03s; --wiggle:-0.75s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:56%; top:60%; --dx:-94px;  --dy:72px;   --delay:-0.07s;--wiggle:-0.35s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:62%; top:32%; --dx:-72px;  --dy:-54px;  --delay:0.09s; --wiggle:-0.65s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:64%; top:42%; --dx:-54px;  --dy:-12px;  --delay:-0.04s;--wiggle:-0.95s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:60%; top:52%; --dx:-78px;  --dy:44px;   --delay:0.05s; --wiggle:-0.45s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:66%; top:56%; --dx:-60px;  --dy:62px;   --delay:-0.09s;--wiggle:-0.85s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:40%; top:44%; --dx:-140px; --dy:0px;    --delay:0.07s; --wiggle:-0.05s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                    <div class="fish" style="left:54%; top:52%; --dx:-88px;  --dy:40px;   --delay:-0.06s;--wiggle:-0.15s;"><div class="fish-body"><svg viewBox="0 0 40 20"><use href="#little-fish"></use></svg></div></div>
+                </div>
+
+                <!-- The shark -->
+                <div class="hunt-shark-track">
+                    <div class="hunt-shark-bob">
+                        <svg viewBox="0 0 320 130"><use href="#shark-shape"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <p class="data-note">
+                The shark surges right-to-left through the school on a 16-second cycle. The school drifts calmly until the shark is among them, then scatters leftward and up or down—exactly the direction its members are already facing.
+            </p>
+        </section>
+
+        <!-- ======================= 5 · DEEP-SEA ELASMOBRANCHS ======================= -->
+        <section class="section" id="deep-sea" aria-labelledby="deepSeaHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">03 · The deep sea</p>
+                <h2 id="deepSeaHeading">Sharks and rays of the deep</h2>
+                <p class="lead">Below the sunlit zone, sharks slow down, grow slowly, and sometimes glow. Some of these animals are among the least-known vertebrates on Earth.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 01</span>
+                    <h3 class="species-name">Goblin shark</h3>
+                    <p class="species-sci">Mitsukurina owstoni</p>
+                    <ul class="zone-stats">
+                        <li>Depth: mostly below 200 m; records past 1,300 m</li>
+                        <li>Size: usually 3–4 m</li>
+                        <li>Range: scattered records worldwide</li>
+                    </ul>
+                    <p>Pale pink skin, a long flattened snout, and jaws that fire forward define this lamniform. Its jaws can shoot out almost the length of its head to snap up prey.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 02</span>
+                    <h3 class="species-name">Frilled shark</h3>
+                    <p class="species-sci">Chlamydoselachus anguineus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: typically 500–1,000 m; recorded deeper</li>
+                        <li>Size: up to about 2 m</li>
+                        <li>Range: Atlantic and Pacific slopes</li>
+                    </ul>
+                    <p>With an eel-like body and tricuspid teeth in rows, the frilled shark hunts squid and fish in the twilight zone. Its gill slits form a frilled collar behind the head.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 03</span>
+                    <h3 class="species-name">Portuguese dogfish</h3>
+                    <p class="species-sci">Centroscymnus coelolepis</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 300–3,600 m</li>
+                        <li>Size: up to about 1.2 m</li>
+                        <li>Range: Atlantic and western Pacific slopes</li>
+                    </ul>
+                    <p>A stout, dark sleeper shark that lives far below sunlight. Deep-living sharks like this grow slowly, mature late, and produce few young—making them especially vulnerable.</p>
+                </article>
+
+                <article class="fact-tile glass glow-tile hoverable">
+                    <span class="fact-num">DEEP · 04</span>
+                    <h3 class="species-name">Pacific white skate</h3>
+                    <p class="species-sci">Bathyraja spinosissima</p>
+                    <ul class="zone-stats">
+                        <li>Depth: records to below 2,900 m</li>
+                        <li>Size: up to about 1.5 m across</li>
+                        <li>Range: eastern Pacific, especially the Galápagos region</li>
+                    </ul>
+                    <p>One of the deepest-living rays known. It lays large egg cases—researchers have found them clustered near hydrothermal vents, where warm water may speed development.</p>
+                </article>
+            </div>
+            <p class="data-note">Depth records and maximum sizes differ between databases, regions, and survey methods. Values above are approximate reference ranges.</p>
+        </section>
+
+        <!-- ======================= 6 · SCENE 2 — THE GLIDE ======================= -->
+        <section class="scene" id="glide" aria-labelledby="glideHeading">
+            <p class="scene-label">Scene 02 · The Glide</p>
+            <h2 id="glideHeading" class="sr-only">A manta ray glides slowly right to left, its wings flapping and bubbles trailing</h2>
+
+            <div class="scene-stage glide-stage" aria-hidden="true">
+                <div class="scene-bubbles" id="glideBubbles"></div>
+
+                <div class="glide-ray-track">
+                    <div class="glide-ray-bob">
+                        <svg viewBox="0 0 280 200"><use href="#manta-ray-shape"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <p class="data-note">
+                A manta ray sweeps head-first across the stage on a 24-second cycle, its wings oscillating independently. Bubbles rise around it, and a slow vertical drift makes it feel like it is sculling through still water.
+            </p>
+        </section>
+
+        <!-- ======================= 7 · SIZE COMPARISON ======================= -->
+        <section class="section" id="size" aria-labelledby="sizeHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">04 · Scale</p>
+                <h2 id="sizeHeading">How big are they, really?</h2>
+                <p class="lead">Bars below are drawn to the same scale. Notice how much of elasmobranch diversity sits at the smaller end of the range.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="size-chart">
+                    <div class="size-row">
+                        <span class="size-label">Whale shark</span>
+                        <span class="size-bar" style="width: 100%"><span class="size-val">~18 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Great white shark</span>
+                        <span class="size-bar" style="width: 30%"><span class="size-val">~5.5 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Giant manta ray (wing span)</span>
+                        <span class="size-bar" style="width: 39%"><span class="size-val">~7 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Goblin shark</span>
+                        <span class="size-bar" style="width: 20%"><span class="size-val">~3.5 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Blue-spotted ribbontail ray</span>
+                        <span class="size-bar" style="width: 6%"><span class="size-val">~0.35 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Human</span>
+                        <span class="size-bar" style="width: 10%"><span class="size-val">~1.8 m</span></span>
+                    </div>
+                </div>
+                <p class="profile-note">Bar lengths are proportional to typical adult length (or wing span for rays). Actual maximum sizes vary by population, sex, and measurement method.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 8 · REGIONAL SPECIES ======================= -->
+        <section class="section" id="regional" aria-labelledby="regionalHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">05 · Regional focus</p>
+                <h2 id="regionalHeading">Sharks and rays of Asian and European waters</h2>
+                <p class="lead">The Indo-Pacific and the Northeast Atlantic hold very different elasmobranch communities, from reef rays to cold-water sleeper sharks.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 01</span>
+                    <h3 class="species-name">Whale shark</h3>
+                    <p class="species-sci">Rhincodon typus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: mostly surface to a few hundred metres</li>
+                        <li>Size: up to roughly 18 m</li>
+                        <li>Range: Indo-Pacific, including Japan, Taiwan, and the Philippines</li>
+                    </ul>
+                    <p>Whale sharks gather at predictable coastal feeding sites in the Indo-Pacific, where plankton blooms draw them near the surface. Each shark carries a unique pattern of spots used by researchers to identify individuals.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 02</span>
+                    <h3 class="species-name">Japanese bullhead shark</h3>
+                    <p class="species-sci">Heterodontus japonicus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: shallow coastal waters, roughly 6–40 m</li>
+                        <li>Size: up to about 1.2 m</li>
+                        <li>Range: northwestern Pacific, around Japan and Korea</li>
+                    </ul>
+                    <p>A small, nocturnal bottom-dweller with blunt molar-like teeth for crushing shells. Females lay distinctive spiral egg cases that they wedge into rock crevices.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 01</span>
+                    <h3 class="species-name">Basking shark</h3>
+                    <p class="species-sci">Cetorhinus maximus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: surface to a few hundred metres, following plankton</li>
+                        <li>Size: commonly 6–8 m; reports near 10 m</li>
+                        <li>Range: Northeast Atlantic, including British and Irish coasts</li>
+                    </ul>
+                    <p>A gentle filter feeder that cruises with its mouth open, straining plankton through enormous gill rakers. It is assessed as endangered in the Northeast Atlantic.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 02</span>
+                    <h3 class="species-name">Thornback ray</h3>
+                    <p class="species-sci">Raja clavata</p>
+                    <ul class="zone-stats">
+                        <li>Depth: roughly 10–300 m</li>
+                        <li>Size: disc width up to about 1 m</li>
+                        <li>Range: Northeast Atlantic and Mediterranean</li>
+                    </ul>
+                    <p>A common skate-like ray with thorny dorsal patches. It feeds on crustaceans and small fish and lays rectangular egg cases—the familiar “mermaid’s purses.”</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 03</span>
+                    <h3 class="species-name">Lesser spotted catshark</h3>
+                    <p class="species-sci">Scyliorhinus canicula</p>
+                    <ul class="zone-stats">
+                        <li>Depth: roughly 10–400 m</li>
+                        <li>Size: up to about 1 m</li>
+                        <li>Range: Northeast Atlantic and Mediterranean</li>
+                    </ul>
+                    <p>One of the most abundant sharks of European shelves. Females attach rectangular egg cases to algae and rocks, and embryos develop for several months before hatching.</p>
+                </article>
+            </div>
+            <p class="data-note">Regional depth and size ranges are compiled from species databases, regional assessments, and survey records. Local populations may fall outside these ranges.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 9 · FOSSILS ======================= -->
+        <section class="section" id="fossils" aria-labelledby="fossilsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">06 · Deep time</p>
+                <h2 id="fossilsHeading">Famous sharks and rays from the fossil record</h2>
+                <p class="lead">Because elasmobranch skeletons are cartilage, the fossil record is dominated by teeth and fin spines. Even so, it preserves some of the most spectacular predators in Earth’s history.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 01</span>
+                    <h3 class="species-name">Otodus megalodon</h3>
+                    <p class="species-sci">The largest shark known</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 23–3.6 million years ago</li>
+                        <li>Size: most estimates fall around 15–18 m</li>
+                        <li>Known from: teeth and rare vertebral remains worldwide</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> Its hand-sized teeth suggest a predator capable of hunting large whales. No complete skeleton exists, so body shape and maximum length remain active research questions.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 02</span>
+                    <h3 class="species-name">Cladoselache</h3>
+                    <p class="species-sci">An early shark-like chondrichthyan</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 380 million years ago, Devonian</li>
+                        <li>Size: roughly 1–2 m</li>
+                        <li>Known from: exceptionally preserved fossils in Ohio, USA</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> Some specimens preserve traces of muscle and fins, giving a rare glimpse of early chondrichthyan anatomy. It had a streamlined body but lacked tooth-like scales over much of its skin.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 03</span>
+                    <h3 class="species-name">Heliobatis radians</h3>
+                    <p class="species-sci">An early freshwater stingray</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 52 million years ago, Eocene</li>
+                        <li>Size: disc width of roughly 30 cm</li>
+                        <li>Known from: Fossil Lake, Wyoming, USA</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> Complete specimens from the Green River Formation preserve the flattened disc, tail, and even stomach contents—showing that this ancient ray fed on small fish and invertebrates.</p>
+                </article>
+            </div>
+            <p class="data-note">Thousands of fossil elasmobranch species have been described, most of them from isolated teeth. Reconstructions of extinct species are continually revised.</p>
+        </section>
+
+        <!-- ======================= 10 · REPRODUCTION ======================= -->
+        <section class="section" id="reproduction" aria-labelledby="reproductionHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">07 · Life cycle</p>
+                <h2 id="reproductionHeading">How sharks and rays reproduce</h2>
+                <p class="lead">Elasmobranchs invest heavily in relatively few, large young. Their strategies range from egg-laying to live birth—and include some remarkable extremes.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-facts-grid">
+                    <article class="fact-tile">
+                        <span class="fact-num">01 · MATING</span>
+                        <h3 class="species-name">Claspers and courtship</h3>
+                        <p>Males transfer sperm using a pair of modified pelvic fins called claspers. Mating often involves the male gripping the female’s pectoral fin, leaving visible bite marks in some species.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">02 · OVIPARITY</span>
+                        <h3 class="species-name">Egg cases</h3>
+                        <p>Many catsharks, bullhead sharks, and skates lay eggs encased in tough capsules—often called mermaid’s purses. The capsules may be anchored to rocks, algae, or the seafloor.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">03 · LIVE BIRTH</span>
+                        <h3 class="species-name">Pups, not larvae</h3>
+                        <p>Most sharks and rays are live-bearing. Embryos may feed on yolk, on secretions from the mother’s uterus, or on unfertilised eggs. Pups emerge as miniature adults.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">04 · INTRAUTERINE CANNIBALISM</span>
+                        <h3 class="species-name">The biggest embryo wins</h3>
+                        <p>In sand tiger sharks, the first embryo to develop teeth eats its siblings inside the uterus. As a result, only one or two pups are born from each litter—already experienced predators.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">05 · SLOW GROWTH</span>
+                        <h3 class="species-name">Late to mature</h3>
+                        <p>Many elasmobranchs take a decade or more to reach maturity and produce few young per breeding cycle. This makes populations slow to recover when adults are removed by fishing.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">VARIATION</span>
+                        <h3 class="species-name">Not every species is the same</h3>
+                        <p>Litter size, gestation length, and breeding frequency differ enormously. Deep-sea species in particular often grow and reproduce more slowly than their shallow-water relatives.</p>
+                    </article>
+                </div>
+                <p class="profile-note">The strategies described here cover common patterns; many species deviate in gestation, litter size, and nursery habitat.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 11 · DIET ======================= -->
+        <section class="section" id="diet" aria-labelledby="dietHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">08 · Food webs</p>
+                <h2 id="dietHeading">What do sharks and rays eat?</h2>
+                <p class="lead">There is no single elasmobranch diet. Some are apex predators, some strain plankton, and some crush shells on the seafloor.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">APEX PREDATORS</span>
+                    <h3 class="species-name">Fish, seals, and larger prey</h3>
+                    <p>Great whites, makos, and other large lamnids hunt fish, squid, and marine mammals. Their role in shaping prey behaviour can ripple through entire ecosystems.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FILTER FEEDERS</span>
+                    <h3 class="species-name">A diet of plankton</h3>
+                    <p>Whale sharks, basking sharks, and manta rays strain tiny plankton and small fish from enormous volumes of water. They are among the largest animals to feed on the smallest prey.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">CRUSHERS</span>
+                    <h3 class="species-name">Shellfish specialists</h3>
+                    <p>Heterodontid bullhead sharks and many rays use flat, molar-like teeth to crush molluscs, crustaceans, and echinoderms. Their slow, deliberate hunting suits bottom habitats.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SCAVENGERS</span>
+                    <h3 class="species-name">A meal from the seafloor</h3>
+                    <p>Greenland sharks and some deep-water species take carrion, including large whale carcasses. Scavenging helps recycle nutrients in food-poor deep environments.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 12 · SENSES & BEHAVIOUR ======================= -->
+        <section class="section" id="behavior" aria-labelledby="behaviorHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">09 · Adaptations</p>
+                <h2 id="behaviorHeading">Senses and special abilities</h2>
+                <p class="lead">Sharks and rays detect electricity, smell at extraordinary distances, and feel the water move around them—senses tuned to a world of low light and long distances.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ELECTRORECEPTION</span>
+                    <h3 class="species-name">Ampullae of Lorenzini</h3>
+                    <p>Pits around the snout detect weak electric fields produced by the muscles of hidden prey. Hammerheads’ wide heads spread these receptors across a broad area, aiding bottom-hunting.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">LATERAL LINE</span>
+                    <h3 class="species-name">Feeling the water</h3>
+                    <p>A canal system along the body senses vibration and water movement, letting a shark detect a struggling fish or an approaching predator even in darkness.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SKIN</span>
+                    <h3 class="species-name">Dermal denticles</h3>
+                    <p>Elasmobranch skin is covered in tiny tooth-like scales that reduce drag and discourage parasites. Their ribbed surface has even inspired designs for swimming suits and ship hulls.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">TEETH</span>
+                    <h3 class="species-name">A conveyor belt of teeth</h3>
+                    <p>Sharks grow rows of replacement teeth that move forward as older ones are lost. A single shark may use hundreds or thousands of teeth in a lifetime.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SIXTH SENSE</span>
+                    <h3 class="species-name">Reading the field</h3>
+                    <p>Some sharks and rays may use the earth’s magnetic field to navigate long distances. Researchers are still working out how the sensory system detects it.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">MIGRATION</span>
+                    <h3 class="species-name">Ocean-spanning journeys</h3>
+                    <p>Satellite tracking shows that some great whites, makos, whale sharks, and manta rays cross entire ocean basins. Their routes often follow productive fronts and seasonal prey movements.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 13 · FACTS ======================= -->
+        <section class="section" id="facts" aria-labelledby="factsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">10 · Did you know?</p>
+                <h2 id="factsHeading">Five facts to take to the surface</h2>
+                <p class="lead">Sharks and rays are far older, stranger, and more varied than their fearsome reputation suggests.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 01</span>
+                    <h3 class="species-name">Older than trees</h3>
+                    <p>Shark-like fishes appear in the fossil record more than 400 million years ago—before trees, and long before the first dinosaurs.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 02</span>
+                    <h3 class="species-name">Skeletons without bone</h3>
+                    <p>An elasmobranch skeleton is made of cartilage, which is lighter and more flexible than bone. Their jaws are the main exception, reinforced with calcium salts.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 03</span>
+                    <h3 class="species-name">Rays are flattened sharks</h3>
+                    <p>In evolutionary terms, rays are sharks with flattened bodies and enlarged pectoral fins. Their gill slits lie on the underside of the body rather than the sides.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 04</span>
+                    <h3 class="species-name">Danger, in perspective</h3>
+                    <p>Unprovoked shark bites cause a handful of fatalities worldwide each year, while estimates of sharks and rays killed by fishing reach tens of millions annually.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 05</span>
+                    <h3 class="species-name">Manta fingerprints</h3>
+                    <p>Every manta ray has a unique pattern of spots on its belly. Researchers photograph these patterns to identify individuals—just like fingerprints in a human database.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 14 · CONSERVATION ======================= -->
+        <section class="section" id="conservation" aria-labelledby="conservationHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">11 · A changing ocean</p>
+                <h2 id="conservationHeading">Sharks and rays under pressure</h2>
+                <p class="lead">Slow growth and low reproduction make many elasmobranchs vulnerable. Science-based limits, protected areas, and bycatch reduction are central to their future.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <p class="profile-overview">
+                    A large share of assessed shark and ray species are threatened with extinction. Overfishing—both
+                    targeted and as bycatch—is the leading pressure, compounded by habitat loss, pollution, and
+                    climate change. Because many species mature late and produce few young, populations recover
+                    slowly once depleted. Conservation tools include science-based catch limits, finning bans,
+                    shark sanctuaries, gear modifications to reduce bycatch, and international trade regulation for
+                    heavily exploited species.
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>Main threat</dt>
+                        <dd>Overfishing and bycatch</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Why recovery is slow</dt>
+                        <dd>Late maturity, few young, long lives</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Key tools</dt>
+                        <dd>Catch limits, protected areas, bycatch reduction</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Conservation status differs widely between species and regions. Always check the most recent
+                    IUCN Red List assessment for a particular species and population.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 15 · SOURCES ======================= -->
+        <section class="section" id="sources" aria-labelledby="sourcesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">12 · References</p>
+                <h2 id="sourcesHeading">Sources and further reading</h2>
+                <p class="lead">The facts on this page draw on taxonomic databases, government and museum species guides, research papers, and regional marine assessments.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <nav class="footer-links" aria-label="Shark and ray information sources">
+                    <ul>
+                        <li id="source-1"><a href="https://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=1517374" target="_blank" rel="noopener">[1] World Register of Marine Species (WoRMS) — Elasmobranchii taxonomy.</a></li>
+                        <li id="source-2"><a href="https://www.iucnredlist.org/" target="_blank" rel="noopener">[2] IUCN Red List of Threatened Species — shark and ray assessments.</a></li>
+                        <li id="source-3"><a href="https://www.fisheries.noaa.gov/species/white-shark" target="_blank" rel="noopener">[3] NOAA Fisheries — white shark biology, size, and distribution.</a></li>
+                        <li id="source-4"><a href="https://www.floridamuseum.ufl.edu/shark-teeth/fossil-sharks/megalodon/" target="_blank" rel="noopener">[4] Florida Museum — Otodus megalodon: size estimates and fossil evidence.</a></li>
+                        <li id="source-5"><a href="https://www.sharktrust.org/facts" target="_blank" rel="noopener">[5] The Shark Trust — basking shark, catshark, and ray species facts.</a></li>
+                        <li id="source-6"><a href="https://www.fishbase.se/" target="_blank" rel="noopener">[6] FishBase — distribution, depth, and size data for shark and ray species.</a></li>
+                        <li id="source-7"><a href="https://www.mantatrust.org/" target="_blank" rel="noopener">[7] Manta Trust — manta ray identification, ecology, and conservation.</a></li>
+                        <li id="source-8"><a href="https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/heliobatis" target="_blank" rel="noopener">[8] Heliobatis radians species accounts — Green River Formation fossil stingray.</a></li>
+                    </ul>
+                </nav>
+                <p class="profile-note">Approximate values are labelled “approx.” where sources or populations vary. This page is an educational overview, not a substitute for a taxonomic database or a scientific species assessment.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer" id="contact">
+        <div class="wave-divider footer-wave" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a class="brand footer-brand" href="index.html#home">
+                        <span class="brand-wave" aria-hidden="true">🌊</span>
+                        <span class="brand-text">Ocean<em>Atlas</em></span>
+                    </a>
+                    <p>An educational field guide to the life and science of our blue planet. This shark &amp; ray page is built with plain HTML, CSS, and a small page-specific JavaScript file, with GSAP for motion.</p>
+                    <p class="footer-sources">Facts referenced from <strong>NOAA</strong>, <strong>IUCN</strong>, <strong>WoRMS</strong>, <strong>FishBase</strong>, and scientific publications.</p>
+                </div>
+
+                <nav class="footer-col footer-links" aria-label="Footer">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html#climate">Ocean climate</a></li>
+                        <li><a href="index.html#species">Species explorer</a></li>
+                        <li><a href="#groups">Shark &amp; ray groups</a></li>
+                        <li><a href="#hunt">Scene: the hunt</a></li>
+                        <li><a href="#glide">Scene: the glide</a></li>
+                        <li><a href="#deep-sea">Deep-sea species</a></li>
+                        <li><a href="#size">Size comparison</a></li>
+                        <li><a href="#conservation">Conservation</a></li>
+                        <li><a href="#sources">Sources</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col footer-news">
+                    <h3>Stay in the current</h3>
+                    <p>One gentle email a month with ocean science worth knowing. Front-end demo only — nothing is sent anywhere.</p>
+                    <form id="newsletterForm" novalidate>
+                        <label class="sr-only" for="emailInput">Email address</label>
+                        <div class="field-row">
+                            <input id="emailInput" name="email" type="email" placeholder="you@example.com" required
+                                aria-describedby="formMsg" />
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 OceanAtlas · Made with 💙 for the blue planet · Shark and ray measurements are approximate where noted.</p>
+                <button class="btn btn-ghost back-to-top" id="backToTop" type="button">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 20V6m0 0l-6 6m6-6l6 6" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Back to the surface
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="sharks-rays-page.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OceanAtlas — Our Ocean, Our Future</title>
+    <meta name="description"
+        content="An immersive, educational single-page guide to ocean climate data, marine species, depth zones, and the threats facing our blue planet." />
+    <meta name="theme-color" content="#041d3d" />
+
+    <!-- Google Fonts: Poppins (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ================= MARINE LIFE DROPDOWN ================= */
+
+        .marine-nav-item {
+            position: relative;
+        }
+
+        .marine-nav-details {
+            position: relative;
+        }
+
+        .marine-nav-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+        }
+
+        .marine-nav-trigger::-webkit-details-marker {
+            display: none;
+        }
+
+        .marine-nav-trigger::after {
+            content: "⌄";
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .marine-nav-details[open] .marine-nav-trigger::after {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown panel */
+
+        .marine-nav-submenu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            min-width: 250px;
+            padding: 10px;
+
+            background: rgba(3, 18, 38, 0.96);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(139, 233, 253, 0.25);
+            border-radius: 16px;
+
+            box-shadow: 0 18px 45px rgba(1, 8, 23, 0.5);
+
+            z-index: 1100;
+        }
+
+        .marine-nav-details[open]>.marine-nav-submenu {
+            display: grid;
+            gap: 3px;
+        }
+
+        /* Dropdown links */
+
+        .marine-nav-sublink {
+            display: block;
+            padding: 11px 14px;
+            border-radius: 10px;
+
+            color: var(--ink-dim);
+            font-size: 0.88rem;
+            font-weight: 600;
+
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .marine-nav-sublink:hover,
+        .marine-nav-sublink:focus-visible {
+            background: rgba(83, 216, 251, 0.13);
+            color: var(--aqua-soft);
+            transform: translateX(4px);
+        }
+
+        /* Mobile dropdown */
+
+        @media (max-width: 860px) {
+
+            .marine-nav-menu.is-open {
+                max-height: min(85vh, 760px);
+                overflow-y: auto;
+            }
+
+            .marine-nav-item {
+                width: 100%;
+            }
+
+            .marine-nav-trigger {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                padding: 15px 26px;
+            }
+
+            .marine-nav-submenu {
+                position: static;
+                min-width: 0;
+                margin: 0 16px 14px;
+                padding: 7px;
+
+                background: rgba(2, 13, 32, 0.75);
+
+                border: 1px solid rgba(139, 233, 253, 0.17);
+                border-radius: 12px;
+
+                box-shadow: none;
+            }
+
+            .marine-nav-sublink {
+                padding: 12px 14px;
+            }
+
+        }
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+</head>
+
+<body>
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#climate">Skip to main content</a>
+
+    <!-- Scroll progress bar (top of viewport) -->
+    <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+
+    <!-- Custom cursor (fine pointers only, enabled by JS) -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Scroll-driven ocean gradient: light surface waters → deep navy -->
+    <div class="ocean-bg" id="oceanBg" aria-hidden="true"></div>
+
+    <!-- Rising bubbles background (populated by JS) -->
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <noscript>
+        <div class="noscript-note">🌊 OceanAtlas is an interactive experience — please enable JavaScript to explore the
+            data, species and animations.</div>
+    </noscript>
+
+    <!-- ======================= NAVIGATION ======================= -->
+    <header class="site-nav" id="siteNav">
+        <nav class="nav-inner" aria-label="Primary">
+            <a class="brand" href="#home" aria-label="OceanAtlas — back to top">
+                <span class="brand-wave" aria-hidden="true">🌊</span>
+                <span class="brand-text">Ocean<em>Atlas</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu"
+                aria-label="Open navigation menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu marine-nav-menu" id="navMenu">
+                <li>
+                    <a class="nav-link" href="#home">Home</a>
+
+                <li>
+                    <a class="nav-link" href="#climate">Climate</a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#trends">Trends</a>
+                </li>
+
+                <!-- MARINE LIFE DROPDOWN -->
+                <li class="marine-nav-item">
+
+                    <details class="marine-nav-details">
+
+                        <summary class="nav-link marine-nav-trigger">
+                            Marine Life
+                        </summary>
+
+                        <ul class="marine-nav-submenu">
+
+                            <li>
+                                <a class="marine-nav-sublink" href="#species">
+                                    🌊 All Species
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="crabs.html">
+                                    🦀 Crabs
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="sharks.html">
+                                    🦈 Sharks & Rays
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="whales.html">
+                                    🐋 Whales & Dolphins
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="jellyfish.html">
+                                    🪼 Jellyfish
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="octopus.html">
+                                    🐙 Octopus & Squid
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="deep-sea.html">
+                                    🌑 Deep-Sea Creatures
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="coral-reefs.html">
+                                    🪸 Coral Reefs
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="marine-nav-sublink" href="crustaceans.html">
+                                    🦐 Crustaceans
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+
+
+                    </details>
+
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#timeline">Timeline</a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#zones">Zones</a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#threats">Threats</a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#facts">Facts</a>
+                </li>
+
+                <!-- THE REGIONS DROPDOWN RIGHT HERE (AT THE VERY END) -->
+                <li class="regions-nav-item">
+                    <details class="regions-nav-details" id="regionsDetails">
+                        <summary class="nav-link regions-nav-trigger" aria-label="Toggle Regions navigation menu">
+                            <span>Regions</span>
+                        </summary>
+                        <ul class="regions-nav-submenu">
+                            <li><a class="regions-nav-sublink" href="south-asia.html"><span
+                                        class="region-emoji">🌏</span> South Asia &amp; Bay of Bengal</a></li>
+                            <li><a class="regions-nav-sublink" href="arabian-gulf.html"><span
+                                        class="region-emoji">🌊</span> Arabian Sea &amp; Persian Gulf</a></li>
+                            <li><a class="regions-nav-sublink" href="east-asia.html"><span
+                                        class="region-emoji">🏮</span> East Asia</a></li>
+                            <li><a class="regions-nav-sublink" href="southeast-asia.html"><span
+                                        class="region-emoji">🐠</span> Southeast Asia &amp; Coral Triangle</a></li>
+                            <li><a class="regions-nav-sublink" href="central-asia.html"><span
+                                        class="region-emoji">🗺️</span> Central Asia (Caspian &amp; Aral Seas)</a></li>
+                            <li><a class="regions-nav-sublink" href="oceania.html"><span class="region-emoji">🏝️</span>
+                                    Oceania &amp; Pacific Islands</a></li>
+                            <li><a class="regions-nav-sublink" href="east-africa.html"><span
+                                        class="region-emoji">🦓</span> East Africa &amp; Indian Ocean</a></li>
+                            <li><a class="regions-nav-sublink" href="west-africa.html"><span
+                                        class="region-emoji">⛵</span> West Africa &amp; Atlantic</a></li>
+                            <li><a class="regions-nav-sublink" href="mediterranean.html"><span
+                                        class="region-emoji">🏛️</span> North Africa &amp; Mediterranean</a></li>
+                            <li><a class="regions-nav-sublink" href="europe.html"><span class="region-emoji">⚓</span>
+                                    Europe (North Sea, Baltic &amp; Atlantic)</a></li>
+                            <li><a class="regions-nav-sublink" href="north-america.html"><span
+                                        class="region-emoji">🦅</span> North America</a></li>
+                            <li><a class="regions-nav-sublink" href="caribbean.html"><span
+                                        class="region-emoji">🍹</span> Caribbean &amp; Central America</a></li>
+                            <li><a class="regions-nav-sublink" href="south-america.html"><span
+                                        class="region-emoji">🌿</span> South America</a></li>
+                            <li><a class="regions-nav-sublink" href="arctic.html"><span class="region-emoji">❄️</span>
+                                    Arctic</a></li>
+                            <li><a class="regions-nav-sublink" href="antarctica.html"><span
+                                        class="region-emoji">🐧</span> Antarctica &amp; Southern Ocean</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <a class="nav-link" href="map.html">🗺️ Atlas Map</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    </ul>
+    </nav>
+    </header>
+
+    <main id="main">
+        <!-- ======================= 1 · HERO ======================= -->
+        <section class="hero" id="home" aria-label="Introduction">
+            <!-- Parallax layer: sun rays -->
+            <div class="hero-layer" data-depth="0.12" aria-hidden="true">
+                <svg class="layer-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice">
+                    <defs>
+                        <linearGradient id="rayGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#ffffff" stop-opacity="0.55" />
+                            <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <polygon class="ray ray-1" points="180,-60 330,-60 620,900 300,900" fill="url(#rayGrad)" />
+                    <polygon class="ray ray-2" points="560,-60 660,-60 980,900 760,900" fill="url(#rayGrad)" />
+                    <polygon class="ray ray-3" points="920,-60 1080,-60 1420,900 1120,900" fill="url(#rayGrad)" />
+                    <polygon class="ray ray-4" points="1240,-60 1320,-60 1620,900 1440,900" fill="url(#rayGrad)" />
+                </svg>
+            </div>
+
+            <!-- Parallax layer: drifting fish schools -->
+            <div class="hero-layer" data-depth="0.28" aria-hidden="true">
+                <svg class="layer-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <path id="fishShape" d="M0 0 Q7 -5 15 0 Q7 5 0 0 Z M14 0 L21 -4 L21 4 Z" />
+                    </defs>
+                    <g class="school school-a" fill="#0b5e86" opacity="0.4">
+                        <use href="#fishShape" transform="translate(150 620) scale(1.4)" />
+                        <use href="#fishShape" transform="translate(215 590) scale(1.1)" />
+                        <use href="#fishShape" transform="translate(260 640) scale(1.6)" />
+                        <use href="#fishShape" transform="translate(330 605) scale(1.2)" />
+                        <use href="#fishShape" transform="translate(380 655) scale(1)" />
+                        <use href="#fishShape" transform="translate(450 620) scale(1.5)" />
+                        <use href="#fishShape" transform="translate(520 585) scale(1)" />
+                        <use href="#fishShape" transform="translate(560 650) scale(1.3)" />
+                    </g>
+                    <g class="school school-b" fill="#084a6b" opacity="0.3">
+                        <use href="#fishShape" transform="translate(1290 300) scale(-1.2 1.2)" />
+                        <use href="#fishShape" transform="translate(1220 340) scale(-1 1)" />
+                        <use href="#fishShape" transform="translate(1150 300) scale(-1.5 1.5)" />
+                        <use href="#fishShape" transform="translate(1080 350) scale(-1.1 1.1)" />
+                        <use href="#fishShape" transform="translate(1010 310) scale(-1.3 1.3)" />
+                        <use href="#fishShape" transform="translate(950 355) scale(-0.9 0.9)" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Parallax layer: pulsing jellyfish -->
+            <div class="hero-layer" data-depth="0.45" aria-hidden="true">
+                <svg class="layer-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+                    <g transform="translate(1180 560)">
+                        <g class="jelly jelly-1">
+                            <path d="M-26 0 Q-26 -34 0 -34 Q26 -34 26 0 Q13 7 0 3 Q-13 7 -26 0 Z" fill="#0e7fa8"
+                                opacity="0.35" />
+                            <path d="M-16 4 Q-20 26 -14 44 M-5 6 Q-8 30 -2 52 M6 6 Q10 28 4 50 M17 4 Q22 24 16 42"
+                                stroke="#0e7fa8" stroke-width="2.5" fill="none" opacity="0.3" stroke-linecap="round" />
+                        </g>
+                    </g>
+                    <g transform="translate(230 470) scale(0.7)">
+                        <g class="jelly jelly-2">
+                            <path d="M-26 0 Q-26 -34 0 -34 Q26 -34 26 0 Q13 7 0 3 Q-13 7 -26 0 Z" fill="#1290b8"
+                                opacity="0.3" />
+                            <path d="M-16 4 Q-20 26 -14 44 M-5 6 Q-8 30 -2 52 M6 6 Q10 28 4 50 M17 4 Q22 24 16 42"
+                                stroke="#1290b8" stroke-width="2.5" fill="none" opacity="0.28" stroke-linecap="round" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Hero content -->
+            <div class="hero-content">
+                <p class="hero-kicker">An interactive field guide to the blue planet</p>
+                <h1 class="hero-title" id="heroTitle">Our Ocean, Our Future</h1>
+                <p class="hero-sub">
+                    It covers 71% of our world, breathes for us, feeds us, and steadies our climate.
+                    Dive through the science of a changing ocean — and meet the life it holds.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="exploreBtn" type="button">
+                        Explore the depths
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-ghost" href="#species">Meet the species</a>
+                </div>
+                <ul class="hero-chips" aria-label="Quick ocean facts">
+                    <li>🌍 71% of Earth's surface</li>
+                    <li>💨 50%+ of our oxygen</li>
+                    <li>🗺️ 80% still unexplored</li>
+                </ul>
+            </div>
+
+            <div class="scroll-hint" aria-hidden="true">
+                <span class="mouse"><span class="wheel"></span></span>
+                <span class="scroll-hint-text">Scroll to dive</span>
+            </div>
+
+            <!-- Animated wave divider at the hero's base -->
+            <div class="wave-divider hero-wave" aria-hidden="true">
+                <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path
+                        d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path
+                        d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path
+                        d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= 2 · OCEAN CLIMATE DATA ======================= -->
+        <section class="section" id="climate" aria-labelledby="climateHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">01 · Ocean Climate</p>
+                <h2 id="climateHeading">The ocean is changing — fast</h2>
+                <p class="lead">Eight vital signs of a warming world. The ocean absorbs most of the heat we add to the
+                    climate system — and it shows.</p>
+            </header>
+            <div class="climate-grid" id="climateGrid" data-reveal-group><!-- cards rendered by script.js --></div>
+            <p class="data-note" data-reveal>Values are approximate, rounded for education. Sources: NOAA, IPCC AR6, WMO
+                &amp; IUCN assessments.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 3 · CLIMATE TRENDS CHART ======================= -->
+        <section class="section" id="trends" aria-labelledby="trendsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">02 · Climate Trends</p>
+                <h2 id="trendsHeading">Three decades of drift</h2>
+                <p class="lead">Switch datasets to trace how temperature, sea level and ocean chemistry have shifted
+                    since 1990.</p>
+            </header>
+
+            <div class="chart-card glass" data-reveal>
+                <div class="chart-toolbar">
+                    <div class="chart-titles">
+                        <h3 id="chartTitle">Sea surface temperature anomaly</h3>
+                        <p class="chart-sub" id="chartSub">°C relative to the 1971–2000 average · approximate</p>
+                    </div>
+                    <label class="chart-select-label" for="chartSelect">
+                        <span>Dataset</span>
+                        <select id="chartSelect">
+                            <option value="temperature" selected>🌡️ Temperature</option>
+                            <option value="sealevel">🌊 Sea level</option>
+                            <option value="ph">⚗️ Acidification (pH)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="chart-wrap" id="chartWrap">
+                    <svg id="chartSvg" viewBox="0 0 860 440" role="img" tabindex="0"
+                        aria-label="Line chart. Focus and use the left and right arrow keys to inspect yearly values."></svg>
+                    <div class="chart-tooltip" id="chartTooltip" hidden></div>
+                </div>
+                <p class="sr-only" aria-live="polite" id="chartLive"></p>
+
+                <p class="data-note">📈 Approximate sample data, 1990–2024, for education — not for research use. Hover
+                    or tap the chart, or focus it and press <kbd>←</kbd> <kbd>→</kbd> to inspect values.</p>
+            </div>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 4 · MARINE SPECIES EXPLORER ======================= -->
+        <section class="section" id="species" aria-labelledby="speciesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">03 · Marine Life</p>
+                <h2 id="speciesHeading">Species explorer</h2>
+                <p class="lead">From sunlit giants to abyssal oddities — search, filter, and click any card to dive
+                    deeper.</p>
+            </header>
+
+            <div class="species-controls glass" data-reveal>
+                <div class="search-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+                        <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <label class="sr-only" for="speciesSearch">Search species by name or fact</label>
+                    <input id="speciesSearch" type="search" placeholder="Search by name, scientific name, or fact…"
+                        autocomplete="off" />
+                </div>
+
+                <div class="filter-row" id="zoneFilters" role="group" aria-label="Filter by habitat zone">
+                    <span class="filter-label">Zone</span>
+                    <button class="filter-btn is-active" type="button" data-zone="all" aria-pressed="true">All
+                        zones</button>
+                    <button class="filter-btn" type="button" data-zone="Sunlight" aria-pressed="false">☀️
+                        Sunlight</button>
+                    <button class="filter-btn" type="button" data-zone="Twilight" aria-pressed="false">🌆
+                        Twilight</button>
+                    <button class="filter-btn" type="button" data-zone="Midnight" aria-pressed="false">🌑
+                        Midnight</button>
+                    <button class="filter-btn" type="button" data-zone="Abyss" aria-pressed="false">🕳️ Abyss</button>
+                    <button class="filter-btn" type="button" data-zone="Coastal" aria-pressed="false">🏖️
+                        Coastal</button>
+                </div>
+
+                <div class="filter-row" id="statusFilters" role="group" aria-label="Filter by conservation status">
+                    <span class="filter-label">Status</span>
+                    <button class="filter-btn is-active" type="button" data-status="all" aria-pressed="true">All
+                        statuses</button>
+                    <button class="filter-btn" type="button" data-status="LC" aria-pressed="false">Least
+                        Concern</button>
+                    <button class="filter-btn" type="button" data-status="VU" aria-pressed="false">Vulnerable</button>
+                    <button class="filter-btn" type="button" data-status="EN" aria-pressed="false">Endangered</button>
+                    <button class="filter-btn" type="button" data-status="CR" aria-pressed="false">Critically
+                        Endangered</button>
+                </div>
+
+                <p class="result-count" id="resultCount" aria-live="polite">Showing 20 of 20 species</p>
+            </div>
+
+            <div class="species-grid" id="speciesGrid" data-reveal-group><!-- cards rendered by script.js --></div>
+
+            <div class="empty-state glass" id="speciesEmpty" hidden>
+                <span class="empty-icon" aria-hidden="true">🔍</span>
+                <h3>No species in these waters</h3>
+                <p>Try a different search term or loosen the filters.</p>
+                <button class="btn btn-primary" id="clearFilters" type="button">Clear all filters</button>
+            </div>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 5 · OCEAN LIFE TIMELINE ======================= -->
+        <section class="section" id="timeline" aria-labelledby="timelineHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">04 · Deep Time</p>
+                <h2 id="timelineHeading">Ocean Life Timeline</h2>
+                <p class="lead">Nearly four billion years of marine evolution — from hydrothermal vent microbes to
+                    modern whales and the Anthropocene sea.</p>
+            </header>
+            <ol class="timeline-list" id="timelineList" data-reveal-group><!-- milestones rendered by script.js --></ol>
+            <p class="data-note" data-reveal>Geological ages are approximate benchmarks from paleontology and marine
+                evolutionary biology.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 6 · OCEAN ZONES ======================= -->
+        <section class="section" id="zones" aria-labelledby="zonesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">05 · The Water Column</p>
+                <h2 id="zonesHeading">Descend through five worlds</h2>
+                <p class="lead">Light dies, pressure climbs, and life gets stranger with every metre. Hover or tap a
+                    zone to explore it.</p>
+            </header>
+            <div class="zones-diagram" id="zonesDiagram" data-reveal><!-- zones rendered by script.js --></div>
+            <p class="data-note" data-reveal>Depth ranges are typical textbook boundaries; the deepest point known is
+                Challenger Deep at ≈ 10,935 m.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 7 · THREATS ======================= -->
+        <section class="section" id="threats" aria-labelledby="threatsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">06 · Under Pressure</p>
+                <h2 id="threatsHeading"> Threats, one ocean</h2>
+                <p class="lead">Click a card to flip it over — every threat comes with something you can actually do.
+                </p>
+            </header>
+            <div class="threats-grid" id="threatsGrid" data-reveal-group><!-- flip cards rendered by script.js --></div>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 8 · DID YOU KNOW ======================= -->
+        <section class="section" id="facts" aria-labelledby="factsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">07 · Did You Know</p>
+                <h2 id="factsHeading">Facts to surface with</h2>
+                <p class="lead">A rotating current of ocean trivia — auto-plays, or steer it yourself.</p>
+            </header>
+
+            <div class="carousel glass" id="factsCarousel" data-reveal aria-roledescription="carousel"
+                aria-label="Ocean facts">
+                <button class="carousel-arrow prev" id="factPrev" type="button" aria-label="Previous fact">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div class="carousel-viewport" id="factsViewport">
+                    <div class="carousel-track" id="factsTrack"><!-- slides rendered by script.js --></div>
+                </div>
+
+                <button class="carousel-arrow next" id="factNext" type="button" aria-label="Next fact">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div class="carousel-footer">
+                    <div class="carousel-dots" id="factsDots" role="group" aria-label="Choose a fact"></div>
+                    <button class="carousel-playpause" id="factsPlayPause" type="button" aria-pressed="false">⏸
+                        Pause</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= 9 · FOOTER ======================= -->
+    <footer class="site-footer" id="contact">
+        <div class="wave-divider footer-wave" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path
+                    d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a class="brand footer-brand" href="#home"><span class="brand-wave"
+                            aria-hidden="true">🌊</span><span class="brand-text">Ocean<em>Atlas</em></span></a>
+                    <p>An educational, single-page field guide to ocean climate and marine life. Built with plain HTML,
+                        CSS &amp; JavaScript — plus GSAP for motion. No frameworks, no trackers.</p>
+                    <p class="footer-sources">Data approximated from <strong>NOAA</strong>, <strong>IPCC AR6</strong>,
+                        <strong>WMO</strong> and the <strong>IUCN Red List</strong>. For learning, not research.
+                    </p>
+                </div>
+
+                <nav class="footer-col footer-links" aria-label="Footer">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#climate">Ocean climate data</a></li>
+                        <li><a href="#trends">Climate trends chart</a></li>
+                        <li><a href="#species">Species explorer</a></li>
+                        <li><a href="#timeline">Ocean life timeline</a></li>
+                        <li><a href="#zones">Ocean depth zones</a></li>
+                        <li><a href="#threats">Threats &amp; actions</a></li>
+                        <li><a href="#facts">Did you know?</a></li>
+
+                    </ul>
+                </nav>
+
+                <div class="footer-col footer-news">
+                    <h3>Stay in the current</h3>
+                    <p>One gentle email a month with ocean science worth knowing. Front-end demo only — nothing is sent
+                        anywhere.</p>
+                    <form id="newsletterForm" novalidate>
+                        <label class="sr-only" for="emailInput">Email address</label>
+                        <div class="field-row">
+                            <input id="emailInput" name="email" type="email" placeholder="you@example.com" required
+                                aria-describedby="formMsg" />
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 OceanAtlas · Made with 💙 for the blue planet · All data approximate.</p>
+                <button class="btn btn-ghost back-to-top" id="backToTop" type="button">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 20V6m0 0l-6 6m6-6l6 6" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Back to the surface
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================= 5 · SPECIES DETAIL MODAL ======================= -->
+    <div class="modal-overlay" id="speciesModal" hidden>
+        <div class="modal glass" id="modalPanel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalClose" type="button" aria-label="Close species details">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+                </svg>
+            </button>
+            <div class="modal-head">
+                <div class="modal-icon" id="modalIcon" aria-hidden="true"></div>
+                <div>
+                    <h3 id="modalTitle">Species</h3>
+                    <p class="modal-sci" id="modalSci"></p>
+                    <div class="badge-row" id="modalBadges"></div>
+                </div>
+            </div>
+            <p class="modal-fact" id="modalFact"></p>
+            <dl class="modal-stats" id="modalStats"></dl>
+            <h4 class="modal-facts-title">More from the deep</h4>
+            <ul class="modal-facts" id="modalFacts"></ul>
+            <p class="modal-note" id="modalNote"></p>
+        </div>
+    </div>
+
+
+    <!-- GSAP + ScrollTrigger (CDN) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="species-data.js"></script>
+    <script defer src="script.js"></script>
+</body>
+
+</html>

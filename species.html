@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Species Profile — OceanAtlas</title>
+  <meta name="description" content="Detailed marine biology, depth range, and conservation profile from OceanAtlas." />
+  <meta name="theme-color" content="#041d3d" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+</head>
+<body class="species-detail-page">
+  <a class="skip-link" href="#speciesProfile">Skip to species profile</a>
+
+  <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Deep ocean background -->
+  <div class="ocean-bg" style="--bg-a:#0a3e6a; --bg-b:#052246; --bg-c:#020b1c;" aria-hidden="true"></div>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <!-- ======================= NAVIGATION ======================= -->
+  <header class="site-nav is-deep" id="siteNav">
+    <nav class="nav-inner" aria-label="Primary">
+      <a class="brand" href="index.html#home" aria-label="OceanAtlas — back to home">
+        <span class="brand-wave" aria-hidden="true">🌊</span>
+        <span class="brand-text">Ocean<em>Atlas</em></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+        <li><a class="nav-link" href="index.html#trends">Trends</a></li>
+        <li><a class="nav-link is-active" href="index.html#species">Species</a></li>
+        <li><a class="nav-link" href="index.html#timeline">Timeline</a></li>
+        <li><a class="nav-link" href="index.html#zones">Zones</a></li>
+        <li><a class="nav-link" href="index.html#threats">Threats</a></li>
+        <li><a class="nav-link" href="index.html#facts">Facts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="speciesProfile" class="section profile-main">
+    <!-- Top breadcrumb + quick switcher -->
+    <div class="profile-topbar" data-reveal>
+      <a class="btn btn-ghost" href="index.html#species">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to all 20 species
+      </a>
+
+      <label class="chart-select-label profile-jump" for="speciesJumpSelect">
+        <span>Jump to species</span>
+        <select id="speciesJumpSelect" aria-label="Jump to another marine species"></select>
+      </label>
+    </div>
+
+    <!-- Hero Profile Card -->
+    <section class="profile-hero glass" data-reveal aria-labelledby="spTitle">
+      <div class="profile-hero-top">
+        <div class="profile-icon" id="spIcon" aria-hidden="true"></div>
+        <div class="profile-heading">
+          <p class="kicker" id="spCounter">Species 01 of 20</p>
+          <h1 id="spTitle">Loading species…</h1>
+          <p class="profile-sci" id="spSci"></p>
+          <div class="badge-row" id="spBadges"></div>
+        </div>
+      </div>
+
+      <p class="profile-hook" id="spHook"></p>
+      <p class="profile-overview" id="spOverview"></p>
+
+      <!-- 6-Card Vitals Grid -->
+      <dl class="profile-vitals" id="spVitals"></dl>
+    </section>
+
+    <!-- Water Column Depth Gauge -->
+    <section class="profile-panel glass" data-reveal aria-labelledby="depthHeading">
+      <div class="panel-head">
+        <p class="kicker">Habitat Depth Profile</p>
+        <h2 id="depthHeading">Where it lives in the water column</h2>
+      </div>
+      <div class="depth-gauge">
+        <div class="depth-track" aria-hidden="true">
+          <div class="depth-fill" id="spDepthFill"></div>
+        </div>
+        <div class="depth-ticks" aria-hidden="true">
+          <span>0 m (Surface)</span>
+          <span>200 m (Twilight)</span>
+          <span>1,000 m (Midnight)</span>
+          <span>4,000 m (Abyss)</span>
+          <span>7,000 m+</span>
+        </div>
+      </div>
+      <p class="depth-caption" id="spDepthCaption"></p>
+    </section>
+
+    <!-- Biology & Superpowers -->
+    <section class="profile-panel glass" data-reveal aria-labelledby="factsHeading">
+      <div class="panel-head">
+        <p class="kicker">Biology &amp; Adaptations</p>
+        <h2 id="factsHeading">Remarkable facts from the deep</h2>
+      </div>
+      <ul class="profile-facts-grid" id="spFactsList"></ul>
+    </section>
+
+    <!-- Conservation Status & Outlook -->
+    <section class="profile-panel glass" data-reveal aria-labelledby="consHeading">
+      <div class="panel-head">
+        <p class="kicker">Conservation Outlook</p>
+        <h2 id="consHeading">Threats &amp; survival in a changing sea</h2>
+      </div>
+      <p class="profile-conservation" id="spConservation"></p>
+      <p class="profile-note" id="spNote"></p>
+    </section>
+
+    <!-- Previous / Next Species Navigation -->
+    <nav class="profile-pager" aria-label="Adjacent species" data-reveal>
+      <a class="pager-card glass hoverable" id="prevSpeciesLink" href="#">
+        <span class="pager-dir">← Previous species</span>
+        <strong id="prevSpeciesName">—</strong>
+      </a>
+      <a class="pager-card glass hoverable pager-next" id="nextSpeciesLink" href="#">
+        <span class="pager-dir">Next species →</span>
+        <strong id="nextSpeciesName">—</strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 OceanAtlas · Educational field guide · Data approximated from NOAA, IPCC AR6 &amp; IUCN Red List.</p>
+        <a class="btn btn-ghost" href="index.html#species">Explore all species</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="species-data.js"></script>
+  <script defer src="species-page.js"></script>
+</body>
+</html>
