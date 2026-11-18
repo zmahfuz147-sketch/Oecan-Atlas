@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The World of Octopuses — OceanAtlas</title>
+    <meta name="description"
+        content="Explore octopus diversity, deep-sea species, fossil relatives, reproduction, diets, and the remarkable intelligence of these eight-armed cephalopods." />
+    <meta name="theme-color" content="#041d3d" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    /* ==================================================
+       OCTOPUS PAGE — DEEP-SEA EXPEDITION DESIGN
+    ================================================== */
+
+    .octopus-page {
+        background-color: var(--navy-950);
+    }
+
+    /* ==================================================
+       1. EXPEDITION HERO
+    ================================================== */
+
+    .octopus-page .hero {
+        min-height: auto;
+        display: block;
+        text-align: left;
+        padding: calc(var(--nav-h) + 65px) 24px 190px;
+        background:
+            radial-gradient(circle at 82% 28%, rgba(167, 139, 250, 0.14), transparent 28rem),
+            radial-gradient(circle at 10% 78%, rgba(83, 216, 251, 0.08), transparent 24rem),
+            linear-gradient(145deg, rgba(4, 29, 61, 0.97), rgba(1, 8, 23, 0.98));
+    }
+
+    .octopus-page .hero-content {
+        max-width: 1180px;
+        width: 100%;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 60px);
+        text-align: left;
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        border-radius: 28px;
+        box-shadow: 0 25px 65px rgba(1, 8, 23, 0.4);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+    }
+
+    .octopus-page .hero-kicker {
+        color: var(--aqua);
+        letter-spacing: 0.2em;
+    }
+
+    .octopus-page .hero-title {
+        color: #fff;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        text-align: left;
+        max-width: 750px;
+    }
+
+    .octopus-page .hero-sub {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 720px;
+        color: var(--ink-dim);
+    }
+
+    .octopus-page .hero-cta {
+        justify-content: flex-start;
+    }
+
+    .octopus-page .hero .btn-ghost {
+        color: var(--ink);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .octopus-page .hero .btn-ghost:hover {
+        color: var(--aqua-soft);
+        border-color: var(--aqua);
+    }
+
+    .octopus-page .hero-chips {
+        justify-content: flex-start;
+    }
+
+    .octopus-page .hero-chips li {
+        background: rgba(3, 18, 38, 0.7);
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        color: var(--ink);
+    }
+
+    .octopus-page .scroll-hint {
+        display: none;
+    }
+
+    .octopus-page .hero-wave {
+        height: 100px;
+    }
+
+    /* ==================================================
+       2. SECTION LAYOUT
+    ================================================== */
+
+    .octopus-page .section {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: clamp(30px, 5vw, 56px) clamp(20px, 4vw, 44px);
+        border: 1px solid rgba(167, 139, 250, 0.15);
+        border-radius: 26px;
+        background:
+            linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+        box-shadow: 0 18px 42px rgba(1, 8, 23, 0.18);
+    }
+
+    .octopus-page .section-head {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 10px 32px;
+        align-items: end;
+        margin-bottom: 36px;
+    }
+
+    .octopus-page .section-head .kicker {
+        grid-column: 1 / -1;
+        color: var(--sand);
+        letter-spacing: 0.18em;
+    }
+
+    .octopus-page .section-head h2 {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .octopus-page .section-head .lead {
+        grid-column: 2;
+        grid-row: 2;
+        color: var(--ink-dim);
+        align-self: end;
+        padding-bottom: 5px;
+    }
+
+    /* ==================================================
+       3. SPECIMEN CARDS & TILES
+    ================================================== */
+
+    .octopus-page .species-card,
+    .octopus-page .fact-tile {
+        background:
+            linear-gradient(145deg, rgba(10, 74, 124, 0.3), rgba(2, 13, 32, 0.75));
+        border: 1px solid rgba(167, 139, 250, 0.18);
+        border-top: 2px solid rgba(244, 213, 141, 0.55);
+        border-radius: 20px;
+        padding: 25px;
+        transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .octopus-page .species-card:hover,
+    .octopus-page .fact-tile:hover {
+        transform: translateY(-7px);
+        border-color: var(--aqua);
+        box-shadow: 0 22px 48px rgba(1, 8, 23, 0.4), 0 0 22px rgba(83, 216, 251, 0.1);
+    }
+
+    .octopus-page .species-name {
+        font-size: 1.1rem;
+        color: #fff;
+    }
+
+    .octopus-page .species-sci {
+        color: var(--aqua-soft);
+    }
+
+    .octopus-page .species-fact {
+        line-height: 1.75;
+    }
+
+    .octopus-page .species-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background:
+            radial-gradient(circle at 30% 25%, rgba(244, 213, 141, 0.2), rgba(167, 139, 250, 0.1));
+        border: 1px solid rgba(244, 213, 141, 0.3);
+    }
+
+    /* ==================================================
+       4. PROFILE PANELS
+    ================================================== */
+
+    .octopus-page .profile-panel {
+        background:
+            linear-gradient(145deg, rgba(10, 74, 124, 0.32), rgba(2, 13, 32, 0.82));
+        border: 1px solid rgba(167, 139, 250, 0.22);
+        border-radius: 24px;
+        padding: clamp(22px, 4vw, 36px);
+    }
+
+    .octopus-page .vital-box {
+        background: rgba(1, 8, 23, 0.45);
+        border-color: rgba(167, 139, 250, 0.22);
+    }
+
+    .octopus-page .vital-box dd {
+        color: var(--sand);
+    }
+
+    .octopus-page .zone-stats li {
+        background: rgba(167, 139, 250, 0.1);
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        border-radius: 999px;
+    }
+
+    /* ==================================================
+       5. DATA NOTES
+    ================================================== */
+
+    .octopus-page .data-note {
+        padding: 14px 18px;
+        border-left: 3px solid var(--sand);
+        background: rgba(244, 213, 141, 0.055);
+        border-radius: 0 12px 12px 0;
+        line-height: 1.7;
+    }
+
+    /* ==================================================
+       6. WAVE TRANSITIONS
+    ================================================== */
+
+    .octopus-page .wave-divider:not(.hero-wave) {
+        height: 55px;
+        opacity: 0.55;
+    }
+
+    .octopus-page .site-footer {
+        margin-top: 55px;
+    }
+
+    /* ==================================================
+       7. RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 860px) {
+        .octopus-page .section-head {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .octopus-page .section-head .kicker,
+        .octopus-page .section-head h2,
+        .octopus-page .section-head .lead {
+            grid-column: 1;
+            grid-row: auto;
+        }
+    }
+
+    @media (max-width: 620px) {
+        .octopus-page .hero {
+            padding: calc(var(--nav-h) + 45px) 16px 145px;
+        }
+
+        .octopus-page .hero-content {
+            padding: 26px 20px;
+            border-radius: 20px;
+        }
+
+        .octopus-page .section {
+            margin: 22px 12px;
+            padding: 28px 19px;
+            border-radius: 19px;
+        }
+
+        .octopus-page .section-head {
+            margin-bottom: 28px;
+        }
+    }
+
+    /* ==================================================
+       8. DRIFTING OCTOPUS ANIMATION
+    ================================================== */
+
+    .octo-drift-lane {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 36px;
+        height: 210px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .octo-svg-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .octo-drifter {
+        position: absolute;
+        left: 0;
+        top: 24px;
+        width: 200px;
+        height: 160px;
+        opacity: 0.9;
+        filter: drop-shadow(0 12px 20px rgba(1, 8, 23, 0.25));
+        animation: octo-traverse 36s linear infinite;
+        will-change: transform;
+    }
+
+    .octo-drifter--small {
+        top: 100px;
+        width: 120px;
+        height: 96px;
+        opacity: 0.55;
+        animation-duration: 48s;
+        animation-delay: -19s;
+    }
+
+    .octo-drifter--reverse {
+        top: 52px;
+        width: 150px;
+        height: 120px;
+        opacity: 0.45;
+        animation-name: octo-traverse-reverse;
+        animation-duration: 42s;
+        animation-delay: -11s;
+    }
+
+    .octo-art {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        animation: octo-bob 3.4s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    /* Undulating arms */
+    .octo-arm {
+        transform-box: fill-box;
+        transform-origin: center top;
+        animation: octo-arm-wave 2.6s ease-in-out infinite alternate;
+    }
+
+    .octo-arm:nth-child(2) { animation-delay: -0.3s; }
+    .octo-arm:nth-child(3) { animation-delay: -0.6s; }
+    .octo-arm:nth-child(4) { animation-delay: -0.9s; }
+    .octo-arm:nth-child(5) { animation-delay: -1.2s; }
+    .octo-arm:nth-child(6) { animation-delay: -1.5s; }
+    .octo-arm:nth-child(7) { animation-delay: -1.8s; }
+    .octo-arm:nth-child(8) { animation-delay: -2.1s; }
+
+    @keyframes octo-traverse {
+        from { transform: translate3d(100vw, 0, 0); }
+        to { transform: translate3d(-240px, 0, 0); }
+    }
+
+    @keyframes octo-traverse-reverse {
+        from { transform: translate3d(-200px, 0, 0) scaleX(-1); }
+        to { transform: translate3d(100vw, 0, 0) scaleX(-1); }
+    }
+
+    @keyframes octo-bob {
+        0%, 100% { transform: translateY(0) rotate(-2deg); }
+        50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    @keyframes octo-arm-wave {
+        from { transform: rotate(-6deg) skewX(-3deg); }
+        to { transform: rotate(6deg) skewX(3deg); }
+    }
+
+    @media (max-width: 620px) {
+        .octo-drift-lane {
+            bottom: 20px;
+            height: 150px;
+        }
+
+        .octo-drifter {
+            width: 140px;
+            height: 110px;
+        }
+
+        .octo-drifter--small {
+            top: 74px;
+            width: 86px;
+            height: 68px;
+        }
+
+        .octo-drifter--reverse {
+            top: 38px;
+            width: 106px;
+            height: 84px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .octo-drifter,
+        .octo-art,
+        .octo-arm {
+            animation: none;
+        }
+
+        .octo-drifter { left: 6%; transform: none; }
+        .octo-drifter--small { left: 76%; }
+        .octo-drifter--reverse { left: 42%; }
+    }
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml,*<*&#x73;vg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>*<*&#x74;ext y='.9em' font-size='90'>&#128025;*<*/text>*<*/svg>" />
+</head>
+
+<body class="octopus-page">
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="ocean-bg" id="oceanBg" aria-hidden="true"></div>
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <noscript>
+        <div class="noscript-note">🌊 Enable JavaScript for navigation and motion effects. All octopus information remains readable without it.</div>
+    </noscript>
+
+    <!-- ======================= NAVIGATION ======================= -->
+    <header class="site-nav" id="siteNav">
+        <nav class="nav-inner" aria-label="Primary">
+            <a class="brand" href="index.html#home" aria-label="OceanAtlas — home">
+                <span class="brand-wave" aria-hidden="true">🌊</span>
+                <span class="brand-text">Ocean<em>Atlas</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
+                aria-controls="navMenu" aria-label="Open navigation menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+                <li><a class="nav-link" href="index.html#species">Species</a></li>
+                <li><a class="nav-link" href="index.html#zones">Ocean zones</a></li>
+                <li><a class="nav-link is-active" href="#home" aria-current="page">Octopuses</a></li>
+                <li><a class="nav-link" href="#facts">Facts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- ======================= 1 · HERO ======================= -->
+        <section class="hero" id="home" aria-label="The world of octopuses">
+            <!-- ================= DRIFTING OCTOPUSES ================= -->
+            <svg class="octo-svg-defs" aria-hidden="true" focusable="false">
+                <symbol id="octo-drift-shape" viewBox="0 0 240 190">
+                    <!-- Arms -->
+                    <g fill="none" stroke="#b794f6" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+                        <g class="octo-arm">
+                            <path d="M108 95 C78 120 62 150 54 176" />
+                            <path d="M54 176 C48 184 42 186 36 182" />
+                        </g>
+                        <g class="octo-arm">
+                            <path d="M116 100 C96 130 88 158 84 184" />
+                            <path d="M84 184 C82 190 78 193 72 191" />
+                        </g>
+                        <g class="octo-arm">
+                            <path d="M126 102 C120 134 118 162 118 188" />
+                            <path d="M118 188 C118 194 114 196 108 194" />
+                        </g>
+                        <g class="octo-arm">
+                            <path d="M136 100 C146 132 150 160 152 186" />
+                            <path d="M152 186 C154 192 158 194 164 192" />
+                        </g>
+                        <g class="octo-arm">
+                            <path d="M144 94 C166 118 180 146 188 172" />
+                            <path d="M188 172 C192 180 198 182 204 178" />
+                        </g>
+                        <!-- Back arms, slightly fainter -->
+                        <g class="octo-arm" opacity="0.7">
+                            <path d="M96 100 C70 108 52 126 44 148" />
+                        </g>
+                        <g class="octo-arm" opacity="0.7">
+                            <path d="M154 98 C180 106 198 124 206 146" />
+                        </g>
+                        <g class="octo-arm" opacity="0.7">
+                            <path d="M88 92 C68 82 52 68 44 52" />
+                        </g>
+                    </g>
+
+                    <!-- Head / mantle -->
+                    <path d="M80 86 C80 44 102 26 120 26 C138 26 160 44 160 86 C160 112 146 126 120 126 C94 126 80 112 80 86 Z"
+                        fill="#b794f6" stroke="#f4d58d" stroke-width="5" />
+
+                    <!-- Eye patches -->
+                    <ellipse cx="104" cy="70" rx="16" ry="20" fill="#0b2545" />
+                    <ellipse cx="136" cy="70" rx="16" ry="20" fill="#0b2545" />
+
+                    <!-- Eyes (pupils) -->
+                    <ellipse cx="108" cy="70" rx="7" ry="11" fill="#eaf6ff" />
+                    <ellipse cx="132" cy="70" rx="7" ry="11" fill="#eaf6ff" />
+                    <circle cx="110" cy="70" r="3.5" fill="#041d3d" />
+                    <circle cx="130" cy="70" r="3.5" fill="#041d3d" />
+
+                    <!-- Skin texture / chromatophore spots -->
+                    <circle cx="112" cy="48" r="3" fill="#d6bcfa" opacity="0.7" />
+                    <circle cx="128" cy="52" r="2.5" fill="#d6bcfa" opacity="0.7" />
+                    <circle cx="98" cy="88" r="4" fill="#d6bcfa" opacity="0.5" />
+                    <circle cx="142" cy="90" r="3.5" fill="#d6bcfa" opacity="0.5" />
+                </symbol>
+            </svg>
+
+            <div class="octo-drift-lane" aria-hidden="true">
+                <div class="octo-drifter">
+                    <svg class="octo-art" viewBox="0 0 240 190">
+                        <use href="#octo-drift-shape"></use>
+                    </svg>
+                </div>
+                <div class="octo-drifter octo-drifter--small">
+                    <svg class="octo-art" viewBox="0 0 240 190">
+                        <use href="#octo-drift-shape"></use>
+                    </svg>
+                </div>
+                <div class="octo-drifter octo-drifter--reverse">
+                    <svg class="octo-art" viewBox="0 0 240 190">
+                        <use href="#octo-drift-shape"></use>
+                    </svg>
+                </div>
+            </div>
+            <!-- ================= END DRIFTING OCTOPUSES ================= -->
+
+            <div class="hero-content">
+                <p class="hero-kicker">OceanAtlas · Marine life field guide</p>
+                <h1 class="hero-title" id="heroTitle">The World of Octopuses</h1>
+                <p class="hero-sub">
+                    With three hearts, blue blood, and arms that taste what they touch, octopuses are among the most
+                    unusual animals in the sea. From shallow reefs to abyssal plains deeper than 7,000 metres, these
+                    soft-bodied cephalopods have evolved extraordinary solutions for survival.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="exploreBtn" type="button">
+                        Explore octopus life
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-ghost" href="#deep-sea">Meet the deep-sea octopuses</a>
+                </div>
+                <ul class="hero-chips" aria-label="Octopus guide highlights">
+                    <li>🐙 Approx. 300+ living octopus species</li>
+                    <li>🌊 From tide pools to abyssal depths</li>
+                    <li>🧠 Advanced problem-solving and camouflage</li>
+                </ul>
+            </div>
+            <div class="wave-divider hero-wave" aria-hidden="true">
+                <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= 2 · HOW MANY OCTOPUSES? ======================= -->
+        <section class="section" id="count" aria-labelledby="countHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">01 · The numbers</p>
+                <h2 id="countHeading">How many octopuses exist?</h2>
+                <p class="lead">Octopoda is a diverse order, but its species count is still being refined as new animals are described and genetics reshape old groupings.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-hero-top">
+                    <div class="profile-icon" aria-hidden="true">🐙</div>
+                    <div class="profile-heading">
+                        <p class="kicker">Living octopuses · Octopoda</p>
+                        <h2>Approx. 300+</h2>
+                        <p class="profile-hook">Described living species of octopus</p>
+                    </div>
+                </div>
+                <p class="profile-overview">
+                    The order Octopoda contains roughly 300 recognised living species, divided into two main suborders:
+                    Cirrata (finned, deep-sea octopuses with small internal shells) and Incirrata (the more familiar
+                    shell-less octopuses of shallow and deep waters). Some estimates place the total higher, and
+                    “catch-all” genera such as <em>Octopus</em> are being split as genetic tools improve.
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>What is counted?</dt>
+                        <dd>Living species in Octopoda</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Major suborders</dt>
+                        <dd>Cirrata and Incirrata</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Why it changes</dt>
+                        <dd>New descriptions and molecular revisions</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Counts are approximate and depend on the taxonomic source. WoRMS and the IUCN Red List maintain
+                    current accepted names and assessments for many octopus groups.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 3 · OCTOPUS GROUPS ======================= -->
+        <section class="section" id="groups" aria-labelledby="groupsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">02 · Meet the groups</p>
+                <h2 id="groupsHeading">Five octopuses worth knowing</h2>
+                <p class="lead">From the giant Pacific octopus to the tiny blue-ringed octopus, the group spans a spectacular range of sizes, habitats, and survival strategies.</p>
+            </header>
+
+            <div class="species-grid" data-reveal-group>
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🐙</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Incirrata</span><span class="badge zone-sunlight">Familiar octopus</span></div>
+                    <h3 class="species-name">Common octopus</h3>
+                    <p class="species-sci">Octopus vulgaris</p>
+                    <p class="species-fact"><strong>Size:</strong> Typically around 60–100 cm total length, though arm span varies.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Coastal reefs, seagrass beds, and rocky bottoms in temperate and tropical waters.</p>
+                    <p class="species-fact"><strong>Fact:</strong> A highly flexible predator and one of the most studied octopuses for problem-solving and camouflage.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">👑</div>
+                    <div class="badge-row"><span class="badge zone-twilight">Incirrata</span><span class="badge zone-abyss">Giant</span></div>
+                    <h3 class="species-name">Giant Pacific octopus</h3>
+                    <p class="species-sci">Enteroctopus dofleini</p>
+                    <p class="species-fact"><strong>Size:</strong> The world’s largest octopus; arm span can reach 9 m or more.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> North Pacific coasts and slopes, from the intertidal to over 1,000 m.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Females brood their eggs for months without feeding and die shortly after they hatch.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🐘</div>
+                    <div class="badge-row"><span class="badge zone-abyss">Cirrata</span><span class="badge zone-twilight">Deep sea</span></div>
+                    <h3 class="species-name">Dumbo octopus</h3>
+                    <p class="species-sci">Genus Grimpoteuthis</p>
+                    <p class="species-fact"><strong>Size:</strong> Usually small, roughly 20–30 cm, depending on species.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Deep seafloor worldwide, recorded from about 100 m to over 7,000 m.</p>
+                    <p class="species-fact"><strong>Fact:</strong> It swims with ear-like fins rather than jet propulsion and lacks an ink sac.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">💙</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Incirrata</span><span class="badge status-vu">Venomous</span></div>
+                    <h3 class="species-name">Blue-ringed octopus</h3>
+                    <p class="species-sci">Genus Hapalochlaena</p>
+                    <p class="species-fact"><strong>Size:</strong> Small, with an arm spread of about 10–20 cm.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Tide pools and shallow reefs in the Indo-Pacific.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Its bite delivers tetrodotoxin, a neurotoxin far more potent than cyanide; the rings flash when threatened.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🎭</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Incirrata</span><span class="badge zone-sunlight">Mimic</span></div>
+                    <h3 class="species-name">Mimic octopus</h3>
+                    <p class="species-sci">Thaumoctopus mimicus</p>
+                    <p class="species-fact"><strong>Size:</strong> Relatively small, with arms around 60 cm long.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Sandy and muddy bottoms in the Indo-Pacific.</p>
+                    <p class="species-fact"><strong>Fact:</strong> It can impersonate sea snakes, lionfish, and other animals by changing posture and colour.</p>
+                </article>
+            </div>
+            <p class="data-note">“Octopus” is an informal name for animals in the order Octopoda. Not every eight-armed cephalopod is closely related, and some groups—such as argonauts—are only distant relatives.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 4 · DEEP-SEA OCTOPUSES ======================= -->
+        <section class="section" id="deep-sea" aria-labelledby="deepSeaHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">03 · The deep sea</p>
+                <h2 id="deepSeaHeading">Octopuses of the deep</h2>
+                <p class="lead">Below the sunlit zone, octopuses take on unfamiliar forms: finned, ghostly, and adapted to a world of darkness, cold, and scarce food.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 01</span>
+                    <h3 class="species-name">Dumbo octopus</h3>
+                    <p class="species-sci">Grimpoteuthis spp.</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 100–7,000 m</li>
+                        <li>Size: small, often 20–30 cm</li>
+                        <li>Suborder: Cirrata</li>
+                    </ul>
+                    <p>These cirrate octopuses use large fins to swim just above the seafloor. They have webbed arms, lack an ink sac, and are among the deepest-living octopuses known.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 02</span>
+                    <h3 class="species-name">Graneledone boreopacifica</h3>
+                    <p class="species-sci">A deep-water incirrate octopus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: mostly deeper than 650 m</li>
+                        <li>Size: medium-bodied, with a single row of suckers on each arm</li>
+                        <li>Range: North Pacific, including the Bering Sea</li>
+                    </ul>
+                    <p>This species is notable for brooding its eggs for an exceptionally long time—one observed female guarded her clutch for about 4.5 years, the longest known brooding period for any animal.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 03</span>
+                    <h3 class="species-name">Flapjack octopus</h3>
+                    <p class="species-sci">Opisthoteuthis spp.</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 300–1,100 m</li>
+                        <li>Shape: flattened, umbrella-like</li>
+                        <li>Suborder: Cirrata</li>
+                    </ul>
+                    <p>With its rounded body and webbed arms, the flapjack octopus looks almost like a pancake with fins. It hovers above soft bottoms and is occasionally observed by deep-diving remotely operated vehicles.</p>
+                </article>
+            </div>
+            <p class="data-note">Depth ranges are approximate and based on records compiled in species databases and deep-sea surveys. Many deep-sea octopuses are known from only a few sightings.</p>
+        </section>
+
+        <!-- ======================= 5 · EUROPEAN & ASIAN SPECIES ======================= -->
+        <section class="section" id="regional" aria-labelledby="regionalHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">04 · Regional focus</p>
+                <h2 id="regionalHeading">Octopuses of Asian and European waters</h2>
+                <p class="lead">From the North Pacific giant to the horned octopus of the Northeast Atlantic, regional species reveal different solutions to life on the seafloor.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 01</span>
+                    <h3 class="species-name">Giant Pacific octopus</h3>
+                    <p class="species-sci">Enteroctopus dofleini</p>
+                    <ul class="zone-stats">
+                        <li>Depth: intertidal to approx. 1,500 m, depending on region</li>
+                        <li>Size: arm span up to approx. 9 m</li>
+                        <li>Range: North Pacific, including Japan and the Sea of Okhotsk</li>
+                    </ul>
+                    <p>In Japan, this species supports important coastal fisheries and shows seasonal depth movements. It is the largest octopus in the world by mass and arm span.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 01</span>
+                    <h3 class="species-name">Horned octopus</h3>
+                    <p class="species-sci">Eledone cirrhosa</p>
+                    <ul class="zone-stats">
+                        <li>Depth: approx. 100–700 m, typically 250–500 m</li>
+                        <li>Size: moderate, with a mantle length around 10–15 cm</li>
+                        <li>Range: Northeast Atlantic and Mediterranean</li>
+                    </ul>
+                    <p>Also called the curled octopus, it is a common benthic predator on continental shelves and slopes, feeding on crustaceans and fish.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 02</span>
+                    <h3 class="species-name">Arctic deep-sea octopus</h3>
+                    <p class="species-sci">Bathypolypus arcticus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: recorded to approx. 1,543 m</li>
+                        <li>Size: small to medium</li>
+                        <li>Range: North Atlantic and Arctic waters</li>
+                    </ul>
+                    <p>A cold-water species adapted to deep, soft-bottom habitats. Its biology is still poorly known, but it is regularly caught in deep-sea surveys.</p>
+                </article>
+            </div>
+            <p class="data-note">Regional depth and size ranges are compiled from ICES, FAO, and species database records. Local populations may differ.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 6 · FOSSILS ======================= -->
+        <section class="section" id="fossils" aria-labelledby="fossilsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">05 · Deep time</p>
+                <h2 id="fossilsHeading">Fossil octopuses and their relatives</h2>
+                <p class="lead">Because octopuses are almost entirely soft-bodied, their fossils are rare and often controversial. A handful of sites preserve enough detail to hint at their ancient history.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 01</span>
+                    <h3 class="species-name">Pohlsepia mazonensis</h3>
+                    <p class="species-sci">Late Carboniferous, approx. 296 Ma</p>
+                    <ul class="zone-stats">
+                        <li>Location: Mazon Creek, Illinois, USA</li>
+                        <li>Age: approx. 296 million years</li>
+                        <li>Status: debated</li>
+                    </ul>
+                    <p>Originally described as the oldest octopus, <em>Pohlsepia</em> shows a sac-like body and possible arm impressions. Later studies have questioned whether it truly belongs to Octopoda, making its position uncertain.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 02</span>
+                    <h3 class="species-name">Proteroctopus ribeti</h3>
+                    <p class="species-sci">Middle Jurassic, approx. 165 Ma</p>
+                    <ul class="zone-stats">
+                        <li>Location: La Voulte-sur-Rhône, France</li>
+                        <li>Age: Middle Jurassic</li>
+                        <li>Status: possible early octopod</li>
+                    </ul>
+                    <p>This fossil preserves a body outline with eight arms. Its classification has shifted between octopod and more basal octobrachian relatives, reflecting how difficult it is to place soft-bodied fossils with confidence.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 03</span>
+                    <h3 class="species-name">Keuppia and Styletoctopus</h3>
+                    <p class="species-sci">Late Cretaceous, approx. 95 Ma</p>
+                    <ul class="zone-stats">
+                        <li>Location: Lebanon and Mexico</li>
+                        <li>Age: Cenomanian–Turonian</li>
+                        <li>Status: early octopods</li>
+                    </ul>
+                    <p>These Cretaceous fossils are among the oldest relatively complete octopod body fossils. They preserve traces of the internal shell (gladius) and help calibrate when octopuses diverged from their relatives.</p>
+                </article>
+            </div>
+            <p class="data-note">The octopus fossil record is sparse. Many alleged early octopuses are known from single specimens, and their evolutionary positions are actively debated.</p>
+        </section>
+
+        <!-- ======================= 7 · REPRODUCTION ======================= -->
+        <section class="section" id="reproduction" aria-labelledby="reproductionHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">06 · Life cycle</p>
+                <h2 id="reproductionHeading">How octopuses reproduce</h2>
+                <p class="lead">Most octopuses are semelparous: they breed once and die. Their reproductive strategies range from brief pelagic matings to years-long egg brooding.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-facts-grid">
+                    <article class="fact-tile">
+                        <span class="fact-num">01 · HECTOCOTYLUS</span>
+                        <h3 class="species-name">A specialised arm</h3>
+                        <p>Males transfer sperm using a modified arm called the hectocotylus. In many species, the male inserts the arm into the female’s mantle cavity, where spermatophores are stored until fertilisation.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">02 · EGGS</span>
+                        <h3 class="species-name">A guarded clutch</h3>
+                        <p>Females attach fertilised eggs to hard surfaces in dens or crevices. Many species guard and aerate the eggs, often for months, without feeding.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">03 · PARALARVAE</span>
+                        <h3 class="species-name">Tiny planktonic young</h3>
+                        <p>Hatchlings of many shallow-water octopuses are paralarvae: small, transparent, and planktonic for weeks to months. They drift with currents before settling to the bottom.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">04 · SEMELPARITY</span>
+                        <h3 class="species-name">Breed once, then die</h3>
+                        <p>Both males and females typically die after spawning. Females invest heavily in egg care, and the post-spawning decline is linked to hormonal changes and starvation.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">05 · DEEP-SEA BROODING</span>
+                        <h3 class="species-name">Years of patience</h3>
+                        <p>In cold, deep water, development is slow. <em>Graneledone boreopacifica</em> has been observed brooding eggs for about 4.5 years—the longest known brooding period of any animal.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">VARIATION</span>
+                        <h3 class="species-name">Not every octopus is the same</h3>
+                        <p>Some deep-sea cirrates produce large, yolky eggs and may have extended or continuous spawning. Reproductive patterns vary widely across Octopoda.</p>
+                    </article>
+                </div>
+                <p class="profile-note">The hectocotylus–egg–paralarya sequence describes many common octopuses, but deep-sea and cirrate species often deviate from this pattern.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 8 · DIET ======================= -->
+        <section class="section" id="diet" aria-labelledby="dietHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">07 · Food webs</p>
+                <h2 id="dietHeading">What do octopuses eat?</h2>
+                <p class="lead">Octopuses are versatile predators and scavengers, using their arms, suckers, and beak to capture and dismantle prey.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">PREDATORS</span>
+                    <h3 class="species-name">Crustaceans and molluscs</h3>
+                    <p>Many octopuses specialise in crabs, lobsters, and bivalves. They use their beak to crack shells and their arms to pull prey apart.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FISH</span>
+                    <h3 class="species-name">An active hunter</h3>
+                    <p>Larger species, including the giant Pacific octopus, take fish and other cephalopods. They may ambush prey from a den or stalk it across the seafloor.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SCAVENGERS</span>
+                    <h3 class="species-name">Opportunistic feeders</h3>
+                    <p>Deep-sea octopuses will eat carrion and detritus when available. Scavenging is especially important in food-poor abyssal environments.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SPECIALISTS</span>
+                    <h3 class="species-name">A varied menu</h3>
+                    <p>Some species feed heavily on small crustaceans or worms; others are generalists. Diet often reflects local prey availability and the octopus’s size.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 9 · BEHAVIOUR ======================= -->
+        <section class="section" id="behavior" aria-labelledby="behaviorHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">08 · Adaptations</p>
+                <h2 id="behaviorHeading">Behaviour and remarkable abilities</h2>
+                <p class="lead">Octopuses are masters of disguise, escape, and problem-solving. Their intelligence is among the most complex of any invertebrate.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">CAMOUFLAGE</span>
+                    <h3 class="species-name">Masters of disguise</h3>
+                    <p>Using chromatophores, papillae, and posture, octopuses can change colour, pattern, and texture in milliseconds. Some species mimic specific animals or objects.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">TOOL USE</span>
+                    <h3 class="species-name">Coconut-shell shelter</h3>
+                    <p>The veined octopus (<em>Amphioctopus marginatus</em>) collects discarded coconut shells and uses them as portable shelters—a rare example of tool use in invertebrates.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ESCAPE</span>
+                    <h3 class="species-name">Ink and jet propulsion</h3>
+                    <p>When threatened, many shallow-water octopuses release ink and shoot away using a powerful jet of water through their siphon. Deep-sea cirrates often lack an ink sac.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">VENOM</span>
+                    <h3 class="species-name">A tiny but potent bite</h3>
+                    <p>Blue-ringed octopuses inject tetrodotoxin, a neurotoxin that can paralyse prey and deter predators. Their bright blue rings are a warning display.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 10 · FACTS ======================= -->
+        <section class="section" id="facts" aria-labelledby="factsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">09 · Did you know?</p>
+                <h2 id="factsHeading">Five facts about octopuses</h2>
+                <p class="lead">Their biology is as strange as their appearance—from three hearts to RNA editing.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 01</span>
+                    <h3 class="species-name">Three hearts, blue blood</h3>
+                    <p>Two branchial hearts pump blood through the gills, while a systemic heart serves the rest of the body. Their blood is blue because it uses haemocyanin, a copper-based oxygen carrier.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 02</span>
+                    <h3 class="species-name">Taste by touch</h3>
+                    <p>Suckers on the arms contain chemoreceptors, allowing octopuses to “taste” surfaces they touch. This helps them identify prey and explore crevices.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 03</span>
+                    <h3 class="species-name">RNA editing</h3>
+                    <p>Octopuses edit their RNA extensively, especially in nerve cells. This may help them adapt to temperature changes and generate protein diversity beyond what their DNA encodes.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 04</span>
+                    <h3 class="species-name">A huge nervous system</h3>
+                    <p>About two-thirds of an octopus’s neurons are distributed in its arms, not its central brain. Each arm can act semi-autonomously while exploring.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 05</span>
+                    <h3 class="species-name">Short lives, intense lives</h3>
+                    <p>Many shallow-water octopuses live only one to two years. They grow rapidly, reproduce once, and die—packing remarkable learning and behaviour into a brief lifespan.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 11 · SOURCES ======================= -->
+        <section class="section" id="sources" aria-labelledby="sourcesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">10 · References</p>
+                <h2 id="sourcesHeading">Sources and further reading</h2>
+                <p class="lead">The facts on this page draw on taxonomic databases, peer-reviewed research, and species accounts from marine science organisations.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <nav class="footer-links" aria-label="Octopus information sources">
+                    <ul>
+                        <li id="source-1"><a href="https://www.marinespecies.org/aphia.php?p=taxdetails&id=11785" target="_blank" rel="noopener">[1] World Register of Marine Species (WoRMS) — Octopoda taxonomy and accepted names.</a></li>
+                        <li id="source-2"><a href="https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B978012820639300011X" target="_blank" rel="noopener">[2] ScienceDirect — Enteroctopus dofleini, giant Pacific octopus: distribution, depth, and life history.</a></li>
+                        <li id="source-3"><a href="https://oceana.org/marine-life/dumbo-octopus/" target="_blank" rel="noopener">[3] Oceana — Dumbo octopus: depth range, swimming, and conservation.</a></li>
+                        <li id="source-4"><a href="https://apps-afsc.fisheries.noaa.gov/REFM/Docs/2018/BSAI/BSAIocto.pdf" target="_blank" rel="noopener">[4] NOAA AFSC — Graneledone boreopacifica depth, brooding, and North Pacific distribution.</a></li>
+                        <li id="source-5"><a href="https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.1475-4983.2008.00828.x" target="_blank" rel="noopener">[5] Fuchs et al. (2008), Palaeontology — early octopod fossils including Keuppia and Styletoctopus.</a></li>
+                        <li id="source-6"><a href="https://en.wikipedia.org/wiki/Octopus" target="_blank" rel="noopener">[6] Wikipedia — Octopus: overview, fossil history, and reproduction (tertiary source; used for orientation only).</a></li>
+                        <li id="source-7"><a href="https://www.sciencedirect.com/science/article/pii/S0006320717303403" target="_blank" rel="noopener">[7] Scheel et al. — tool use and problem-solving in octopuses.</a></li>
+                        <li id="source-8"><a href="https://www.eol.org/pages/492276" target="_blank" rel="noopener">[8] Encyclopedia of Life — blue-ringed octopus: size, habitat, and tetrodotoxin.</a></li>
+                    </ul>
+                </nav>
+                <p class="profile-note">Approximate values are labelled “approx.” where sources or populations vary. This page is an educational overview, not a substitute for a taxonomic database or a scientific species assessment.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer" id="contact">
+        <div class="wave-divider footer-wave" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a class="brand footer-brand" href="index.html#home">
+                        <span class="brand-wave" aria-hidden="true">🌊</span>
+                        <span class="brand-text">Ocean<em>Atlas</em></span>
+                    </a>
+                    <p>An educational field guide to the life and science of our blue planet. This octopus page is built with plain HTML, CSS, and a small page-specific JavaScript file, with GSAP for motion.</p>
+                    <p class="footer-sources">Facts referenced from <strong>WoRMS</strong>, <strong>NOAA</strong>, <strong>Oceana</strong>, and peer-reviewed research.</p>
+                </div>
+
+                <nav class="footer-col footer-links" aria-label="Footer">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html#climate">Ocean climate</a></li>
+                        <li><a href="index.html#species">Species explorer</a></li>
+                        <li><a href="#groups">Octopus groups</a></li>
+                        <li><a href="#deep-sea">Deep-sea octopuses</a></li>
+                        <li><a href="#regional">Regional species</a></li>
+                        <li><a href="#fossils">Fossil octopuses</a></li>
+                        <li><a href="#sources">Sources</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col footer-news">
+                    <h3>Stay in the current</h3>
+                    <p>One gentle email a month with ocean science worth knowing. Front-end demo only — nothing is sent anywhere.</p>
+                    <form id="newsletterForm" novalidate>
+                        <label class="sr-only" for="emailInput">Email address</label>
+                        <div class="field-row">
+                            <input id="emailInput" name="email" type="email" placeholder="you@example.com" required
+                                aria-describedby="formMsg" />
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 OceanAtlas · Made with 💙 for the blue planet · Octopus measurements are approximate where noted.</p>
+                <button class="btn btn-ghost back-to-top" id="backToTop" type="button">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 20V6m0 0l-6 6m6-6l6 6" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Back to the surface
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="octopus-page.js"></script>
+</body>
+
+</html>

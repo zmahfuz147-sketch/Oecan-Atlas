@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore the World Ocean — OceanAtlas</title>
+    <meta name="description" content="Explore fifteen ocean regions in the OceanAtlas interactive world map." />
+    <meta name="theme-color" content="#041d3d" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="map.css" />
+</head>
+
+<body class="map-page">
+    <!-- PASTE MY NAV HERE -->
+
+    <a class="map-skip-link" href="#map-main">Skip to the world map</a>
+
+    <main class="map-app" id="map-main">
+        <section class="map-hero" aria-labelledby="map-hero-title">
+            <div class="map-hero-copy">
+                <p class="map-eyebrow">OCEANATLAS · INTERACTIVE EXPEDITION</p>
+                <h1 class="map-hero-title" id="map-hero-title">Explore the <span>World Ocean</span></h1>
+                <p class="map-hero-lead">Choose a region, discover its waters and wildlife, and open its field guide.
+                    Fifteen gateways take you from the polar seas to tropical reefs and inland basins.</p>
+                <div class="map-hero-meta" aria-label="Map features">
+                    <span class="map-meta-chip">15 regions</span>
+                    <span class="map-meta-chip">Tap to explore</span>
+                    <span class="map-meta-chip">Zoomable world map</span>
+                </div>
+                <a href="index.html#home" class="map-home-link">
+                    <span aria-hidden="true">←</span>
+                    Back to OceanAtlas Home
+                </a>
+            </div>
+            <div class="map-hero-mark" aria-hidden="true">
+                <span class="map-hero-orbit map-hero-orbit-one"></span>
+                <span class="map-hero-orbit map-hero-orbit-two"></span>
+                <span class="map-hero-globe">🌐</span>
+            </div>
+        </section>
+
+        <section class="map-explorer" aria-label="Interactive ocean atlas">
+            <div class="map-section-heading">
+                <div>
+                    <p class="map-eyebrow">THE GLOBAL FIELD MAP</p>
+                    <h2 class="map-section-title">Choose your ocean region</h2>
+                    <p class="map-section-intro">Select a glowing marker to open its regional briefing. Drag to move
+                        around, use the wheel or pinch to zoom, or use the controls.</p>
+                </div>
+                <div class="map-live-indicator"><span class="map-live-dot"></span> EXPLORATION MODE</div>
+            </div>
+
+            <div class="map-stage-grid">
+                <section class="map-visual-card" aria-label="World map and controls">
+                    <div class="map-visual-topbar">
+                        <div class="map-map-caption">
+                            <span class="map-caption-kicker">PLANET EARTH</span>
+                            <strong class="map-caption-title">Ocean regions</strong>
+                        </div>
+                        <div class="map-zoom-controls" aria-label="Map zoom controls">
+                            <button class="map-control-button" id="map-zoom-in" type="button"
+                                aria-label="Zoom in">+</button>
+                            <button class="map-control-button" id="map-zoom-out" type="button"
+                                aria-label="Zoom out">−</button>
+                            <button class="map-control-button map-reset-button" id="map-reset"
+                                type="button">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="map-viewport" id="map-viewport">
+                        <svg class="map-world" id="map-world" viewBox="0 0 1200 600" preserveAspectRatio="none"
+                            role="img" aria-labelledby="map-svg-title map-svg-desc">
+                            <title id="map-svg-title">Simplified equirectangular world map with fifteen ocean region
+                                markers</title>
+                            <desc id="map-svg-desc">An educational schematic map. Select one of the fifteen labeled
+                                region buttons to see its seas, deepest point, wildlife, threat, and fact.</desc>
+                            <defs>
+                                <radialGradient id="map-ocean-glow">
+                                    <stop offset="0%" stop-color="var(--map-aqua)" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="var(--map-aqua)" stop-opacity="0" />
+                                </radialGradient>
+                                <linearGradient id="map-land-shade" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="var(--map-land-start)" />
+                                    <stop offset="100%" stop-color="var(--map-land-end)" />
+                                </linearGradient>
+                                <filter id="map-marker-glow" x="-100%" y="-100%" width="300%" height="300%">
+                                    <feGaussianBlur stdDeviation="5" result="map-blur" />
+                                    <feMerge>
+                                        <feMergeNode in="map-blur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <rect class="map-ocean-base" x="0" y="0" width="1200" height="600" />
+                            <circle class="map-ocean-light" cx="300" cy="240" r="260" />
+                            <circle class="map-ocean-light map-ocean-light-two" cx="900" cy="340" r="310" />
+                            <g id="map-world-content">
+                                <g id="map-graticule"></g>
+                                <g id="map-landmasses"></g>
+                                <g id="map-region-visuals"></g>
+                            </g>
+                        </svg>
+                        <div class="map-hotspot-layer" id="map-hotspot-layer"
+                            aria-label="Choose one of fifteen ocean regions"></div>
+                        <div class="map-map-hint">Drag to pan · Wheel or pinch to zoom</div>
+                        <div class="map-map-status" id="map-map-status" role="status" aria-live="polite">Preparing the
+                            world map…</div>
+                    </div>
+                    <div class="map-visual-footer">
+                        <span><i class="map-legend-dot"></i> Selectable region</span>
+                        <span class="map-schematic-note">Schematic outline · equirectangular projection · not for
+                            navigation</span>
+                    </div>
+                </section>
+
+                <aside class="map-info-card" aria-label="Regional briefing">
+                    <div class="map-panel-topline">
+                        <span class="map-panel-index">REGIONAL BRIEFING</span>
+                        <span class="map-panel-live">ATLAS DATA</span>
+                    </div>
+                    <div class="map-empty-state" id="map-empty-state">
+                        <div class="map-empty-icon" aria-hidden="true">🧭</div>
+                        <p class="map-eyebrow">YOUR EXPEDITION STARTS HERE</p>
+                        <h2 id="map-empty-title">Select a region</h2>
+                        <p>Choose any marker on the map to reveal its marine geography, notable wildlife, deepest point,
+                            and biggest environmental pressure.</p>
+                        <div class="map-empty-tip"><span>✦</span> Tip: try the Arctic or the Coral Triangle.</div>
+                    </div>
+                    <div class="map-region-details" id="map-region-details" hidden>
+                        <p class="map-region-kicker" id="map-region-kicker">REGION 01 / 15</p>
+                        <h2 class="map-region-name" id="map-region-name"></h2>
+                        <p class="map-region-tagline" id="map-region-tagline"></p>
+
+                        <div class="map-info-block">
+                            <span class="map-info-label">MAIN SEAS &amp; WATERS</span>
+                            <p id="map-region-seas"></p>
+                        </div>
+                        <div class="map-depth-box">
+                            <span class="map-info-label">DEEPEST POINT</span>
+                            <p id="map-region-deepest"></p>
+                        </div>
+                        <div class="map-info-block">
+                            <span class="map-info-label">SPECIES TO LOOK FOR</span>
+                            <ul class="map-species-list" id="map-region-species"></ul>
+                        </div>
+                        <div class="map-threat-box">
+                            <span class="map-info-label">TOP THREAT</span>
+                            <p id="map-region-threat"></p>
+                        </div>
+                        <div class="map-fact-box">
+                            <span class="map-info-label">FIELD NOTE</span>
+                            <p id="map-region-fact"></p>
+                        </div>
+                        <a class="map-open-region" id="map-open-region" href="#" aria-disabled="true">Open region page
+                            <span aria-hidden="true">↗</span></a>
+                    </div>
+                </aside>
+            </div>
+            <p class="map-accessible-note" id="map-announcer" aria-live="polite" aria-atomic="true"></p>
+        </section>
+
+        <section class="map-region-index" aria-labelledby="map-region-index-title">
+            <div class="map-index-heading">
+                <div>
+                    <p class="map-eyebrow">A SIMPLE ROUTE INTO THE ATLAS</p>
+                    <h2 class="map-section-title" id="map-region-index-title">All fifteen regions</h2>
+                </div>
+                <p class="map-index-description">If the interactive map does not load, use this direct region directory.
+                </p>
+            </div>
+            <nav class="map-region-links" aria-label="All ocean region pages">
+                <a href="south-asia.html">South Asia &amp; Bay of Bengal</a>
+                <a href="arabian-gulf.html">Arabian Sea &amp; Persian Gulf</a>
+                <a href="east-asia.html">East Asia</a>
+                <a href="southeast-asia.html">Southeast Asia · Coral Triangle</a>
+                <a href="central-asia.html">Central Asia · Caspian &amp; Aral Seas</a>
+                <a href="oceania.html">Oceania · Pacific Islands</a>
+                <a href="east-africa.html">East Africa · Indian Ocean</a>
+                <a href="west-africa.html">West Africa · Atlantic</a>
+                <a href="mediterranean.html">Mediterranean</a>
+                <a href="europe.html">Europe · North Sea, Baltic &amp; Atlantic</a>
+                <a href="north-america.html">North America</a>
+                <a href="caribbean.html">Caribbean</a>
+                <a href="south-america.html">South America</a>
+                <a href="arctic.html">Arctic</a>
+                <a href="antarctica.html">Antarctica · Southern Ocean</a>
+            </nav>
+        </section>
+    </main>
+
+    <!-- PASTE MY FOOTER HERE -->
+
+    <script type="application/json" id="map-region-data"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="map-data.js"></script>
+    <script defer src="map-page.js"></script>
+    <script defer src="script.js"></script>
+</body>
+
+</html>

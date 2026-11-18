@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The World of Whales &amp; Dolphins — OceanAtlas</title>
+    <meta name="description"
+        content="Explore whale and dolphin diversity, deep-diving species, fossil whales, reproduction, diets, echolocation, songs, and the extraordinary adaptations of these marine mammals." />
+    <meta name="theme-color" content="#041d3d" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    /* ==================================================
+       WHALES & DOLPHINS — DEEP SEA EXPEDITION DESIGN
+    ================================================== */
+
+    .cetacean-page {
+        background-color: var(--navy-950);
+    }
+
+    /* ==================================================
+       1. HERO
+    ================================================== */
+
+    .cetacean-page .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: auto;
+        display: block;
+        text-align: left;
+        padding: calc(var(--nav-h) + 65px) 24px 210px;
+        background:
+            radial-gradient(circle at 80% 15%, rgba(139, 233, 253, 0.16), transparent 30rem),
+            radial-gradient(circle at 10% 80%, rgba(139, 205, 253, 0.09), transparent 26rem),
+            linear-gradient(160deg, rgba(4, 29, 61, 0.97), rgba(1, 8, 23, 0.99));
+    }
+
+    .cetacean-page .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 1180px;
+        width: 100%;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 60px);
+        text-align: left;
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        border-radius: 28px;
+        box-shadow: 0 25px 65px rgba(1, 8, 23, 0.45);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+    }
+
+    .cetacean-page .hero-kicker {
+        color: var(--aqua);
+        letter-spacing: 0.2em;
+    }
+
+    .cetacean-page .hero-title {
+        color: #fff;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        text-align: left;
+        max-width: 780px;
+    }
+
+    .cetacean-page .hero-sub {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 720px;
+        color: var(--ink-dim);
+    }
+
+    .cetacean-page .hero-cta {
+        justify-content: flex-start;
+    }
+
+    .cetacean-page .hero .btn-ghost {
+        color: var(--ink);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .cetacean-page .hero .btn-ghost:hover {
+        color: var(--aqua-soft);
+        border-color: var(--aqua);
+    }
+
+    .cetacean-page .hero-chips {
+        justify-content: flex-start;
+    }
+
+    .cetacean-page .hero-chips li {
+        background: rgba(3, 18, 38, 0.7);
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        color: var(--ink);
+    }
+
+    .cetacean-page .scroll-hint {
+        display: none;
+    }
+
+    .cetacean-page .hero-wave {
+        height: 100px;
+        z-index: 3;
+    }
+
+    /* ==================================================
+       2. HERO ATMOSPHERE
+    ================================================== */
+
+    .cetacean-page .hero-fx {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .cetacean-page .ray-layer {
+        position: absolute;
+        inset: -20% -25% -10%;
+        background:
+            linear-gradient(100deg, transparent 38%, rgba(139, 233, 253, 0.12) 41%, transparent 44%),
+            linear-gradient(96deg, transparent 52%, rgba(139, 233, 253, 0.08) 55%, transparent 58%),
+            linear-gradient(104deg, transparent 64%, rgba(207, 243, 255, 0.1) 67%, transparent 70%),
+            linear-gradient(92deg, transparent 20%, rgba(139, 233, 253, 0.07) 22.5%, transparent 25%),
+            linear-gradient(108deg, transparent 80%, rgba(207, 243, 255, 0.08) 82.5%, transparent 85%);
+        filter: blur(12px);
+        mix-blend-mode: screen;
+        animation: ray-sway 19s ease-in-out infinite alternate;
+        will-change: transform, opacity;
+    }
+
+    @keyframes ray-sway {
+        from {
+            transform: skewX(-3deg) scaleY(1);
+            opacity: 0.65;
+        }
+
+        to {
+            transform: skewX(3deg) scaleY(1.08);
+            opacity: 1;
+        }
+    }
+
+    .cetacean-page .caustic-layer {
+        position: absolute;
+        inset: -12%;
+        background:
+            radial-gradient(circle at 22% 16%, rgba(139, 233, 253, 0.15), transparent 38%),
+            radial-gradient(circle at 74% 40%, rgba(139, 205, 253, 0.13), transparent 46%),
+            radial-gradient(circle at 44% 86%, rgba(207, 243, 255, 0.08), transparent 36%);
+        mix-blend-mode: screen;
+        filter: blur(22px);
+        animation: caustic-drift 28s ease-in-out infinite alternate;
+        will-change: transform;
+    }
+
+    @keyframes caustic-drift {
+        from {
+            transform: translate3d(-3%, 2%, 0) scale(1.04);
+        }
+
+        to {
+            transform: translate3d(3%, -2%, 0) scale(1.14);
+        }
+    }
+
+    .cetacean-page .marine-snow {
+        position: absolute;
+        inset: 0;
+    }
+
+    .cetacean-page .snow-flake {
+        position: absolute;
+        border-radius: 50%;
+        background: #dff2ff;
+        animation-name: snow-fall;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        will-change: transform;
+    }
+
+    @keyframes snow-fall {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+
+        to {
+            transform: translate3d(30px, 115vh, 0);
+        }
+    }
+
+    /* ==================================================
+       3. SWIMMING WHALE + DOLPHIN (HERO)
+    ================================================== */
+
+    .cetacean-swim-lane {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 80px;
+        height: 240px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .cetacean-svg-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    /* Wrappers for the two-axis motion */
+    .hero-whale-track,
+    .hero-dolphin-track {
+        position: absolute;
+        left: 0;
+        will-change: transform;
+    }
+
+    .hero-whale-track {
+        top: 28px;
+        width: 400px;
+        height: 133px;
+        animation: hero-whale-cross 36s linear infinite;
+    }
+
+    .hero-dolphin-track {
+        top: 108px;
+        width: 80px;
+        height: 29px;
+        animation: hero-dolphin-cross 26s linear infinite;
+    }
+
+    .hero-whale-bob {
+        width: 100%;
+        height: 100%;
+        animation: whale-swim-bob 4.5s ease-in-out infinite alternate;
+    }
+
+    .hero-dolphin-bob {
+        width: 100%;
+        height: 100%;
+        animation: dolphin-swim-bob 1.6s ease-in-out infinite alternate;
+    }
+
+    .hero-whale-track svg,
+    .hero-dolphin-track svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    @keyframes hero-whale-cross {
+        from { transform: translateX(-460px); }
+        to { transform: translateX(112vw); }
+    }
+
+    @keyframes hero-dolphin-cross {
+        from { transform: translateX(-120px); }
+        to { transform: translateX(115vw); }
+    }
+
+    @keyframes whale-swim-bob {
+        0% { transform: translateY(0) rotate(-0.6deg); }
+        100% { transform: translateY(-7px) rotate(0.6deg); }
+    }
+
+    @keyframes dolphin-swim-bob {
+        0% { transform: translateY(-5px) rotate(-5deg); }
+        100% { transform: translateY(5px) rotate(5deg); }
+    }
+
+    /* ==================================================
+       4. SCENE BANDS (CHASE + DISTURBANCE)
+    ================================================== */
+
+    .cetacean-page .scene {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: 0;
+    }
+
+    .cetacean-page .scene-label {
+        display: inline-block;
+        margin: 0 0 14px;
+        padding: 6px 14px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--aqua);
+        background: rgba(83, 216, 251, 0.08);
+        border: 1px solid rgba(139, 233, 253, 0.25);
+        border-radius: 999px;
+    }
+
+    .scene-stage {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(139, 233, 253, 0.16);
+        box-shadow: 0 22px 50px rgba(1, 8, 23, 0.35);
+        background:
+            radial-gradient(ellipse at 50% -10%, rgba(139, 233, 253, 0.16), transparent 55%),
+            linear-gradient(180deg, #041d3d 0%, #063057 42%, #031530 100%);
+    }
+
+    .chase-stage {
+        height: 340px;
+    }
+
+    .disturb-stage {
+        height: 380px;
+    }
+
+    /* Ambient bubbles inside stages */
+    .scene-bubbles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .scene-bubbles span {
+        position: absolute;
+        bottom: -20px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65), rgba(139, 233, 253, 0.12));
+        border: 1px solid rgba(139, 233, 253, 0.35);
+        animation: scene-bubble-rise linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes scene-bubble-rise {
+        from { transform: translateY(0) translateX(0); opacity: 0; }
+        10% { opacity: 0.7; }
+        to { transform: translateY(-420px) translateX(24px); opacity: 0; }
+    }
+
+    /* ---- CHASE SCENE ---- */
+
+    .chase-whale-track {
+        position: absolute;
+        left: 0;
+        top: 62px;
+        width: 400px;
+        height: 133px;
+        z-index: 2;
+        animation: chase-whale-cross 30s linear infinite;
+        will-change: transform;
+    }
+
+    .chase-whale-bob {
+        width: 100%;
+        height: 100%;
+        animation: whale-swim-bob 5s ease-in-out infinite alternate;
+    }
+
+    .chase-dolphin-track {
+        position: absolute;
+        left: 0;
+        top: 112px;
+        width: 80px;
+        height: 29px;
+        z-index: 3;
+        animation: chase-dolphin-cross 20s linear infinite;
+        will-change: transform;
+        filter: drop-shadow(3px 0 4px rgba(90, 127, 168, 0.35));
+    }
+
+    .chase-dolphin-bob {
+        width: 100%;
+        height: 100%;
+        animation: dolphin-swim-bob 1.3s ease-in-out infinite alternate;
+    }
+
+    .chase-whale-track svg,
+    .chase-dolphin-track svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    @keyframes chase-whale-cross {
+        from { transform: translateX(-440px); }
+        to { transform: translateX(112vw); }
+    }
+
+    @keyframes chase-dolphin-cross {
+        from { transform: translateX(-120px); }
+        to { transform: translateX(116vw); }
+    }
+
+    /* ---- DISTURBANCE SCENE ---- */
+
+    .disturb-whale-track {
+        position: absolute;
+        left: 14%;
+        top: 96px;
+        width: 400px;
+        height: 133px;
+        z-index: 2;
+        animation: disturb-whale-drift 26s ease-in-out infinite alternate;
+        will-change: transform;
+    }
+
+    .disturb-whale-bob {
+        width: 100%;
+        height: 100%;
+        animation: whale-swim-bob 6s ease-in-out infinite alternate;
+    }
+
+    .disturb-dolphin {
+        position: absolute;
+        left: 44%;
+        top: 150px;
+        width: 80px;
+        height: 29px;
+        z-index: 3;
+        filter: drop-shadow(2px 2px 3px rgba(90, 127, 168, 0.4));
+        animation: dolphin-disturb 9s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    .disturb-dolphin svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    @keyframes disturb-whale-drift {
+        from { transform: translateX(0) rotate(-0.3deg); }
+        to { transform: translateX(52px) rotate(0.3deg); }
+    }
+
+    @keyframes dolphin-disturb {
+        0%   { transform: translate(-60px, 0)     rotate(0deg); }
+        12%  { transform: translate(-35px, -78px) rotate(-22deg); }
+        26%  { transform: translate(40px, -118px) rotate(-10deg); }
+        40%  { transform: translate(118px, -74px) rotate(14deg); }
+        52%  { transform: translate(162px, -4px)  rotate(6deg); }
+        62%  { transform: translate(128px, 26px)  rotate(-6deg); }
+        76%  { transform: translate(58px, -24px)  rotate(-16deg); }
+        88%  { transform: translate(8px, -10px)   rotate(-5deg); }
+        100% { transform: translate(-60px, 0)     rotate(0deg); }
+    }
+
+    /* JS-spawned trail bubbles */
+    .trail-bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(139, 233, 253, 0.15));
+        border: 1px solid rgba(139, 233, 253, 0.55);
+        pointer-events: none;
+        z-index: 4;
+        animation: trail-bubble-rise 1.8s ease-out forwards;
+    }
+
+    @keyframes trail-bubble-rise {
+        from { transform: translateY(0) scale(0.7); opacity: 0.85; }
+        to { transform: translateY(-46px) scale(1.5); opacity: 0; }
+    }
+
+    /* ==================================================
+       5. SECTIONS
+    ================================================== */
+
+    .cetacean-page .section {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: clamp(30px, 5vw, 56px) clamp(20px, 4vw, 44px);
+        border: 1px solid rgba(139, 233, 253, 0.13);
+        border-radius: 26px;
+        background:
+            linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+        box-shadow: 0 18px 42px rgba(1, 8, 23, 0.18);
+    }
+
+    .cetacean-page .section-head {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 10px 32px;
+        align-items: end;
+        margin-bottom: 36px;
+    }
+
+    .cetacean-page .section-head .kicker {
+        grid-column: 1 / -1;
+        color: var(--sand);
+        letter-spacing: 0.18em;
+    }
+
+    .cetacean-page .section-head h2 {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .cetacean-page .section-head .lead {
+        grid-column: 2;
+        grid-row: 2;
+        color: var(--ink-dim);
+        align-self: end;
+        padding-bottom: 5px;
+    }
+
+    /* ==================================================
+       6. CARDS & PANELS
+    ================================================== */
+
+    .cetacean-page .species-card,
+    .cetacean-page .fact-tile {
+        background:
+            linear-gradient(145deg, rgba(10, 74, 124, 0.3), rgba(2, 13, 32, 0.75));
+        border: 1px solid rgba(139, 233, 253, 0.17);
+        border-top: 2px solid rgba(244, 213, 141, 0.55);
+        border-radius: 20px;
+        padding: 25px;
+        transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .cetacean-page .species-card:hover,
+    .cetacean-page .fact-tile:hover {
+        transform: translateY(-7px);
+        border-color: var(--aqua);
+        box-shadow:
+            0 22px 48px rgba(1, 8, 23, 0.4),
+            0 0 22px rgba(83, 216, 251, 0.12);
+    }
+
+    .cetacean-page .species-name {
+        font-size: 1.1rem;
+        color: #fff;
+    }
+
+    .cetacean-page .species-sci {
+        color: var(--aqua-soft);
+    }
+
+    .cetacean-page .species-fact {
+        line-height: 1.75;
+    }
+
+    .cetacean-page .species-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background:
+            radial-gradient(circle at 30% 25%, rgba(244, 213, 141, 0.2), rgba(83, 216, 251, 0.09));
+        border: 1px solid rgba(244, 213, 141, 0.3);
+    }
+
+    .cetacean-page .profile-panel {
+        background:
+            linear-gradient(145deg, rgba(10, 74, 124, 0.32), rgba(2, 13, 32, 0.82));
+        border: 1px solid rgba(139, 233, 253, 0.2);
+        border-radius: 24px;
+        padding: clamp(22px, 4vw, 36px);
+    }
+
+    .cetacean-page .vital-box {
+        background: rgba(1, 8, 23, 0.45);
+        border-color: rgba(139, 233, 253, 0.2);
+    }
+
+    .cetacean-page .vital-box dd {
+        color: var(--sand);
+    }
+
+    .cetacean-page .zone-stats li {
+        background: rgba(83, 216, 251, 0.08);
+        border: 1px solid rgba(83, 216, 251, 0.2);
+        border-radius: 999px;
+    }
+
+    .cetacean-page .data-note {
+        padding: 14px 18px;
+        border-left: 3px solid var(--sand);
+        background: rgba(244, 213, 141, 0.055);
+        border-radius: 0 12px 12px 0;
+        line-height: 1.7;
+    }
+
+    .cetacean-page .wave-divider:not(.hero-wave) {
+        height: 55px;
+        opacity: 0.55;
+    }
+
+    .cetacean-page .site-footer {
+        margin-top: 55px;
+    }
+
+    /* ==================================================
+       7. SIZE COMPARISON CHART
+    ================================================== */
+
+    .size-chart {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 8px;
+    }
+
+    .size-row {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.92rem;
+    }
+
+    .size-label {
+        color: var(--ink-dim);
+        font-weight: 500;
+    }
+
+    .size-bar {
+        position: relative;
+        display: block;
+        height: 26px;
+        min-width: 44px;
+        border-radius: 7px;
+        background: linear-gradient(90deg, rgba(83, 216, 251, 0.75), rgba(139, 233, 253, 0.4));
+        box-shadow: 0 0 14px rgba(83, 216, 251, 0.25) inset;
+        transition: transform 0.3s ease;
+    }
+
+    .size-row:hover .size-bar {
+        transform: scaleX(1.015);
+        box-shadow: 0 0 18px rgba(83, 216, 251, 0.35) inset;
+    }
+
+    .size-val {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.74rem;
+        font-weight: 600;
+        color: #03203d;
+        white-space: nowrap;
+    }
+
+    /* Glowing deep-sea tile */
+    .cetacean-page .glow-tile {
+        border-top-color: rgba(139, 233, 253, 0.9);
+        animation: glow-breathe 5.5s ease-in-out infinite;
+    }
+
+    @keyframes glow-breathe {
+        0%, 100% { box-shadow: 0 0 18px rgba(83, 216, 251, 0.06); }
+        50% { box-shadow: 0 0 34px rgba(83, 216, 251, 0.22); }
+    }
+
+    /* ==================================================
+       8. RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 860px) {
+        .cetacean-page .section-head {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .cetacean-page .section-head .kicker,
+        .cetacean-page .section-head h2,
+        .cetacean-page .section-head .lead {
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        .size-row {
+            grid-template-columns: 120px 1fr;
+        }
+    }
+
+    @media (max-width: 620px) {
+        .cetacean-page .hero {
+            padding: calc(var(--nav-h) + 45px) 16px 170px;
+        }
+
+        .cetacean-page .hero-content {
+            padding: 26px 20px;
+            border-radius: 20px;
+        }
+
+        .cetacean-page .section {
+            margin: 22px 12px;
+            padding: 28px 19px;
+            border-radius: 19px;
+        }
+
+        .cetacean-page .section-head {
+            margin-bottom: 28px;
+        }
+
+        .cetacean-swim-lane {
+            bottom: 58px;
+            height: 180px;
+        }
+
+        .hero-whale-track {
+            top: 20px;
+            width: 280px;
+            height: 93px;
+        }
+
+        .hero-dolphin-track {
+            top: 82px;
+            width: 56px;
+            height: 20px;
+        }
+
+        .chase-stage {
+            height: 270px;
+        }
+
+        .chase-whale-track {
+            top: 50px;
+            width: 280px;
+            height: 93px;
+        }
+
+        .chase-dolphin-track {
+            top: 92px;
+            width: 56px;
+            height: 20px;
+        }
+
+        .disturb-stage {
+            height: 300px;
+        }
+
+        .disturb-whale-track {
+            left: 8%;
+            top: 76px;
+            width: 280px;
+            height: 93px;
+        }
+
+        .disturb-dolphin {
+            left: 42%;
+            top: 118px;
+            width: 56px;
+            height: 20px;
+        }
+
+        .size-row {
+            grid-template-columns: 100px 1fr;
+            gap: 10px;
+            font-size: 0.84rem;
+        }
+
+        .size-val {
+            font-size: 0.66rem;
+        }
+    }
+
+    /* ==================================================
+       9. REDUCED MOTION
+    ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+        .cetacean-page .ray-layer,
+        .cetacean-page .caustic-layer,
+        .cetacean-page .snow-flake,
+        .hero-whale-track,
+        .hero-dolphin-track,
+        .hero-whale-bob,
+        .hero-dolphin-bob,
+        .chase-whale-track,
+        .chase-dolphin-track,
+        .chase-whale-bob,
+        .chase-dolphin-bob,
+        .disturb-whale-track,
+        .disturb-whale-bob,
+        .disturb-dolphin,
+        .scene-bubbles span,
+        .trail-bubble,
+        .cetacean-page .glow-tile {
+            animation: none;
+        }
+
+        .hero-whale-track { transform: translateX(6%); }
+        .hero-dolphin-track { transform: translateX(72%); }
+        .chase-whale-track { transform: translateX(6%); }
+        .chase-dolphin-track { transform: translateX(72%); }
+        .disturb-dolphin { transform: translate(40px, -40px); }
+        .scene-bubbles span { opacity: 0.25; }
+    }
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml,*<*&#x73;vg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>*<*&#x74;ext y='.9em' font-size='90'>&#128051;*<*/text>*<*/svg>" />
+</head>
+
+<body class="cetacean-page">
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="ocean-bg" id="oceanBg" aria-hidden="true"></div>
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <noscript>
+        <div class="noscript-note">🌊 Enable JavaScript for navigation and motion effects. All whale and dolphin information remains readable without it.</div>
+    </noscript>
+
+    <!-- ======================= NAVIGATION ======================= -->
+    <header class="site-nav" id="siteNav">
+        <nav class="nav-inner" aria-label="Primary">
+            <a class="brand" href="index.html#home" aria-label="OceanAtlas — home">
+                <span class="brand-wave" aria-hidden="true">🌊</span>
+                <span class="brand-text">Ocean<em>Atlas</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
+                aria-controls="navMenu" aria-label="Open navigation menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+                <li><a class="nav-link" href="index.html#species">Species</a></li>
+                <li><a class="nav-link" href="index.html#zones">Ocean zones</a></li>
+                <li><a class="nav-link is-active" href="#home" aria-current="page">Whales &amp; Dolphins</a></li>
+                <li><a class="nav-link" href="#facts">Facts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- ======================= 1 · HERO ======================= -->
+        <section class="hero" id="home" aria-label="The world of whales and dolphins">
+
+            <!-- ================= ATMOSPHERE LAYERS ================= -->
+            <div class="hero-fx" aria-hidden="true">
+                <div class="ray-layer"></div>
+                <div class="caustic-layer"></div>
+                <div class="marine-snow" id="marineSnow"></div>
+            </div>
+            <!-- ================= END ATMOSPHERE ================= -->
+
+            <!-- ================= WHALE & DOLPHIN SVG DEFS ================= -->
+            <svg class="cetacean-svg-defs" aria-hidden="true" focusable="false">
+                <defs>
+                    <linearGradient id="whaleGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#6f9cc9" />
+                        <stop offset="55%" stop-color="#39648f" />
+                        <stop offset="100%" stop-color="#1d3d63" />
+                    </linearGradient>
+                    <linearGradient id="dolphinGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#7fa8cf" />
+                        <stop offset="55%" stop-color="#5a7fa8" />
+                        <stop offset="100%" stop-color="#2f5279" />
+                    </linearGradient>
+                </defs>
+
+                <!-- ============ HUMPBACK-STYLE WHALE ============ -->
+                <symbol id="humpback-whale" viewBox="0 0 600 200">
+                    <!-- Body -->
+                    <path d="M30 100 
+                             C32 72 70 52 130 46 
+                             C210 38 300 40 380 52 
+                             C430 60 470 72 500 88 
+                             C512 95 514 100 508 106 
+                             C488 125 448 138 390 148 
+                             C310 160 220 160 140 154 
+                             C80 148 38 128 30 100 Z" 
+                          fill="url(#whaleGrad)" stroke="#1e3a5f" stroke-width="3" />
+
+                    <!-- Belly -->
+                    <path d="M55 118 
+                             C100 150 200 158 310 153 
+                             C390 148 450 135 490 118 
+                             C465 132 420 145 340 152 
+                             C250 160 150 157 55 118 Z" 
+                          fill="#c9d8e8" opacity="0.7" />
+
+                    <!-- Throat grooves -->
+                    <g stroke="#3a5a8a" stroke-width="2" fill="none" opacity="0.45">
+                        <path d="M60 125 C100 142 160 150 220 149" />
+                        <path d="M60 135 C100 152 160 160 220 158" />
+                        <path d="M60 145 C100 162 160 168 220 166" />
+                    </g>
+
+                    <!-- Dorsal fin -->
+                    <path d="M430 60 C438 40 452 32 466 34 C458 46 452 56 450 62 Z" 
+                          fill="url(#whaleGrad)" stroke="#1e3a5f" stroke-width="2.5" stroke-linejoin="round" />
+
+                    <!-- Pectoral fin (long) -->
+                    <path d="M150 140 C160 170 185 190 225 195 C205 182 185 165 178 142 Z" 
+                          fill="#3d5a80" stroke="#1e3a5f" stroke-width="2.5" stroke-linejoin="round" />
+
+                    <!-- Eye -->
+                    <circle cx="70" cy="88" r="4.5" fill="#0a1628" />
+                    <circle cx="71.5" cy="86.5" r="1.6" fill="#eaf6ff" opacity="0.8" />
+
+                    <!-- Mouth -->
+                    <path d="M32 108 C52 118 82 120 112 116" stroke="#1e3a5f" stroke-width="2.5"
+                          fill="none" stroke-linecap="round" opacity="0.6" />
+
+                    <!-- Tubercles on head -->
+                    <g fill="#3d5a80" opacity="0.6">
+                        <circle cx="50" cy="60" r="3.5" />
+                        <circle cx="65" cy="54" r="3" />
+                        <circle cx="80" cy="50" r="3.5" />
+                        <circle cx="95" cy="48" r="2.5" />
+                    </g>
+
+                    <!-- Fluke -->
+                    <g class="whale-fluke">
+                        <path d="M505 92 
+                                 C525 60 560 32 595 24 
+                                 C575 60 548 92 528 100 
+                                 C548 108 575 140 595 176 
+                                 C560 168 525 140 505 108 Z" 
+                              fill="url(#whaleGrad)" stroke="#1e3a5f" stroke-width="3" stroke-linejoin="round" />
+                    </g>
+                </symbol>
+
+                <!-- ============ BOTTLENOSE-STYLE DOLPHIN ============ -->
+                <symbol id="bottlenose-dolphin" viewBox="0 0 245 90">
+                    <!-- Body -->
+                    <path d="M12 46 
+                             C15 34 35 26 65 23 
+                             C105 20 150 23 185 32 
+                             C205 37 218 43 224 47 
+                             C227 48 227 49 224 51 
+                             C218 55 205 61 185 67 
+                             C150 75 105 78 65 75 
+                             C35 72 15 63 12 51 Z" 
+                          fill="url(#dolphinGrad)" stroke="#1e3a5f" stroke-width="3.5" />
+
+                    <!-- Belly -->
+                    <path d="M28 55 
+                             C55 72 105 76 150 72 
+                             C180 69 205 62 218 54 
+                             C200 66 168 74 128 76 
+                             C85 78 50 72 28 55 Z" 
+                          fill="#d0e0ee" opacity="0.75" />
+
+                    <!-- Beak -->
+                    <path d="M0 46 C5 43 12 43 18 46 C14 48 5 49 0 47 Z" 
+                          fill="url(#dolphinGrad)" stroke="#1e3a5f" stroke-width="2.5" />
+
+                    <!-- Dorsal fin -->
+                    <path d="M125 26 C132 8 145 0 158 4 C150 16 144 26 142 30 Z" 
+                          fill="#4a6f98" stroke="#1e3a5f" stroke-width="2.5" stroke-linejoin="round" />
+
+                    <!-- Pectoral flipper -->
+                    <path d="M80 68 C88 82 102 90 118 90 C108 82 98 72 94 68 Z" 
+                          fill="#4a6f98" stroke="#1e3a5f" stroke-width="2.5" stroke-linejoin="round" />
+
+                    <!-- Eye -->
+                    <circle cx="32" cy="45" r="3.5" fill="#0a1628" />
+                    <circle cx="33" cy="44" r="1.2" fill="#eaf6ff" opacity="0.85" />
+
+                    <!-- Mouth -->
+                    <path d="M15 51 C24 55 34 55 42 53" stroke="#1e3a5f" stroke-width="2"
+                          fill="none" stroke-linecap="round" opacity="0.6" />
+
+                    <!-- Fluke -->
+                    <g class="dolphin-fluke">
+                        <path d="M222 46 
+                                 C227 32 235 20 245 16 
+                                 C240 30 234 42 230 48 
+                                 C234 54 240 66 245 80 
+                                 C235 76 227 64 222 50 Z" 
+                              fill="url(#dolphinGrad)" stroke="#1e3a5f" stroke-width="2.5" stroke-linejoin="round" />
+                    </g>
+                </symbol>
+            </svg>
+
+            <div class="cetacean-swim-lane" aria-hidden="true">
+                <div class="hero-whale-track">
+                    <div class="hero-whale-bob">
+                        <svg viewBox="0 0 600 200"><use href="#humpback-whale"></use></svg>
+                    </div>
+                </div>
+                <div class="hero-dolphin-track">
+                    <div class="hero-dolphin-bob">
+                        <svg viewBox="0 0 245 90"><use href="#bottlenose-dolphin"></use></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <p class="hero-kicker">OceanAtlas · Marine life field guide</p>
+                <h1 class="hero-title" id="heroTitle">The World of Whales &amp; Dolphins</h1>
+                <p class="hero-sub">
+                    They breathe air, nurse their young, and sing across entire ocean basins. Whales and dolphins are
+                    mammals that returned to the sea—and in doing so became some of the largest, loudest, and most
+                    intelligent animals on Earth.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="exploreBtn" type="button">
+                        Explore cetacean life
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-ghost" href="#chase">See the chase</a>
+                </div>
+                <ul class="hero-chips" aria-label="Cetacean guide highlights">
+                    <li>🐋 Approx. 90+ living cetacean species</li>
+                    <li>🌊 Surface to below 2,900 m</li>
+                    <li>🎵 Echolocation, song, and culture</li>
+                </ul>
+            </div>
+            <div class="wave-divider hero-wave" aria-hidden="true">
+                <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= 2 · HOW MANY? ======================= -->
+        <section class="section" id="count" aria-labelledby="countHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">01 · The numbers</p>
+                <h2 id="countHeading">How many cetaceans exist?</h2>
+                <p class="lead">Cetacea is the order that includes whales, dolphins, and porpoises. The line between “whale” and “dolphin” is partly about size, partly about family.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-hero-top">
+                    <div class="profile-icon" aria-hidden="true">🐋</div>
+                    <div class="profile-heading">
+                        <p class="kicker">Living cetaceans · Cetacea</p>
+                        <h2>Approx. 90+</h2>
+                        <p class="profile-hook">Described living species of whales, dolphins, and porpoises</p>
+                    </div>
+                </div>
+                <p class="profile-overview">
+                    Cetaceans are divided into two suborders. <strong>Mysticeti</strong>—the baleen whales—filter
+                    plankton and small fish using baleen plates; it includes blue, humpback, and right whales.
+                    <strong>Odontoceti</strong>—the toothed whales—hunt fish, squid, and other prey using teeth and,
+                    often, echolocation; it includes sperm whales, orcas, dolphins, and porpoises. Orcas and pilot
+                    whales are technically dolphins.
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>Baleen whales</dt>
+                        <dd>Mysticeti, incl. blue and humpback whales</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Toothed whales</dt>
+                        <dd>Odontoceti, incl. orcas and dolphins</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Why it changes</dt>
+                        <dd>New descriptions and molecular revisions</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Counts are approximate and depend on the taxonomic source. The Society for Marine Mammalogy and
+                    the IUCN maintain current lists and assessments for cetaceans.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 3 · GROUPS ======================= -->
+        <section class="section" id="groups" aria-labelledby="groupsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">02 · Meet the groups</p>
+                <h2 id="groupsHeading">Five cetaceans worth knowing</h2>
+                <p class="lead">From the largest animal that has ever lived to a small, pale dolphin of tropical rivers, cetaceans span an extraordinary range of forms.</p>
+            </header>
+
+            <div class="species-grid" data-reveal-group>
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🌊</div>
+                    <div class="badge-row"><span class="badge zone-sunlight">Mysticeti</span><span class="badge zone-abyss">Largest animal</span></div>
+                    <h3 class="species-name">Blue whale</h3>
+                    <p class="species-sci">Balaenoptera musculus</p>
+                    <p class="species-fact"><strong>Size:</strong> Up to roughly 30 m long and about 150 tonnes—the largest animal known to have lived.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Open ocean worldwide, feeding in cold, productive waters and breeding in warmer seas.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Its call can travel hundreds of kilometres underwater, and its heart alone is about the size of a small car.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🎶</div>
+                    <div class="badge-row"><span class="badge zone-sunlight">Mysticeti</span><span class="badge zone-midnight">Singer</span></div>
+                    <h3 class="species-name">Humpback whale</h3>
+                    <p class="species-sci">Megaptera novaeangliae</p>
+                    <p class="species-fact"><strong>Size:</strong> Commonly 12–16 m; females are slightly larger than males.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> All oceans; migrates between cold feeding grounds and warm breeding waters.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Males sing long, structured songs on breeding grounds; populations also use bubble-net feeding to corral fish.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🐬</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Odontoceti</span><span class="badge status-vu">Top predator</span></div>
+                    <h3 class="species-name">Orca</h3>
+                    <p class="species-sci">Orcinus orca</p>
+                    <p class="species-fact"><strong>Size:</strong> Males up to roughly 9–10 m, females around 7–8 m.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> All oceans, from polar seas to tropical waters; often coastal or continental-shelf regions.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Despite the “killer whale” name, the orca is the largest member of the dolphin family, with complex, culturally transmitted hunting traditions.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🔊</div>
+                    <div class="badge-row"><span class="badge zone-coastal">Odontoceti</span><span class="badge zone-sunlight">Echolocator</span></div>
+                    <h3 class="species-name">Bottlenose dolphin</h3>
+                    <p class="species-sci">Tursiops truncatus</p>
+                    <p class="species-fact"><strong>Size:</strong> Typically about 2–4 m, depending on region and sex.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Coastal waters, bays, estuaries, and open ocean in warm and temperate seas.</p>
+                    <p class="species-fact"><strong>Fact:</strong> It uses echolocation to find prey and navigate, and some populations use sponges as tools to protect their snouts while foraging.</p>
+                </article>
+
+                <article class="species-card glass hoverable">
+                    <div class="species-icon" aria-hidden="true">🕳️</div>
+                    <div class="badge-row"><span class="badge zone-abyss">Odontoceti</span><span class="badge zone-midnight">Champion diver</span></div>
+                    <h3 class="species-name">Cuvier’s beaked whale</h3>
+                    <p class="species-sci">Ziphius cavirostris</p>
+                    <p class="species-fact"><strong>Size:</strong> Around 5–7 m, with females slightly larger than males.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Deep offshore waters in all oceans; rarely seen at the surface.</p>
+                    <p class="species-fact"><strong>Fact:</strong> It holds the record for the deepest and longest dives by a mammal—nearly 3,000 m down for over two hours.</p>
+                </article>
+            </div>
+            <p class="data-note">“Whale” and “dolphin” are common names, not strict taxonomic ranks. Orcas and pilot whales, for example, are dolphins, and several “whales” are more closely related to dolphins than to baleen whales.</p>
+        </section>
+
+        <!-- ======================= 4 · SCENE 1 — THE CHASE ======================= -->
+        <section class="scene" id="chase" aria-labelledby="chaseHeading">
+            <p class="scene-label">Scene 01 · The Chase</p>
+            <h2 id="chaseHeading" class="sr-only">A humpback whale slowly chases a bottlenose dolphin</h2>
+
+            <div class="scene-stage chase-stage" aria-hidden="true">
+                <div class="scene-bubbles" id="chaseBubbles"></div>
+
+                <div class="chase-whale-track">
+                    <div class="chase-whale-bob">
+                        <svg viewBox="0 0 600 200"><use href="#humpback-whale"></use></svg>
+                    </div>
+                </div>
+
+                <div class="chase-dolphin-track">
+                    <div class="chase-dolphin-bob">
+                        <svg viewBox="0 0 245 90"><use href="#bottlenose-dolphin"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <p class="data-note">Proportions on screen follow real body lengths: the humpback-style whale is shown about five times longer than the bottlenose-style dolphin—roughly matching a 15 m whale and a 3 m dolphin.</p>
+        </section>
+
+        <!-- ======================= 5 · DEEP-SEA CETACEANS ======================= -->
+        <section class="section" id="deep-sea" aria-labelledby="deepSeaHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">03 · The deep sea</p>
+                <h2 id="deepSeaHeading">Whales and dolphins of the deep</h2>
+                <p class="lead">Some cetaceans spend most of their lives below the reach of light. They are among the hardest marine mammals to study—and among the most extraordinary.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 01</span>
+                    <h3 class="species-name">Cuvier’s beaked whale</h3>
+                    <p class="species-sci">Ziphius cavirostris</p>
+                    <ul class="zone-stats">
+                        <li>Depth: regularly below 1,000 m; record dive approx. 2,992 m</li>
+                        <li>Size: approx. 5–7 m</li>
+                        <li>Range: all oceans, offshore</li>
+                    </ul>
+                    <p>A deep-diving odontocete that hunts squid in near-total darkness. Its record dive—nearly 3 km down for over two hours—is the deepest and longest documented for any mammal.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 02</span>
+                    <h3 class="species-name">Sperm whale</h3>
+                    <p class="species-sci">Physeter macrocephalus</p>
+                    <ul class="zone-stats">
+                        <li>Depth: routinely 400–1,000 m; deeper dives recorded</li>
+                        <li>Size: males up to approx. 18–20 m; females smaller</li>
+                        <li>Range: deep waters of all oceans</li>
+                    </ul>
+                    <p>The largest toothed predator on Earth, with the largest brain of any animal. It hunts deep-sea squid and produces powerful clicks used for both echolocation and communication.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP · 03</span>
+                    <h3 class="species-name">Long-finned pilot whale</h3>
+                    <p class="species-sci">Globicephala melas</p>
+                    <ul class="zone-stats">
+                        <li>Depth: typically a few hundred metres; dives to approx. 1,000 m recorded</li>
+                        <li>Size: approx. 5–7 m</li>
+                        <li>Range: North Atlantic and Southern Ocean</li>
+                    </ul>
+                    <p>A large dolphin that lives in tight, matrilineal pods. Its mass strandings have made it a focus of research on cetacean social bonds and navigation.</p>
+                </article>
+
+                <article class="fact-tile glass glow-tile hoverable">
+                    <span class="fact-num">DEEP · 04</span>
+                    <h3 class="species-name">Narwhal</h3>
+                    <p class="species-sci">Monodon monoceros</p>
+                    <ul class="zone-stats">
+                        <li>Depth: routinely to approx. 1,500 m, often under sea ice</li>
+                        <li>Size: approx. 4–5.5 m, excluding the tusk</li>
+                        <li>Range: Arctic waters of Canada, Greenland, and Russia</li>
+                    </ul>
+                    <p>The tusk of a male narwhal is an elongated, spiralled tooth—not a horn—packed with nerve endings. Narwhals dive deep beneath Arctic ice to feed on squid, fish, and shrimp.</p>
+                </article>
+            </div>
+            <p class="data-note">Depth records differ between studies and are hard to verify for elusive species. Values above are approximate reference ranges, not limits for every individual.</p>
+        </section>
+
+        <!-- ======================= 6 · SCENE 2 — THE DISTURBANCE ======================= -->
+        <section class="scene" id="disturb" aria-labelledby="disturbHeading">
+            <p class="scene-label">Scene 02 · The Disturbance</p>
+            <h2 id="disturbHeading" class="sr-only">A bottlenose dolphin leaps and circles around a drifting humpback whale</h2>
+
+            <div class="scene-stage disturb-stage" aria-hidden="true">
+                <div class="scene-bubbles" id="disturbBubbles"></div>
+
+                <div class="disturb-whale-track">
+                    <div class="disturb-whale-bob">
+                        <svg viewBox="0 0 600 200"><use href="#humpback-whale"></use></svg>
+                    </div>
+                </div>
+
+                <div class="disturb-dolphin">
+                    <svg viewBox="0 0 245 90"><use href="#bottlenose-dolphin"></use></svg>
+                </div>
+            </div>
+            <p class="data-note">Body sizes stay in the same ~5:1 ratio as the chase scene, matching a large baleen whale and a bottlenose dolphin. The dolphin’s leaps, dives, and tight circling—and the bubbles it leaves behind—do the “disturbing.”</p>
+        </section>
+
+        <!-- ======================= 7 · SIZE COMPARISON ======================= -->
+        <section class="section" id="size" aria-labelledby="sizeHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">04 · Scale</p>
+                <h2 id="sizeHeading">How big are they, really?</h2>
+                <p class="lead">Bars below are drawn to the same scale. Notice how much of cetacean diversity sits at the smaller end of the range.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="size-chart">
+                    <div class="size-row">
+                        <span class="size-label">Blue whale</span>
+                        <span class="size-bar" style="width: 100%"><span class="size-val">~30 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Sperm whale</span>
+                        <span class="size-bar" style="width: 63%"><span class="size-val">~19 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Humpback whale</span>
+                        <span class="size-bar" style="width: 50%"><span class="size-val">~15 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Orca (a dolphin)</span>
+                        <span class="size-bar" style="width: 23%"><span class="size-val">~7 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Bottlenose dolphin</span>
+                        <span class="size-bar" style="width: 10%"><span class="size-val">~3 m</span></span>
+                    </div>
+                    <div class="size-row">
+                        <span class="size-label">Human</span>
+                        <span class="size-bar" style="width: 6%"><span class="size-val">~1.8 m</span></span>
+                    </div>
+                </div>
+                <p class="profile-note">Bar lengths are proportional to typical adult body length. Actual maximum sizes vary by population, sex, and measurement method.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 8 · REGIONAL SPECIES ======================= -->
+        <section class="section" id="regional" aria-labelledby="regionalHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">05 · Regional focus</p>
+                <h2 id="regionalHeading">Whales and dolphins of Asian and European waters</h2>
+                <p class="lead">The Indo-Pacific and the Northeast Atlantic host very different cetacean communities, from pink river dolphins to cold-water rorquals.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 01</span>
+                    <h3 class="species-name">Indo-Pacific humpback dolphin</h3>
+                    <p class="species-sci">Sousa chinensis</p>
+                    <ul class="zone-stats">
+                        <li>Depth: shallow coastal waters, usually under 30 m</li>
+                        <li>Size: approx. 2–2.8 m</li>
+                        <li>Range: eastern Indian Ocean and western Pacific, including Hong Kong and Taiwan</li>
+                    </ul>
+                    <p>Adults often turn pinkish-white as they age, especially in the Taiwanese population, where they are known as “pink dolphins.” Coastal development and fishing gear are major threats.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ASIA · 02</span>
+                    <h3 class="species-name">Yangtze finless porpoise</h3>
+                    <p class="species-sci">Neophocaena asiaeorientalis</p>
+                    <ul class="zone-stats">
+                        <li>Habitat: freshwater rivers and lakes in China</li>
+                        <li>Size: approx. 1.5–2 m</li>
+                        <li>Status: critically endangered</li>
+                    </ul>
+                    <p>A small, toothless-looking porpoise (it has teeth, but they are small and peg-like) adapted to turbid freshwater. Fewer than about 1,200 individuals remain in the Yangtze.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 01</span>
+                    <h3 class="species-name">Minke whale</h3>
+                    <p class="species-sci">Balaenoptera acutorostrata</p>
+                    <ul class="zone-stats">
+                        <li>Depth: mostly surface to a few hundred metres</li>
+                        <li>Size: approx. 7–10 m</li>
+                        <li>Range: North Atlantic, North Pacific, and Southern Ocean</li>
+                    </ul>
+                    <p>The smallest of the common rorquals in the North Atlantic. It feeds on small fish and krill and is one of the few baleen whales still legally hunted by some countries.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 02</span>
+                    <h3 class="species-name">Short-beaked common dolphin</h3>
+                    <p class="species-sci">Delphinus delphis</p>
+                    <ul class="zone-stats">
+                        <li>Depth: mostly surface to roughly 200 m</li>
+                        <li>Size: approx. 1.7–2.4 m</li>
+                        <li>Range: Northeast Atlantic, Mediterranean, and other temperate seas</li>
+                    </ul>
+                    <p>A fast, acrobatic dolphin with a distinctive hourglass pattern on its flanks. Large groups often feed cooperatively on schooling fish such as sardines and anchovies.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">EUROPE · 03</span>
+                    <h3 class="species-name">Harbour porpoise</h3>
+                    <p class="species-sci">Phocoena phocoena</p>
+                    <ul class="zone-stats">
+                        <li>Depth: mostly shallow coastal and shelf waters</li>
+                        <li>Size: approx. 1.5–2 m</li>
+                        <li>Range: North Atlantic and North Pacific coasts</li>
+                    </ul>
+                    <p>The smallest and most numerous cetacean in many European coastal waters. Unlike dolphins, porpoises have blunt, spade-shaped teeth and lack a prominent beak.</p>
+                </article>
+            </div>
+            <p class="data-note">Regional depth and size ranges are compiled from species databases, IUCN assessments, and survey records. Local populations may fall outside these ranges.</p>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================= 9 · FOSSILS ======================= -->
+        <section class="section" id="fossils" aria-labelledby="fossilsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">06 · Deep time</p>
+                <h2 id="fossilsHeading">Fossil whales and the return to the sea</h2>
+                <p class="lead">Cetaceans evolved from four-legged land mammals. The fossil record captures the stages of that extraordinary transition.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 01</span>
+                    <h3 class="species-name">Pakicetus</h3>
+                    <p class="species-sci">An early whale from Pakistan</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 50 million years ago, Eocene</li>
+                        <li>Size: roughly wolf-sized</li>
+                        <li>Known from: skull and partial skeleton</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> Pakicetus was a four-legged, hoofed mammal that lived near water. Its skull already shows ear features linked to underwater hearing, making it a key transitional fossil.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 02</span>
+                    <h3 class="species-name">Basilosaurus</h3>
+                    <p class="species-sci">A fully aquatic early whale</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 41–34 million years ago, Eocene</li>
+                        <li>Size: up to approx. 18 m</li>
+                        <li>Known from: skeletons in North Africa and North America</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> Long and serpentine, Basilosaurus was fully aquatic but still had small hind limbs. It swam using undulations of its body, more like an eel than a modern whale.</p>
+                </article>
+
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FOSSIL · 03</span>
+                    <h3 class="species-name">Livyatan melvillei</h3>
+                    <p class="species-sci">A giant fossil sperm whale</p>
+                    <ul class="zone-stats">
+                        <li>Time: approx. 9–10 million years ago, Miocene</li>
+                        <li>Size: estimated 13–17 m</li>
+                        <li>Known from: skull and teeth in Peru</li>
+                    </ul>
+                    <p><strong>Fossils only.</strong> Named after Herman Melville, this sperm-whale relative had enormous teeth in both jaws—unlike modern sperm whales, which have teeth only in the lower jaw. It likely hunted large prey.</p>
+                </article>
+            </div>
+            <p class="data-note">The cetacean fossil record includes dozens of well-documented transitional forms. Reconstructions of soft anatomy and behaviour remain inferential.</p>
+        </section>
+
+        <!-- ======================= 10 · REPRODUCTION ======================= -->
+        <section class="section" id="reproduction" aria-labelledby="reproductionHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">07 · Life cycle</p>
+                <h2 id="reproductionHeading">How whales and dolphins reproduce</h2>
+                <p class="lead">All cetaceans give birth to live young and nurse them with rich milk. Many species also raise calves in extended family groups.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <div class="profile-facts-grid">
+                    <article class="fact-tile">
+                        <span class="fact-num">01 · MATING</span>
+                        <h3 class="species-name">Competition and courtship</h3>
+                        <p>Mating systems range from scramble competition to male–male combat and complex songs. In humpbacks, males sing long, structured songs on breeding grounds; in some dolphin species, males form alliances that cooperate in courtship.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">02 · GESTATION</span>
+                        <h3 class="species-name">Months in the womb</h3>
+                        <p>Gestation varies widely: about 10–12 months for many dolphins and small whales, and 11–12 months for humpbacks. Sperm whales carry their young for roughly 14–16 months.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">03 · BIRTH</span>
+                        <h3 class="species-name">Tail-first arrival</h3>
+                        <p>Calves are usually born tail-first, so the blowhole emerges last. This reduces the risk of drowning during the birth process. A mother or “auntie” often helps push the newborn to the surface for its first breath.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">04 · NURSING</span>
+                        <h3 class="species-name">Rich milk</h3>
+                        <p>Cetacean milk is very high in fat—sometimes 30–50%—allowing calves to grow quickly. Nursing can last from several months to over a year, depending on the species.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">05 · CALF CARE</span>
+                        <h3 class="species-name">Alloparenting</h3>
+                        <p>In many dolphins and some whales, other females help care for calves. These “aunties” may babysit, escort, or help push a calf to the surface—behaviour that strengthens social bonds.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">VARIATION</span>
+                        <h3 class="species-name">Not every species is the same</h3>
+                        <p>Birth intervals, calf dependency, and group structure vary enormously. Baleen whales tend to have longer migrations and shorter lactation than many toothed whales.</p>
+                    </article>
+                </div>
+                <p class="profile-note">The sequence above covers common patterns. Reproductive timing and calf care differ widely among species and populations.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 11 · DIET ======================= -->
+        <section class="section" id="diet" aria-labelledby="dietHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">08 · Food webs</p>
+                <h2 id="dietHeading">What do whales and dolphins eat?</h2>
+                <p class="lead">The two cetacean suborders have radically different feeding strategies—one filters tiny prey, the other hunts with teeth and echolocation.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FILTER FEEDERS</span>
+                    <h3 class="species-name">Baleen whales</h3>
+                    <p>Blue, humpback, and right whales strain krill and small fish through baleen plates. Some use bubble nets, lunge feeding, or skim feeding to concentrate prey before swallowing.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">TOOTHED HUNTERS</span>
+                    <h3 class="species-name">Fish and squid</h3>
+                    <p>Most toothed whales and dolphins hunt fish, squid, and crustaceans. Orcas also take seals, penguins, and other marine mammals, using cooperative hunting tactics.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">DEEP-SEA SPECIALISTS</span>
+                    <h3 class="species-name">A diet of squid</h3>
+                    <p>Sperm whales and beaked whales dive deep to hunt squid. Sperm whales can consume enormous quantities of squid and are thought to play a major role in deep-ocean food webs.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">COOPERATIVE FEEDING</span>
+                    <h3 class="species-name">Teamwork</h3>
+                    <p>Humpback whales use bubble nets; some dolphin populations herd fish into tight balls; orcas in some regions intentionally strand themselves on beaches to catch seals. Feeding traditions can be passed down culturally.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 12 · SENSES & BEHAVIOUR ======================= -->
+        <section class="section" id="behavior" aria-labelledby="behaviorHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">09 · Adaptations</p>
+                <h2 id="behaviorHeading">Senses, song, and culture</h2>
+                <p class="lead">Cetaceans navigate, hunt, and communicate in a world of sound. Many species also show striking evidence of social learning.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">ECHOLOCATION</span>
+                    <h3 class="species-name">Seeing with sound</h3>
+                    <p>Toothed whales produce clicks and listen for echoes to map their surroundings. In sperm whales, the clicks are the loudest sounds produced by any animal.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SONG</span>
+                    <h3 class="species-name">Humpback songs</h3>
+                    <p>Male humpback whales sing long, structured songs on breeding grounds. Songs evolve over time and spread between populations—a form of cultural transmission.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">SIGNATURE WHISTLES</span>
+                    <h3 class="species-name">Individual names</h3>
+                    <p>Bottlenose dolphins use individually distinctive “signature whistles” that function like names. Dolphins can learn and use the signature whistles of close associates.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">CULTURE</span>
+                    <h3 class="species-name">Traditions passed down</h3>
+                    <p>Orca populations have distinct hunting traditions—from seal-hunting in the North Pacific to fish-eating in the Northeast Atlantic—that are passed down socially rather than genetically.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">TOOL USE</span>
+                    <h3 class="species-name">Sponging dolphins</h3>
+                    <p>Some bottlenose dolphins in Shark Bay, Australia, carry sponges on their snouts while foraging. The behaviour is transmitted from mother to calf and is considered a form of tool use.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">MIGRATION</span>
+                    <h3 class="species-name">Ocean-spanning journeys</h3>
+                    <p>Many baleen whales migrate thousands of kilometres between feeding and breeding grounds. Satellite tagging has revealed record-breaking individual journeys across entire ocean basins.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 13 · FACTS ======================= -->
+        <section class="section" id="facts" aria-labelledby="factsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">10 · Did you know?</p>
+                <h2 id="factsHeading">Five facts about whales and dolphins</h2>
+                <p class="lead">They are mammals, they are loud, and they have been shaped by millions of years of life in the sea.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 01</span>
+                    <h3 class="species-name">They are mammals</h3>
+                    <p>Whales and dolphins breathe air, give birth to live young, nurse them with milk, and have (vestigial) hair. Their closest living land relatives are hippos.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 02</span>
+                    <h3 class="species-name">A heart the size of a car</h3>
+                    <p>A blue whale’s heart is roughly the size of a small car and weighs about 180 kg. Its heartbeat can be heard from over 3 km away with specialised equipment.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 03</span>
+                    <h3 class="species-name">Record-breaking dives</h3>
+                    <p>Cuvier’s beaked whales have been recorded diving to nearly 3,000 m and staying underwater for over two hours—deeper and longer than any other mammal.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 04</span>
+                    <h3 class="species-name">Loudest animal sounds</h3>
+                    <p>Sperm whale clicks can exceed 230 decibels—among the loudest sounds produced by any animal. They are used both for echolocation and communication.</p>
+                </article>
+                <article class="fact-tile glass hoverable">
+                    <span class="fact-num">FACT · 05</span>
+                    <h3 class="species-name">Half a brain at a time</h3>
+                    <p>Many dolphins and some whales sleep with one brain hemisphere at a time, keeping the other awake to surface for air and watch for predators.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 14 · CONSERVATION ======================= -->
+        <section class="section" id="conservation" aria-labelledby="conservationHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">11 · A changing ocean</p>
+                <h2 id="conservationHeading">Cetaceans under pressure</h2>
+                <p class="lead">Ship strikes, entanglement, noise, pollution, and climate change all affect cetaceans. Many populations are still recovering from historic whaling.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <p class="profile-overview">
+                    Commercial whaling in the 19th and 20th centuries reduced many large whale populations by more
+                    than 90%. Some—such as the North Atlantic right whale—remain critically endangered. Today, the
+                    main pressures are entanglement in fishing gear, ship strikes, underwater noise, chemical and
+                    plastic pollution, and the shifting distribution of prey driven by climate change. Conservation
+                    tools include marine protected areas, speed limits for ships, modified fishing gear, and
+                    international agreements such as the IWC ban on commercial whaling.
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>Historic threat</dt>
+                        <dd>Commercial whaling</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Current threats</dt>
+                        <dd>Entanglement, ship strikes, noise, pollution</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Key tools</dt>
+                        <dd>Protected areas, gear modification, ship speed limits</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Conservation status differs widely between species and populations. Always check the most recent
+                    IUCN Red List assessment for a particular species and stock.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 15 · SOURCES ======================= -->
+        <section class="section" id="sources" aria-labelledby="sourcesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">12 · References</p>
+                <h2 id="sourcesHeading">Sources and further reading</h2>
+                <p class="lead">The facts on this page draw on taxonomic databases, government and museum species guides, research papers, and regional marine assessments.</p>
+            </header>
+
+            <div class="profile-panel glass" data-reveal>
+                <nav class="footer-links" aria-label="Cetacean information sources">
+                    <ul>
+                        <li id="source-1"><a href="https://www.marinemammalscience.org/species-information/list-marine-mammal-species-subspecies/" target="_blank" rel="noopener">[1] Society for Marine Mammalogy — List of Marine Mammal Species and Subspecies.</a></li>
+                        <li id="source-2"><a href="https://www.iucnredlist.org/" target="_blank" rel="noopener">[2] IUCN Red List of Threatened Species — cetacean assessments and population trends.</a></li>
+                        <li id="source-3"><a href="https://www.fisheries.noaa.gov/species/blue-whale" target="_blank" rel="noopener">[3] NOAA Fisheries — blue whale biology, size, and distribution.</a></li>
+                        <li id="source-4"><a href="https://www.fisheries.noaa.gov/species/humpback-whale" target="_blank" rel="noopener">[4] NOAA Fisheries — humpback whale song, migration, and bubble-net feeding.</a></li>
+                        <li id="source-5"><a href="https://www.fisheries.noaa.gov/species/killer-whale" target="_blank" rel="noopener">[5] NOAA Fisheries — killer whale (orca) biology, ecotypes, and culture.</a></li>
+                        <li id="source-6"><a href="https://www.science.org/doi/10.1126/science.aao0991" target="_blank" rel="noopener">[6] Schorr et al. — Cuvier’s beaked whale dive records (NOAA-funded research).</a></li>
+                        <li id="source-7"><a href="https://www.fisheries.noaa.gov/species/sperm-whale" target="_blank" rel="noopener">[7] NOAA Fisheries — sperm whale biology, deep diving, and echolocation clicks.</a></li>
+                        <li id="source-8"><a href="https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/pakicetus" target="_blank" rel="noopener">[8] Pakicetus and Basilosaurus species accounts — early cetacean transition.</a></li>
+                        <li id="source-9"><a href="https://www.cell.com/current-biology/fulltext/S0960-9822(10)00242-1" target="_blank" rel="noopener">[9] Lambert et al. (2010), Current Biology — Livyatan melvillei, a giant fossil sperm whale.</a></li>
+                        <li id="source-10"><a href="https://www.fisheries.noaa.gov/species/bottlenose-dolphin" target="_blank" rel="noopener">[10] NOAA Fisheries — bottlenose dolphin echolocation, signature whistles, and tool use.</a></li>
+                        <li id="source-11"><a href="https://www.iwc.int/" target="_blank" rel="noopener">[11] International Whaling Commission — conservation status and management of large whales.</a></li>
+                    </ul>
+                </nav>
+                <p class="profile-note">Approximate values are labelled “approx.” where sources or populations vary. This page is an educational overview, not a substitute for a taxonomic database or a scientific species assessment.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer" id="contact">
+        <div class="wave-divider footer-wave" aria-hidden="true">
+            <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+            </svg>
+            <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+            </svg>
+        </div>
+
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a class="brand footer-brand" href="index.html#home">
+                        <span class="brand-wave" aria-hidden="true">🌊</span>
+                        <span class="brand-text">Ocean<em>Atlas</em></span>
+                    </a>
+                    <p>An educational field guide to the life and science of our blue planet. This cetacean page is built with plain HTML, CSS, and a small page-specific JavaScript file, with GSAP for motion.</p>
+                    <p class="footer-sources">Facts referenced from <strong>NOAA</strong>, <strong>IUCN</strong>, <strong>Society for Marine Mammalogy</strong>, <strong>IWC</strong>, and scientific publications.</p>
+                </div>
+
+                <nav class="footer-col footer-links" aria-label="Footer">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html#climate">Ocean climate</a></li>
+                        <li><a href="index.html#species">Species explorer</a></li>
+                        <li><a href="#groups">Cetacean groups</a></li>
+                        <li><a href="#chase">Scene: the chase</a></li>
+                        <li><a href="#disturb">Scene: the disturbance</a></li>
+                        <li><a href="#deep-sea">Deep-sea cetaceans</a></li>
+                        <li><a href="#size">Size comparison</a></li>
+                        <li><a href="#conservation">Conservation</a></li>
+                        <li><a href="#sources">Sources</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col footer-news">
+                    <h3>Stay in the current</h3>
+                    <p>One gentle email a month with ocean science worth knowing. Front-end demo only — nothing is sent anywhere.</p>
+                    <form id="newsletterForm" novalidate>
+                        <label class="sr-only" for="emailInput">Email address</label>
+                        <div class="field-row">
+                            <input id="emailInput" name="email" type="email" placeholder="you@example.com" required
+                                aria-describedby="formMsg" />
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 OceanAtlas · Made with 💙 for the blue planet · Cetacean measurements are approximate where noted.</p>
+                <button class="btn btn-ghost back-to-top" id="backToTop" type="button">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 20V6m0 0l-6 6m6-6l6 6" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Back to the surface
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="whales-page.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Region Profile — OceanAtlas</title>
+  <meta name="description" content="Marine ecology, climate conditions, and conservation profile for this region from OceanAtlas." />
+  <meta name="theme-color" content="#041d3d" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>" />
+
+  <style>
+    /* Scoped region layout helpers following strict rules */
+    .region-main { padding-top: calc(var(--nav-h) + 42px); display: grid; gap: 32px; padding-bottom: 60px; }
+    .region-hero { padding: 48px 36px; text-align: left; }
+    .region-hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .region-intro { font-size: 1.1rem; color: var(--aqua-soft); max-width: 800px; line-height: 1.6; }
+    .region-section { padding: 32px 36px; }
+    .region-section h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: #fff; margin-bottom: 14px; }
+    .region-section p { font-size: 0.98rem; color: var(--ink-dim); line-height: 1.75; }
+    @media (max-width: 620px) {
+      .region-hero, .region-section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body class="region-detail-page">
+  <a class="skip-link" href="#regionContent">Skip to region content</a>
+
+  <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Deep ocean background -->
+  <div class="ocean-bg" style="--bg-a:#0a3e6a; --bg-b:#052246; --bg-c:#020b1c;" aria-hidden="true"></div>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="site-nav is-deep" id="siteNav">
+    <nav class="nav-inner" aria-label="Primary">
+      <a class="brand" href="index.html#home" aria-label="OceanAtlas — back to home">
+        <span class="brand-wave" aria-hidden="true">🌊</span>
+        <span class="brand-text">Ocean<em>Atlas</em></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+        <li><a class="nav-link" href="index.html#trends">Trends</a></li>
+        <li><a class="nav-link" href="index.html#species">Species</a></li>
+        <li><a class="nav-link" href="index.html#timeline">Timeline</a></li>
+        <li><a class="nav-link" href="index.html#zones">Zones</a></li>
+        <li><a class="nav-link" href="index.html#threats">Threats</a></li>
+        <li><a class="nav-link" href="index.html#facts">Facts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="regionContent" class="section region-main">
+    <!-- 1. Hero -->
+    <section class="region-hero glass" data-reveal>
+      <p class="kicker">Regional Marine Overview</p>
+      <h1>Region Name Placeholder</h1>
+      <p class="region-intro">Information coming soon</p>
+    </section>
+
+    <!-- 2. Seas and coastlines -->
+    <section class="region-section glass" data-reveal>
+      <h2>Seas and coastlines</h2>
+      <p>Information coming soon</p>
+    </section>
+
+    <!-- 3. Marine life and fish -->
+    <section class="region-section glass" data-reveal>
+      <h2>Marine life and fish</h2>
+      <p>Information coming soon</p>
+    </section>
+
+    <!-- 4. Climate and ocean conditions -->
+    <section class="region-section glass" data-reveal>
+      <h2>Climate and ocean conditions</h2>
+      <p>Information coming soon</p>
+    </section>
+
+    <!-- 5. Threats and conservation -->
+    <section class="region-section glass" data-reveal>
+      <h2>Threats and conservation</h2>
+      <p>Information coming soon</p>
+    </section>
+
+    <!-- 6. Fun facts -->
+    <section class="region-section glass" data-reveal>
+      <h2>Fun facts</h2>
+      <p>Information coming soon</p>
+    </section>
+
+    <!-- 7. Sources -->
+    <section class="region-section glass" data-reveal>
+      <h2>Sources</h2>
+      <p>Information coming soon</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 OceanAtlas · Educational field guide · Data approximated from NOAA, IPCC AR6 &amp; IUCN Red List.</p>
+        <a class="btn btn-ghost" href="index.html#home">Back to home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="species-data.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

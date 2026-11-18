@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Deep Sea — OceanAtlas</title>
+    <meta name="description"
+        content="Explore deep-sea creatures — anglerfish, giant squid, vampire squid, gulper eels, dumbo octopuses, barreleyes, and snailfish — and the extraordinary adaptations that let them thrive in the abyss." />
+    <meta name="theme-color" content="#041d3d" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+    /* ==================================================
+       DEEP SEA — DEEP-SEA EXPEDITION DESIGN
+    ================================================== */
+
+    :root {
+        --navy-950: #010817;
+        --navy-900: #02102a;
+        --navy-800: #041d3d;
+        --aqua: #53d8fb;
+        --aqua-soft: #8be9fd;
+        --sand: #f4d58d;
+        --ink: #eaf6ff;
+        --ink-dim: #9ab3c7;
+        --nav-h: 74px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body.deepsea-page {
+        margin: 0;
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--navy-950);
+        color: var(--ink);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    .deepsea-page h1,
+    .deepsea-page h2,
+    .deepsea-page h3 {
+        font-family: "Poppins", system-ui, sans-serif;
+        line-height: 1.2;
+    }
+
+    .deepsea-page .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .deepsea-page .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 8px;
+        padding: 8px 14px;
+        background: var(--aqua);
+        color: var(--navy-950);
+        border-radius: 6px;
+        font-weight: 600;
+        z-index: 999;
+        text-decoration: none;
+    }
+
+    .deepsea-page .skip-link:focus { top: 8px; }
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .deepsea-page .hero {
+        position: relative;
+        overflow: hidden;
+        padding: calc(var(--nav-h) + 65px) 24px 215px;
+        background:
+            radial-gradient(circle at 82% 16%, rgba(83, 216, 251, 0.14), transparent 30rem),
+            radial-gradient(circle at 10% 82%, rgba(255, 215, 141, 0.09), transparent 26rem),
+            linear-gradient(160deg, rgba(4, 29, 61, 0.97), rgba(1, 8, 23, 0.99));
+    }
+
+    .deepsea-page .hero-content {
+        position: relative;
+        z-index: 4;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 60px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        border-radius: 28px;
+        box-shadow: 0 25px 65px rgba(1, 8, 23, 0.45);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+    }
+
+    .deepsea-page .hero-kicker {
+        color: var(--aqua);
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin: 0 0 14px;
+        font-weight: 600;
+    }
+
+    .deepsea-page .hero-title {
+        color: #fff;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        max-width: 780px;
+        margin: 0 0 20px;
+    }
+
+    .deepsea-page .hero-sub {
+        margin: 0 0 28px;
+        max-width: 720px;
+        color: var(--ink-dim);
+        font-size: clamp(1rem, 1.4vw, 1.1rem);
+    }
+
+    .deepsea-page .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .deepsea-page .hero-cta .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .deepsea-page .hero-cta .btn-primary {
+        background: linear-gradient(135deg, #53d8fb, #8be9fd);
+        color: #02102a;
+    }
+
+    .deepsea-page .hero-cta .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 26px rgba(83, 216, 251, 0.35);
+    }
+
+    .deepsea-page .hero-cta .btn-ghost {
+        background: transparent;
+        color: var(--ink);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .deepsea-page .hero-cta .btn-ghost:hover {
+        color: var(--aqua-soft);
+        border-color: var(--aqua);
+    }
+
+    .deepsea-page .hero-chips {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .deepsea-page .hero-chips li {
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        background: rgba(3, 18, 38, 0.7);
+        border: 1px solid rgba(139, 233, 253, 0.22);
+    }
+
+    .deepsea-page .hero-wave {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100px;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    .deepsea-page .wave-divider {
+        position: relative;
+        height: 55px;
+        opacity: 0.55;
+        overflow: hidden;
+    }
+
+    .deepsea-page .wave-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .deepsea-page .wave-svg path { fill: rgba(1, 8, 23, 0.9); }
+    .deepsea-page .hero-wave .wave-back path  { fill: rgba(1, 8, 23, 0.45); }
+    .deepsea-page .hero-wave .wave-mid path   { fill: rgba(1, 8, 23, 0.7); }
+    .deepsea-page .hero-wave .wave-front path { fill: rgba(1, 8, 23, 0.95); }
+
+    /* ==================================================
+       HERO ATMOSPHERE
+    ================================================== */
+
+    .deepsea-page .hero-fx {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .deepsea-page .caustic-layer {
+        position: absolute;
+        inset: -12%;
+        background:
+            radial-gradient(circle at 24% 18%, rgba(83, 216, 251, 0.14), transparent 38%),
+            radial-gradient(circle at 74% 42%, rgba(139, 233, 253, 0.12), transparent 46%),
+            radial-gradient(circle at 46% 88%, rgba(255, 215, 141, 0.07), transparent 36%);
+        mix-blend-mode: screen;
+        filter: blur(22px);
+        animation: caustic-drift 26s ease-in-out infinite alternate;
+        will-change: transform;
+    }
+
+    @keyframes caustic-drift {
+        from { transform: translate3d(-3%, 2%, 0) scale(1.04); }
+        to   { transform: translate3d(3%, -2%, 0) scale(1.12); }
+    }
+
+    .deepsea-page .marine-snow {
+        position: absolute;
+        inset: 0;
+    }
+
+    .deepsea-page .snow-flake {
+        position: absolute;
+        border-radius: 50%;
+        background: #dff2ff;
+        animation-name: snow-fall;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        will-change: transform;
+    }
+
+    @keyframes snow-fall {
+        from { transform: translate3d(0, 0, 0); }
+        to   { transform: translate3d(32px, 115vh, 0); }
+    }
+
+    /* ==================================================
+       HERO DRIFTERS
+    ================================================== */
+
+    .deepsea-page .hero-swim-lane {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 70px;
+        height: 280px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .deepsea-page .ds-svg-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .deepsea-page .hero-angler-track {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        width: 340px;
+        height: 240px;
+        animation: cross-left 44s linear infinite;
+        will-change: transform;
+        filter: drop-shadow(0 14px 26px rgba(1, 8, 23, 0.5));
+    }
+
+    .deepsea-page .hero-squid-track {
+        position: absolute;
+        left: 0;
+        top: 90px;
+        width: 190px;
+        height: 155px;
+        opacity: 0.55;
+        animation: cross-left 62s linear infinite;
+        animation-delay: -26s;
+        will-change: transform;
+    }
+
+    .deepsea-page .hero-angler-bob {
+        width: 100%;
+        height: 100%;
+        animation: ds-bob 4.4s ease-in-out infinite alternate;
+    }
+
+    .deepsea-page .hero-squid-bob {
+        width: 100%;
+        height: 100%;
+        animation: ds-bob 5.6s ease-in-out infinite alternate;
+    }
+
+    .deepsea-page .hero-angler-track svg,
+    .deepsea-page .hero-squid-track svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    @keyframes cross-left {
+        from { transform: translateX(112vw); }
+        to   { transform: translateX(-380px); }
+    }
+
+    @keyframes ds-bob {
+        from { transform: translateY(0) rotate(-1.2deg); }
+        to   { transform: translateY(-9px) rotate(1.2deg); }
+    }
+
+    /* ==================================================
+       SVG PART ANIMATIONS
+    ================================================== */
+
+    .deepsea-page .angler-lure-aura {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: lure-pulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes lure-pulse {
+        0%, 100% { transform: scale(1);   opacity: 0.5; }
+        50%      { transform: scale(1.5); opacity: 0.95; }
+    }
+
+    .deepsea-page .angler-lure-bulb {
+        animation: bulb-glow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes bulb-glow {
+        0%, 100% { opacity: 0.85; }
+        50%      { opacity: 1; }
+    }
+
+    .deepsea-page .squid-arm {
+        transform-box: view-box;
+        animation: arm-sway 3.8s ease-in-out infinite alternate;
+    }
+
+    .deepsea-page .squid-arm.a1 { transform-origin: 95px 115px; animation-delay: 0s; }
+    .deepsea-page .squid-arm.a2 { transform-origin: 105px 118px; animation-delay: -0.4s; }
+    .deepsea-page .squid-arm.a3 { transform-origin: 118px 120px; animation-delay: -0.8s; }
+    .deepsea-page .squid-arm.a4 { transform-origin: 132px 120px; animation-delay: -1.2s; }
+    .deepsea-page .squid-arm.a5 { transform-origin: 145px 118px; animation-delay: -1.6s; }
+    .deepsea-page .squid-arm.a6 { transform-origin: 155px 115px; animation-delay: -2.0s; }
+
+    @keyframes arm-sway {
+        from { transform: rotate(-4deg); }
+        to   { transform: rotate(4deg); }
+    }
+
+    .deepsea-page .squid-tentacle {
+        transform-box: view-box;
+        animation: tentacle-sway 5.2s ease-in-out infinite alternate;
+    }
+
+    .deepsea-page .squid-tentacle.t1 { transform-origin: 85px 120px; animation-delay: 0s; }
+    .deepsea-page .squid-tentacle.t2 { transform-origin: 100px 128px; animation-delay: -0.9s; }
+
+    @keyframes tentacle-sway {
+        from { transform: rotate(-6deg) skewX(-2deg); }
+        to   { transform: rotate(6deg) skewX(2deg); }
+    }
+
+    /* ==================================================
+       SCENE STAGES
+    ================================================== */
+
+    .deepsea-page .scene {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: 0;
+    }
+
+    .deepsea-page .scene-label {
+        display: inline-block;
+        margin: 0 0 14px;
+        padding: 6px 14px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--aqua);
+        background: rgba(83, 216, 251, 0.08);
+        border: 1px solid rgba(139, 233, 253, 0.25);
+        border-radius: 999px;
+    }
+
+    .deepsea-page .scene-stage {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(139, 233, 253, 0.16);
+        box-shadow: 0 22px 50px rgba(1, 8, 23, 0.35);
+        background:
+            radial-gradient(ellipse at 50% -10%, rgba(83, 216, 251, 0.14), transparent 55%),
+            linear-gradient(180deg, #041d3d 0%, #052744 45%, #010817 100%);
+    }
+
+    .lure-stage { height: 400px; }
+    .giant-stage { height: 420px; background:
+        radial-gradient(ellipse at 50% -10%, rgba(139, 233, 253, 0.12), transparent 55%),
+        linear-gradient(180deg, #03162d 0%, #041d3d 50%, #010817 100%);
+    }
+
+    .deepsea-page .scene-bubbles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .deepsea-page .scene-bubbles span {
+        position: absolute;
+        bottom: -24px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(139, 233, 253, 0.12));
+        border: 1px solid rgba(139, 233, 253, 0.32);
+        animation: scene-bubble-rise linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes scene-bubble-rise {
+        from { transform: translateY(0) translateX(0); opacity: 0; }
+        12%  { opacity: 0.7; }
+        to   { transform: translateY(-460px) translateX(22px); opacity: 0; }
+    }
+
+    /* ---- SCENE 1: THE LURE ---- */
+
+    .lure-angler {
+        position: absolute;
+        left: 6%;
+        top: 50%;
+        width: 40%;
+        max-width: 380px;
+        transform: translateY(-50%) scaleX(-1);
+        z-index: 2;
+    }
+
+    .lure-angler svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        filter: drop-shadow(0 10px 20px rgba(1, 8, 23, 0.45));
+    }
+
+    .lure-angler-bob {
+        width: 100%;
+        animation: angler-drift 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes angler-drift {
+        from { transform: translate(-4px, -3px) rotate(-0.8deg); }
+        to   { transform: translate(4px, 3px) rotate(0.8deg); }
+    }
+
+    .lure-fish {
+        position: absolute;
+        left: 30%;
+        width: 26px;
+        height: 13px;
+        opacity: 0;
+        z-index: 3;
+        animation: fish-approach 8s ease-in-out infinite;
+        will-change: transform, opacity;
+    }
+
+    .lure-fish svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+    .lure-fish.f1 { top: 38%; animation-delay: 0s; }
+    .lure-fish.f2 { top: 54%; animation-delay: -2s; }
+    .lure-fish.f3 { top: 66%; animation-delay: -4s; }
+    .lure-fish.f4 { top: 46%; animation-delay: -6s; }
+
+    @keyframes fish-approach {
+        0%   { transform: translate(620px, 0);     opacity: 0; }
+        15%  { opacity: 1; }
+        55%  { transform: translate(60px, 0);      opacity: 1; }
+        62%  { transform: translate(40px, -8px);   opacity: 1; }
+        68%  { transform: translate(10px, -25px) rotate(-8deg);  opacity: 1; }
+        75%  { transform: translate(-40px, -55px) rotate(-15deg); opacity: 0; }
+        100% { transform: translate(620px, 0);     opacity: 0; }
+    }
+
+    /* ---- SCENE 2: THE GIANT ---- */
+
+    .giant-squid {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 62%;
+        max-width: 560px;
+        transform: translate(-50%, -50%) scaleX(-1);
+        z-index: 2;
+    }
+
+    .giant-squid svg {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        filter: drop-shadow(0 16px 30px rgba(1, 8, 23, 0.55));
+    }
+
+    .giant-squid-bob {
+        width: 100%;
+        animation: giant-drift 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes giant-drift {
+        from { transform: translate(-8px, -6px) rotate(-0.6deg); }
+        to   { transform: translate(8px, 8px) rotate(0.6deg); }
+    }
+
+    /* ==================================================
+       SECTIONS
+    ================================================== */
+
+    .deepsea-page .section {
+        max-width: 1160px;
+        margin: 34px auto;
+        padding: clamp(30px, 5vw, 56px) clamp(20px, 4vw, 44px);
+        border: 1px solid rgba(139, 233, 253, 0.13);
+        border-radius: 26px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+        box-shadow: 0 18px 42px rgba(1, 8, 23, 0.18);
+    }
+
+    .deepsea-page .section-head {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 10px 32px;
+        align-items: end;
+        margin-bottom: 36px;
+    }
+
+    .deepsea-page .section-head .kicker {
+        grid-column: 1 / -1;
+        color: var(--sand);
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .deepsea-page .section-head h2 {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+        color: #fff;
+        margin: 0;
+    }
+
+    .deepsea-page .section-head .lead {
+        grid-column: 2;
+        grid-row: 2;
+        color: var(--ink-dim);
+        align-self: end;
+        padding-bottom: 5px;
+        margin: 0;
+    }
+
+    .deepsea-page .species-grid,
+    .deepsea-page .profile-facts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 18px;
+    }
+
+    .deepsea-page .species-card,
+    .deepsea-page .fact-tile {
+        background: linear-gradient(145deg, rgba(10, 74, 124, 0.3), rgba(2, 13, 32, 0.75));
+        border: 1px solid rgba(139, 233, 253, 0.17);
+        border-top: 2px solid rgba(244, 213, 141, 0.55);
+        border-radius: 20px;
+        padding: 25px;
+        transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .deepsea-page .species-card:hover,
+    .deepsea-page .fact-tile:hover {
+        transform: translateY(-7px);
+        border-color: var(--aqua);
+        box-shadow: 0 22px 48px rgba(1, 8, 23, 0.4), 0 0 22px rgba(83, 216, 251, 0.12);
+    }
+
+    .deepsea-page .species-icon {
+        width: 68px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.9rem;
+        border-radius: 20px;
+        background: radial-gradient(circle at 30% 25%, rgba(244, 213, 141, 0.22), rgba(83, 216, 251, 0.08));
+        border: 1px solid rgba(244, 213, 141, 0.32);
+        margin-bottom: 14px;
+    }
+
+    .deepsea-page .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+
+    .deepsea-page .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        background: rgba(83, 216, 251, 0.12);
+        border: 1px solid rgba(83, 216, 251, 0.3);
+        color: var(--aqua-soft);
+    }
+
+    .deepsea-page .badge.zone-midnight {
+        background: rgba(180, 150, 250, 0.12);
+        border-color: rgba(180, 150, 250, 0.35);
+        color: #d6bcfa;
+    }
+
+    .deepsea-page .badge.zone-abyss {
+        background: rgba(255, 182, 220, 0.1);
+        border-color: rgba(255, 182, 220, 0.35);
+        color: #ffc8f0;
+    }
+
+    .deepsea-page .badge.zone-hadal {
+        background: rgba(255, 140, 140, 0.1);
+        border-color: rgba(255, 140, 140, 0.35);
+        color: #ffb6b6;
+    }
+
+    .deepsea-page .badge.status-vu {
+        background: rgba(244, 213, 141, 0.12);
+        border-color: rgba(244, 213, 141, 0.4);
+        color: var(--sand);
+    }
+
+    .deepsea-page .species-name {
+        font-size: 1.1rem;
+        color: #fff;
+        margin: 0 0 6px;
+    }
+
+    .deepsea-page .species-sci {
+        color: var(--aqua-soft);
+        font-style: italic;
+        font-size: 0.9rem;
+        margin: 0 0 12px;
+    }
+
+    .deepsea-page .species-fact {
+        line-height: 1.7;
+        margin: 0 0 8px;
+        font-size: 0.93rem;
+        color: var(--ink-dim);
+    }
+
+    .deepsea-page .species-fact strong { color: var(--ink); }
+
+    .deepsea-page .fact-num {
+        display: inline-block;
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        font-weight: 700;
+        color: var(--sand);
+        margin-bottom: 8px;
+    }
+
+    .deepsea-page .zone-stats {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .deepsea-page .zone-stats li {
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        background: rgba(83, 216, 251, 0.08);
+        border: 1px solid rgba(83, 216, 251, 0.2);
+        color: var(--ink-dim);
+    }
+
+    .deepsea-page .profile-panel {
+        background: linear-gradient(145deg, rgba(10, 74, 124, 0.32), rgba(2, 13, 32, 0.82));
+        border: 1px solid rgba(139, 233, 253, 0.2);
+        border-radius: 24px;
+        padding: clamp(22px, 4vw, 36px);
+    }
+
+    .deepsea-page .profile-hero-top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 22px;
+        flex-wrap: wrap;
+    }
+
+    .deepsea-page .profile-icon {
+        font-size: 2.4rem;
+        width: 68px;
+        height: 68px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at 30% 25%, rgba(244, 213, 141, 0.28), rgba(83, 216, 251, 0.1));
+        border: 1px solid rgba(244, 213, 141, 0.4);
+        flex-shrink: 0;
+    }
+
+    .deepsea-page .profile-heading .kicker {
+        color: var(--aqua);
+        letter-spacing: 0.16em;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        margin: 0 0 4px;
+        font-weight: 600;
+    }
+
+    .deepsea-page .profile-heading h2 {
+        font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+        color: #fff;
+        margin: 0 0 4px;
+    }
+
+    .deepsea-page .profile-hook {
+        color: var(--ink-dim);
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .deepsea-page .profile-overview {
+        line-height: 1.75;
+        color: var(--ink-dim);
+        margin-bottom: 20px;
+    }
+
+    .deepsea-page .profile-vitals {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .deepsea-page .vital-box {
+        background: rgba(1, 8, 23, 0.45);
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        border-radius: 16px;
+        padding: 14px 16px;
+        margin: 0;
+    }
+
+    .deepsea-page .vital-box dt {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--ink-dim);
+        margin: 0 0 4px;
+        font-weight: 600;
+    }
+
+    .deepsea-page .vital-box dd {
+        margin: 0;
+        color: var(--sand);
+        font-weight: 600;
+        font-size: 0.94rem;
+    }
+
+    .deepsea-page .profile-note {
+        color: var(--ink-dim);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin: 18px 0 0;
+    }
+
+    .deepsea-page .data-note {
+        padding: 14px 18px;
+        border-left: 3px solid var(--sand);
+        background: rgba(244, 213, 141, 0.055);
+        border-radius: 0 12px 12px 0;
+        line-height: 1.7;
+        margin: 20px 0 0;
+        color: var(--ink-dim);
+        font-size: 0.92rem;
+    }
+
+    .deepsea-page .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+    }
+
+    .deepsea-page .footer-links li {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        color: var(--ink-dim);
+    }
+
+    .deepsea-page .footer-links a {
+        color: var(--aqua-soft);
+        text-decoration: none;
+    }
+
+    .deepsea-page .footer-links a:hover { color: #fff; text-decoration: underline; }
+
+    /* Depth zone chart */
+
+    .deepsea-page .zone-chart {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(139, 233, 253, 0.18);
+        margin-top: 8px;
+    }
+
+    .deepsea-page .zone-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        border-bottom: 1px solid rgba(139, 233, 253, 0.08);
+    }
+
+    .deepsea-page .zone-row:last-child { border-bottom: 0; }
+
+    .deepsea-page .zone-swatch {
+        width: 16px;
+        height: 16px;
+        border-radius: 5px;
+        flex-shrink: 0;
+    }
+
+    .deepsea-page .zone-epi   { background: linear-gradient(135deg, #7fd4ff, #4fa8e0); }
+    .deepsea-page .zone-meso  { background: linear-gradient(135deg, #4fa8e0, #2c5f8f); }
+    .deepsea-page .zone-bathy { background: linear-gradient(135deg, #2c5f8f, #123a5a); }
+    .deepsea-page .zone-abyss { background: linear-gradient(135deg, #123a5a, #081a33); }
+    .deepsea-page .zone-hadal { background: linear-gradient(135deg, #081a33, #000511); }
+
+    .deepsea-page .zone-info { flex: 1; }
+    .deepsea-page .zone-info strong { color: #fff; font-size: 0.95rem; }
+    .deepsea-page .zone-info span { color: var(--ink-dim); font-size: 0.85rem; margin-left: 8px; }
+    .deepsea-page .zone-depth { color: var(--sand); font-size: 0.82rem; font-weight: 600; flex-shrink: 0; }
+
+    /* ==================================================
+       REVEALS — SAFE BY DEFAULT
+    ================================================== */
+
+    .deepsea-page [data-reveal],
+    .deepsea-page [data-reveal-group] > * {
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .deepsea-page.js-ready [data-reveal]:not(.is-revealed) {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+
+    .deepsea-page.js-ready [data-reveal].is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .deepsea-page.js-ready [data-reveal-group]:not(.is-revealed) > * {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > *:nth-child(1) { transition-delay: 0s; }
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > *:nth-child(2) { transition-delay: 0.08s; }
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > *:nth-child(3) { transition-delay: 0.16s; }
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > *:nth-child(4) { transition-delay: 0.24s; }
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > *:nth-child(5) { transition-delay: 0.32s; }
+    .deepsea-page.js-ready [data-reveal-group].is-revealed > *:nth-child(6) { transition-delay: 0.40s; }
+
+    /* ==================================================
+       NAV (fallback if style.css missing)
+    ================================================== */
+
+    .deepsea-page .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        height: var(--nav-h);
+        background: rgba(4, 29, 61, 0.85);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(139, 233, 253, 0.12);
+        transition: background 0.3s ease;
+    }
+
+    .deepsea-page .site-nav.is-deep { background: rgba(1, 8, 23, 0.95); }
+
+    .deepsea-page .nav-inner {
+        max-width: 1180px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .deepsea-page .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+
+    .deepsea-page .brand-wave { font-size: 1.2rem; }
+    .deepsea-page .brand-text em { color: var(--aqua); font-style: normal; }
+
+    .deepsea-page .nav-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 34px;
+        height: 26px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .deepsea-page .nav-toggle .bar {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: var(--ink);
+        border-radius: 2px;
+    }
+
+    .deepsea-page .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .deepsea-page .nav-link {
+        color: var(--ink-dim);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 6px 0;
+        position: relative;
+        transition: color 0.2s ease;
+    }
+
+    .deepsea-page .nav-link:hover,
+    .deepsea-page .nav-link.is-active { color: var(--aqua); }
+
+    .deepsea-page .nav-link.is-active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        background: var(--aqua);
+        border-radius: 2px;
+    }
+
+    .deepsea-page .nav-item.has-dropdown { position: relative; }
+
+    .deepsea-page .nav-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        min-width: 240px;
+        padding: 8px;
+        margin: 0;
+        list-style: none;
+        border-radius: 14px;
+        background: rgba(3, 18, 38, 0.97);
+        border: 1px solid rgba(139, 233, 253, 0.22);
+        box-shadow: 0 18px 40px rgba(1, 8, 23, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    }
+
+    .deepsea-page .nav-item.has-dropdown:hover .nav-dropdown,
+    .deepsea-page .nav-item.has-dropdown:focus-within .nav-dropdown,
+    .deepsea-page .nav-item.has-dropdown.is-open .nav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .deepsea-page .nav-dropdown li a {
+        display: block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        color: var(--ink);
+        font-size: 0.9rem;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .deepsea-page .nav-dropdown li a:hover {
+        background: rgba(83, 216, 251, 0.12);
+        color: var(--aqua);
+    }
+
+    .deepsea-page .nav-caret {
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 0.7em;
+        opacity: 0.7;
+    }
+
+    /* ==================================================
+       PROGRESS BAR, BUBBLES, CURSOR
+    ================================================== */
+
+    .deepsea-page .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 60;
+        pointer-events: none;
+    }
+
+    .deepsea-page .progress-bar span {
+        display: block;
+        height: 100%;
+        width: 100%;
+        transform-origin: 0 50%;
+        transform: scaleX(0);
+        background: linear-gradient(90deg, #53d8fb, #f4d58d);
+        box-shadow: 0 0 12px rgba(83, 216, 251, 0.6);
+    }
+
+    .deepsea-page .bubbles {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .deepsea-page .bubbles span {
+        position: absolute;
+        bottom: -30px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(139, 233, 253, 0.08));
+        border: 1px solid rgba(139, 233, 253, 0.28);
+        opacity: var(--o, 0.3);
+        animation: global-bubble-rise linear infinite;
+    }
+
+    @keyframes global-bubble-rise {
+        from { transform: translate3d(0, 0, 0); }
+        to   { transform: translate3d(var(--dx, 0), -110vh, 0); }
+    }
+
+    .deepsea-page .cursor-dot,
+    .deepsea-page .cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .deepsea-page.has-cursor .cursor-dot,
+    .deepsea-page.has-cursor .cursor-ring { opacity: 1; }
+
+    .deepsea-page .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--aqua);
+        box-shadow: 0 0 10px rgba(83, 216, 251, 0.8);
+    }
+
+    .deepsea-page .cursor-ring {
+        width: 38px;
+        height: 38px;
+        border: 1.5px solid rgba(139, 233, 253, 0.55);
+        transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    }
+
+    .deepsea-page .cursor-ring.is-active {
+        width: 52px;
+        height: 52px;
+        border-color: var(--aqua);
+    }
+
+    .deepsea-page .cursor-ring.is-down {
+        width: 28px;
+        height: 28px;
+        border-color: var(--sand);
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 860px) {
+        .deepsea-page .section-head {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .deepsea-page .section-head .kicker,
+        .deepsea-page .section-head h2,
+        .deepsea-page .section-head .lead {
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        .deepsea-page .nav-toggle { display: flex; }
+
+        .deepsea-page .nav-menu {
+            position: fixed;
+            top: var(--nav-h);
+            right: 0;
+            left: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            padding: 20px 24px;
+            background: rgba(1, 8, 23, 0.98);
+            border-bottom: 1px solid rgba(139, 233, 253, 0.15);
+            transform: translateY(-120%);
+            transition: transform 0.3s ease;
+            max-height: calc(100vh - var(--nav-h));
+            overflow-y: auto;
+        }
+
+        .deepsea-page .nav-menu.is-open { transform: translateY(0); }
+
+        .deepsea-page .nav-menu > li {
+            width: 100%;
+            border-bottom: 1px solid rgba(139, 233, 253, 0.08);
+        }
+
+        .deepsea-page .nav-menu > li > .nav-link {
+            display: block;
+            padding: 14px 0;
+            width: 100%;
+        }
+
+        .deepsea-page .nav-dropdown {
+            position: static;
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            display: none;
+            width: 100%;
+            margin: 0 0 6px;
+            box-shadow: none;
+            background: rgba(3, 18, 38, 0.6);
+        }
+
+        .deepsea-page .nav-item.has-dropdown.is-open .nav-dropdown { display: block; }
+        .deepsea-page .nav-dropdown li a { padding-left: 24px; }
+
+        .deepsea-page .zone-row {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .deepsea-page .zone-info { width: 100%; }
+    }
+
+    @media (max-width: 620px) {
+        .deepsea-page .hero { padding: calc(var(--nav-h) + 45px) 16px 175px; }
+        .deepsea-page .hero-content { padding: 26px 20px; border-radius: 20px; }
+        .deepsea-page .section { margin: 22px 12px; padding: 28px 19px; border-radius: 19px; }
+        .deepsea-page .section-head { margin-bottom: 28px; }
+
+        .deepsea-page .hero-swim-lane { bottom: 44px; height: 220px; }
+        .deepsea-page .hero-angler-track { top: 12px; width: 240px; height: 170px; }
+        .deepsea-page .hero-squid-track  { top: 80px; width: 130px; height: 106px; }
+
+        .lure-stage { height: 320px; }
+        .lure-angler { left: 2%; width: 52%; }
+        .lure-fish { width: 22px; height: 11px; left: 24%; }
+
+        .giant-stage { height: 320px; }
+        .giant-squid { width: 82%; }
+    }
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+        .deepsea-page [data-reveal],
+        .deepsea-page [data-reveal-group] > * {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .deepsea-page .caustic-layer,
+        .deepsea-page .snow-flake,
+        .deepsea-page .hero-angler-track,
+        .deepsea-page .hero-squid-track,
+        .deepsea-page .hero-angler-bob,
+        .deepsea-page .hero-squid-bob,
+        .deepsea-page .lure-angler-bob,
+        .deepsea-page .lure-fish,
+        .deepsea-page .giant-squid-bob,
+        .deepsea-page .angler-lure-aura,
+        .deepsea-page .angler-lure-bulb,
+        .deepsea-page .squid-arm,
+        .deepsea-page .squid-tentacle,
+        .deepsea-page .scene-bubbles span,
+        .deepsea-page .bubbles span {
+            animation: none !important;
+        }
+
+        .deepsea-page .hero-angler-track { transform: translateX(8%); }
+        .deepsea-page .hero-squid-track  { transform: translateX(58%); }
+        .deepsea-page .lure-fish { opacity: 0.7; }
+        .deepsea-page .lure-fish.f1 { transform: translate(120px, 0); }
+        .deepsea-page .lure-fish.f2 { transform: translate(140px, 0); }
+        .deepsea-page .lure-fish.f3 { transform: translate(160px, 0); }
+        .deepsea-page .lure-fish.f4 { transform: translate(180px, 0); }
+    }
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml,*<*&#x73;vg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>*<*&#x74;ext y='.9em' font-size='90'>&#127754;*<*/text>*<*/svg>" />
+</head>
+
+<body class="deepsea-page">
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <noscript>
+        <div style="padding:16px;background:#041d3d;color:#eaf6ff;text-align:center;border-bottom:1px solid #8be9fd;">
+            🌊 Enable JavaScript for navigation and motion effects. All deep-sea information remains readable without it.
+        </div>
+    </noscript>
+
+    <!-- ======================= NAVIGATION ======================= -->
+    <header class="site-nav" id="siteNav">
+        <nav class="nav-inner" aria-label="Primary">
+            <a class="brand" href="index.html#home" aria-label="OceanAtlas — home">
+                <span class="brand-wave" aria-hidden="true">🌊</span>
+                <span class="brand-text">Ocean<em>Atlas</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false"
+                aria-controls="navMenu" aria-label="Open navigation menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html#climate">Climate</a></li>
+                <li class="nav-item has-dropdown">
+                    <a class="nav-link" href="index.html#species" aria-haspopup="true" aria-expanded="false">
+                        Species <span class="nav-caret" aria-hidden="true">▾</span>
+                    </a>
+                    <ul class="nav-dropdown">
+                        <li><a href="crabs.html">🦀 Crabs</a></li>
+                        <li><a href="octopus.html">🐙 Octopuses</a></li>
+                        <li><a href="shark.html">🦈 Sharks</a></li>
+                        <li><a href="sharks-rays.html">🦈 Sharks &amp; Rays</a></li>
+                        <li><a href="whales.html">🐋 Whales &amp; Dolphins</a></li>
+                        <li><a href="jellyfish.html">🪼 Jellyfish</a></li>
+                        <li><a href="deepsea.html" aria-current="page">🌑 Deep Sea</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link" href="index.html#zones">Ocean zones</a></li>
+                <li><a class="nav-link is-active" href="#home">Deep Sea</a></li>
+                <li><a class="nav-link" href="#facts">Facts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- ======================= 1 · HERO ======================= -->
+        <section class="hero" id="home" aria-label="The deep sea">
+
+            <div class="hero-fx" aria-hidden="true">
+                <div class="caustic-layer"></div>
+                <div class="marine-snow" id="marineSnow"></div>
+            </div>
+
+            <!-- ================= SVG DEFS ================= -->
+            <svg class="ds-svg-defs" aria-hidden="true" focusable="false">
+                <defs>
+                    <radialGradient id="lureGlowRadial" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%"  stop-color="#ffd58d" stop-opacity="1" />
+                        <stop offset="50%" stop-color="#ffd58d" stop-opacity="0.4" />
+                        <stop offset="100%" stop-color="#ffd58d" stop-opacity="0" />
+                    </radialGradient>
+                    <linearGradient id="anglerGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%"  stop-color="#3a5570" />
+                        <stop offset="60%" stop-color="#1d3550" />
+                        <stop offset="100%" stop-color="#0d1d30" />
+                    </linearGradient>
+                    <linearGradient id="squidGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%"   stop-color="#a888e0" />
+                        <stop offset="55%"  stop-color="#7a5cb0" />
+                        <stop offset="100%" stop-color="#3d2a5e" />
+                    </linearGradient>
+                </defs>
+
+                <!-- ============ ANGLERFISH (faces LEFT) ============ -->
+                <symbol id="anglerfish-shape" viewBox="0 0 240 170">
+                    <!-- Body -->
+                    <path d="M35 95
+                             C35 60 75 40 115 40
+                             C165 40 200 65 215 95
+                             C200 125 165 150 115 150
+                             C75 150 35 130 35 95 Z"
+                          fill="url(#anglerGrad)" stroke="#0a1628" stroke-width="2.5" />
+
+                    <!-- Texture -->
+                    <g fill="#1a3049" opacity="0.45">
+                        <circle cx="70" cy="65" r="4" />
+                        <circle cx="90" cy="55" r="3" />
+                        <circle cx="60" cy="85" r="3.5" />
+                        <circle cx="80" cy="80" r="2.5" />
+                        <circle cx="55" cy="70" r="2" />
+                    </g>
+
+                    <!-- Big open mouth -->
+                    <path d="M35 90
+                             C25 100 25 115 35 125
+                             C50 130 70 125 85 110
+                             C75 115 60 118 50 113
+                             C42 108 38 100 35 90 Z"
+                          fill="#0a1628" />
+
+                    <!-- Upper teeth -->
+                    <g fill="#eaf6ff">
+                        <polygon points="38,90 42,100 46,92" />
+                        <polygon points="48,90 52,100 56,92" />
+                        <polygon points="58,91 62,101 66,93" />
+                        <polygon points="68,93 72,103 76,95" />
+                    </g>
+
+                    <!-- Lower teeth -->
+                    <g fill="#eaf6ff">
+                        <polygon points="38,120 42,112 46,120" />
+                        <polygon points="50,122 54,114 58,122" />
+                        <polygon points="62,121 66,113 70,120" />
+                    </g>
+
+                    <!-- Eye -->
+                    <circle cx="80" cy="80" r="7" fill="#eaf6ff" stroke="#0a1628" stroke-width="1.5" />
+                    <circle cx="81" cy="80" r="3.5" fill="#0a1628" />
+                    <circle cx="82" cy="79" r="1.2" fill="#eaf6ff" />
+
+                    <!-- Dorsal fin -->
+                    <path d="M150 42
+                             C155 25 170 20 182 25
+                             C175 33 168 40 165 45 Z"
+                          fill="#1a3049" stroke="#0a1628" stroke-width="2" />
+
+                    <!-- Pectoral fin -->
+                    <path d="M105 135
+                             C115 155 135 162 155 160
+                             C140 150 125 140 122 132 Z"
+                          fill="#1a3049" stroke="#0a1628" stroke-width="2" />
+
+                    <!-- Tail fin -->
+                    <path d="M215 95
+                             C225 75 235 65 240 65
+                             C235 80 232 90 230 95
+                             C232 100 235 110 240 125
+                             C235 125 225 115 215 95 Z"
+                          fill="#1a3049" stroke="#0a1628" stroke-width="2" />
+
+                    <!-- Lure stalk -->
+                    <path d="M100 45 C85 20 60 10 40 18"
+                          stroke="#3a5a7a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+                    <!-- Lure (aura + bulb) -->
+                    <circle class="angler-lure-aura" cx="40" cy="18" r="18"
+                            fill="url(#lureGlowRadial)" opacity="0.5" />
+                    <circle class="angler-lure-bulb" cx="40" cy="18" r="6"
+                            fill="#ffd58d" stroke="#eaf6ff" stroke-width="1" />
+                    <circle cx="39" cy="17" r="2.5" fill="#ffffff" />
+                </symbol>
+
+                <!-- ============ GIANT SQUID (faces LEFT) ============ -->
+                <symbol id="giant-squid-shape" viewBox="0 0 320 260">
+                    <!-- Long feeding tentacles -->
+                    <g class="squid-tentacle t1">
+                        <path d="M85 120 C60 150 40 190 25 240"
+                              fill="none" stroke="#a888e0" stroke-width="3" stroke-linecap="round" />
+                    </g>
+                    <g class="squid-tentacle t2">
+                        <path d="M100 128 C80 160 65 200 60 240"
+                              fill="none" stroke="#a888e0" stroke-width="3" stroke-linecap="round" />
+                    </g>
+
+                    <!-- 8 arms -->
+                    <g class="squid-arm a1">
+                        <path d="M95 115 C80 145 70 175 60 205"
+                              fill="none" stroke="#9a7ad4" stroke-width="5" stroke-linecap="round" />
+                    </g>
+                    <g class="squid-arm a2">
+                        <path d="M105 118 C95 148 88 178 84 208"
+                              fill="none" stroke="#9a7ad4" stroke-width="5" stroke-linecap="round" />
+                    </g>
+                    <g class="squid-arm a3">
+                        <path d="M118 120 C112 150 108 180 108 210"
+                              fill="none" stroke="#9a7ad4" stroke-width="5" stroke-linecap="round" />
+                    </g>
+                    <g class="squid-arm a4">
+                        <path d="M132 120 C136 150 140 180 144 210"
+                              fill="none" stroke="#9a7ad4" stroke-width="5" stroke-linecap="round" />
+                    </g>
+                    <g class="squid-arm a5">
+                        <path d="M145 118 C155 148 165 178 175 208"
+                              fill="none" stroke="#9a7ad4" stroke-width="5" stroke-linecap="round" />
+                    </g>
+                    <g class="squid-arm a6">
+                        <path d="M155 115 C170 145 185 175 198 202"
+                              fill="none" stroke="#9a7ad4" stroke-width="5" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Head -->
+                    <ellipse cx="125" cy="98" rx="48" ry="38"
+                             fill="url(#squidGrad)" stroke="#0a1628" stroke-width="2.5" />
+
+                    <!-- Big eyes -->
+                    <circle cx="105" cy="95" r="11" fill="#0a1628" />
+                    <circle cx="105" cy="95" r="7"  fill="#eaf6ff" />
+                    <circle cx="107" cy="95" r="3.5" fill="#0a1628" />
+                    <circle cx="145" cy="95" r="11" fill="#0a1628" />
+                    <circle cx="145" cy="95" r="7"  fill="#eaf6ff" />
+                    <circle cx="143" cy="95" r="3.5" fill="#0a1628" />
+
+                    <!-- Mantle -->
+                    <path d="M158 80
+                             C180 65 220 55 260 55
+                             C265 80 260 110 245 125
+                             C220 130 185 128 168 115
+                             C163 105 160 92 158 80 Z"
+                          fill="url(#squidGrad)" stroke="#0a1628" stroke-width="2.5" />
+
+                    <!-- Fins at mantle tip -->
+                    <path d="M250 55 C265 40 285 38 295 48 C283 60 268 68 258 70 Z"
+                          fill="#8a6ac8" stroke="#0a1628" stroke-width="2" />
+                    <path d="M245 120 C260 135 280 138 292 128 C280 116 265 110 255 108 Z"
+                          fill="#8a6ac8" stroke="#0a1628" stroke-width="2" />
+                </symbol>
+
+                <!-- ============ LITTLE FISH ============ -->
+                <symbol id="deepsea-fish" viewBox="0 0 40 20">
+                    <path d="M6 10 C10 4 20 3 28 8 L36 3 L33 10 L36 17 L28 12 C20 17 10 16 6 10 Z"
+                          fill="#b9d9ef" stroke="#4a7ba7" stroke-width="1.2" stroke-linejoin="round" />
+                    <circle cx="11" cy="9" r="1.4" fill="#0a1628" />
+                </symbol>
+            </svg>
+
+            <div class="hero-swim-lane" aria-hidden="true">
+                <div class="hero-angler-track">
+                    <div class="hero-angler-bob">
+                        <svg viewBox="0 0 240 170"><use href="#anglerfish-shape"></use></svg>
+                    </div>
+                </div>
+                <div class="hero-squid-track">
+                    <div class="hero-squid-bob">
+                        <svg viewBox="0 0 320 260"><use href="#giant-squid-shape"></use></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <p class="hero-kicker">OceanAtlas · Marine life field guide</p>
+                <h1 class="hero-title" id="heroTitle">The Deep Sea</h1>
+                <p class="hero-sub">
+                    Below 200 metres, sunlight fades to nothing. What remains is the largest habitat on Earth —
+                    a world of crushing pressure, near-freezing water, and animals that make their own light. Meet
+                    the anglerfish, giant squid, vampire squid, gulper eel, and the other extraordinary creatures
+                    of the abyss.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="exploreBtn" type="button">
+                        Explore the deep
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="btn btn-ghost" href="#lure">Watch the lure</a>
+                </div>
+                <ul class="hero-chips" aria-label="Deep-sea guide highlights">
+                    <li>🌑 200 m to below 11,000 m</li>
+                    <li>✨ Most life here makes its own light</li>
+                    <li>🐟 Deepest fish at ~8,336 m</li>
+                </ul>
+            </div>
+            <div class="wave-divider hero-wave" aria-hidden="true">
+                <svg class="wave-svg wave-back" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,70 C240,100 480,40 720,70 C960,100 1200,40 1440,70 C1680,100 1920,40 2160,70 C2400,100 2640,40 2880,70 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-mid" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,60 C240,30 480,90 720,60 C960,30 1200,90 1440,60 C1680,30 1920,90 2160,60 C2400,30 2640,90 2880,60 L2880,120 L0,120 Z" />
+                </svg>
+                <svg class="wave-svg wave-front" viewBox="0 0 2880 120" preserveAspectRatio="none">
+                    <path d="M0,84 C240,64 480,104 720,84 C960,64 1200,104 1440,84 C1680,64 1920,104 2160,84 C2400,64 2640,104 2880,84 L2880,120 L0,120 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ======================= 2 · HOW MANY? ======================= -->
+        <section class="section" id="count" aria-labelledby="countHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">01 · The unknown majority</p>
+                <h2 id="countHeading">How many deep-sea species exist?</h2>
+                <p class="lead">No one knows. The deep sea is the largest habitat on the planet, and most of its animals have never been described.</p>
+            </header>
+
+            <div class="profile-panel" data-reveal>
+                <div class="profile-hero-top">
+                    <div class="profile-icon" aria-hidden="true">🌑</div>
+                    <div class="profile-heading">
+                        <p class="kicker">The largest habitat on Earth</p>
+                        <h2>Unknown — but vast</h2>
+                        <p class="profile-hook">Hundreds of thousands to over 10 million estimated species, most undescribed</p>
+                    </div>
+                </div>
+                <p class="profile-overview">
+                    The deep sea — everything below about 200 metres — makes up roughly 90% of the ocean's volume
+                    and most of its seafloor. Estimates of how many species live there range from a few hundred
+                    thousand to more than 10 million. New species are described every year, and genetic tools
+                    keep revealing "cryptic" species that were previously lumped together. The vast majority
+                    remain unnamed.
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>Where it starts</dt>
+                        <dd>Approx. 200 m below the surface</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Share of ocean volume</dt>
+                        <dd>Approx. 90%</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>How well known?</dt>
+                        <dd>Most species remain undescribed</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Counts are estimates. The World Register of Marine Species (WoRMS) and the Ocean Biodiversity
+                    Information System (OBIS) record new deep-sea species as they are described.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 3 · GROUPS ======================= -->
+        <section class="section" id="groups" aria-labelledby="groupsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">02 · Meet the residents</p>
+                <h2 id="groupsHeading">Five animals of the deep</h2>
+                <p class="lead">From a patient ambusher with its own lantern to a squid the size of a bus, the deep sea rewards imagination.</p>
+            </header>
+
+            <div class="species-grid" data-reveal-group>
+                <article class="species-card">
+                    <div class="species-icon" aria-hidden="true">🎣</div>
+                    <div class="badge-row"><span class="badge zone-midnight">Anglerfish</span><span class="badge status-vu">Ambusher</span></div>
+                    <h3 class="species-name">Deep-sea anglerfish</h3>
+                    <p class="species-sci">Various families in the suborder Ceratioidei</p>
+                    <p class="species-fact"><strong>Size:</strong> Females of most species are 2–30 cm; males are much smaller.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Bathypelagic zone, roughly 200–2,000 m.</p>
+                    <p class="species-fact"><strong>Fact:</strong> The female carries a lure — a modified fin ray tipped with a glowing bulb — that she dangles in front of her mouth. In many species, males are tiny and permanently attach to the female.</p>
+                </article>
+
+                <article class="species-card">
+                    <div class="species-icon" aria-hidden="true">🦑</div>
+                    <div class="badge-row"><span class="badge zone-midnight">Giant squid</span><span class="badge">Largest invertebrate eyes</span></div>
+                    <h3 class="species-name">Giant squid</h3>
+                    <p class="species-sci">Architeuthis dux</p>
+                    <p class="species-fact"><strong>Size:</strong> Up to about 13 m total length, with the mantle around 2 m.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Continental slopes and open water, roughly 300–1,000 m.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Its eyes can reach 27 cm across — the largest of any known animal. They may help it detect the faint glow of sperm whales hunting in the dark.</p>
+                </article>
+
+                <article class="species-card">
+                    <div class="species-icon" aria-hidden="true">🦇</div>
+                    <div class="badge-row"><span class="badge zone-midnight">Vampire squid</span><span class="badge">Not a true squid</span></div>
+                    <h3 class="species-name">Vampire squid</h3>
+                    <p class="species-sci">Vampyroteuthis infernalis</p>
+                    <p class="species-fact"><strong>Size:</strong> Mantle around 13 cm; total length up to about 30 cm.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Oxygen-minimum zones, roughly 600–1,200 m, in warm and temperate oceans.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Despite its name it is neither a squid nor a vampire — it is the only living member of its own order, and it eats "marine snow" (organic debris falling from above).</p>
+                </article>
+
+                <article class="species-card">
+                    <div class="species-icon" aria-hidden="true">👽</div>
+                    <div class="badge-row"><span class="badge zone-abyss">Gulper eel</span><span class="badge">Hinged jaw</span></div>
+                    <h3 class="species-name">Gulper eel</h3>
+                    <p class="species-sci">Eurypharynx pelecanoides</p>
+                    <p class="species-fact"><strong>Size:</strong> Usually up to about 75 cm, with a whip-like tail.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Mesopelagic and bathypelagic waters, roughly 500–3,000 m.</p>
+                    <p class="species-fact"><strong>Fact:</strong> Its enormous, loosely hinged mouth works like a pelican's pouch — it can engulf prey larger than its own body, then snap shut.</p>
+                </article>
+
+                <article class="species-card">
+                    <div class="species-icon" aria-hidden="true">🐙</div>
+                    <div class="badge-row"><span class="badge zone-abyss">Dumbo octopus</span><span class="badge">Deepest octopus</span></div>
+                    <h3 class="species-name">Dumbo octopus</h3>
+                    <p class="species-sci">Genus Grimpoteuthis</p>
+                    <p class="species-fact"><strong>Size:</strong> Small — typically 20–30 cm total length.</p>
+                    <p class="species-fact"><strong>Habitat:</strong> Deep seafloor, roughly 100–7,000 m.</p>
+                    <p class="species-fact"><strong>Fact:</strong> The "ears" are actually fins that flap to help it swim just above the seafloor. It has no ink sac and uses its webbed arms to hover.</p>
+                </article>
+            </div>
+            <p class="data-note">"Deep sea" is defined by depth, not by a single group of animals. It contains fish, cephalopods, crustaceans, cnidarians, and many phyla with no shallow-water relatives at all.</p>
+        </section>
+
+        <!-- ======================= 4 · SCENE — THE LURE ======================= -->
+        <section class="scene" id="lure" aria-labelledby="lureHeading">
+            <p class="scene-label">Scene 01 · The Lure</p>
+            <h2 id="lureHeading" class="sr-only">A deep-sea anglerfish waits with her glowing lure, while small fish drift in — then dart away</h2>
+
+            <div class="scene-stage lure-stage" aria-hidden="true">
+                <div class="scene-bubbles" id="lureBubbles"></div>
+
+                <div class="lure-angler">
+                    <div class="lure-angler-bob">
+                        <svg viewBox="0 0 240 170"><use href="#anglerfish-shape"></use></svg>
+                    </div>
+                </div>
+
+                <div class="lure-fish f1">
+                    <svg viewBox="0 0 40 20"><use href="#deepsea-fish"></use></svg>
+                </div>
+                <div class="lure-fish f2">
+                    <svg viewBox="0 0 40 20"><use href="#deepsea-fish"></use></svg>
+                </div>
+                <div class="lure-fish f3">
+                    <svg viewBox="0 0 40 20"><use href="#deepsea-fish"></use></svg>
+                </div>
+                <div class="lure-fish f4">
+                    <svg viewBox="0 0 40 20"><use href="#deepsea-fish"></use></svg>
+                </div>
+            </div>
+            <p class="data-note">
+                The anglerfish is drawn facing right (flipped via CSS), with her glowing lure extended ahead of her mouth. Small fish drift in head-first from the right, drawn to the pulsing light — then sense the trap and scatter. Her lure pulses on a 2.8-second cycle.
+            </p>
+        </section>
+
+        <!-- ======================= 5 · ZONES ======================= -->
+        <section class="section" id="zones" aria-labelledby="zonesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">03 · The water column</p>
+                <h2 id="zonesHeading">How the deep sea is layered</h2>
+                <p class="lead">Scientists divide the ocean by depth. Each layer has its own light level, pressure, and community of animals.</p>
+            </header>
+
+            <div class="profile-panel" data-reveal>
+                <div class="zone-chart">
+                    <div class="zone-row">
+                        <span class="zone-swatch zone-epi"></span>
+                        <span class="zone-info">
+                            <strong>Epipelagic</strong>
+                            <span>Sunlight zone — the only layer where photosynthesis is possible</span>
+                        </span>
+                        <span class="zone-depth">0–200 m</span>
+                    </div>
+                    <div class="zone-row">
+                        <span class="zone-swatch zone-meso"></span>
+                        <span class="zone-info">
+                            <strong>Mesopelagic</strong>
+                            <span>Twilight zone — faint blue light; home to lanternfish and hatchetfish</span>
+                        </span>
+                        <span class="zone-depth">200–1,000 m</span>
+                    </div>
+                    <div class="zone-row">
+                        <span class="zone-swatch zone-bathy"></span>
+                        <span class="zone-info">
+                            <strong>Bathypelagic</strong>
+                            <span>Midnight zone — no sunlight at all; anglerfish, giant squid, gulper eels</span>
+                        </span>
+                        <span class="zone-depth">1,000–4,000 m</span>
+                    </div>
+                    <div class="zone-row">
+                        <span class="zone-swatch zone-abyss"></span>
+                        <span class="zone-info">
+                            <strong>Abyssopelagic</strong>
+                            <span>Abyss — vast plains of soft sediment; dumbo octopuses, sea cucumbers</span>
+                        </span>
+                        <span class="zone-depth">4,000–6,000 m</span>
+                    </div>
+                    <div class="zone-row">
+                        <span class="zone-swatch zone-hadal"></span>
+                        <span class="zone-info">
+                            <strong>Hadalpelagic</strong>
+                            <span>Hadal zone — deep-sea trenches; snailfish, amphipods, xenophyophores</span>
+                        </span>
+                        <span class="zone-depth">6,000–11,000 m</span>
+                    </div>
+                </div>
+                <p class="profile-note">Most of this page's animals live in the mesopelagic and bathypelagic zones. The deepest fish ever filmed, a snailfish, was recorded at about 8,336 m in the Izu-Ogasawara Trench.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 6 · SCENE — THE GIANT ======================= -->
+        <section class="scene" id="giant" aria-labelledby="giantHeading">
+            <p class="scene-label">Scene 02 · The Giant</p>
+            <h2 id="giantHeading" class="sr-only">A giant squid drifts slowly in dark water, its arms and long tentacles undulating</h2>
+
+            <div class="scene-stage giant-stage" aria-hidden="true">
+                <div class="scene-bubbles" id="giantBubbles"></div>
+
+                <div class="giant-squid">
+                    <div class="giant-squid-bob">
+                        <svg viewBox="0 0 320 260"><use href="#giant-squid-shape"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <p class="data-note">
+                Each of the squid's arms and the two long feeding tentacles sways on its own phase, so the animal never looks stiff. The body drifts slowly up and down — a calm, drifting rhythm, not a churning sprint.
+            </p>
+        </section>
+
+        <!-- ======================= 7 · ADAPTATIONS ======================= -->
+        <section class="section" id="behavior" aria-labelledby="behaviorHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">04 · Extreme adaptations</p>
+                <h2 id="behaviorHeading">How life survives the abyss</h2>
+                <p class="lead">No sunlight, crushing pressure, near-freezing temperatures, scarce food. Deep-sea animals have evolved extraordinary solutions for each problem.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile">
+                    <span class="fact-num">BIOLUMINESCENCE</span>
+                    <h3 class="species-name">Making your own light</h3>
+                    <p>Perhaps 76% of deep-sea animals can produce light through a chemical reaction. It is used as a lure, a defence, a warning, and possibly to find a mate. Some animals also host glowing bacteria.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">PRESSURE</span>
+                    <h3 class="species-name">Living under crushing weight</h3>
+                    <p>At 4,000 m, pressure is about 400 times what we feel at the surface. Deep-sea fish lack air-filled swim bladders that would collapse; their cells use pressure-tolerant proteins and membranes.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">SLOW METABOLISM</span>
+                    <h3 class="species-name">A very slow life</h3>
+                    <p>Food is rare and unpredictable. Many deep-sea animals burn energy slowly, grow slowly, and can survive long fasts between meals. Some deep-sea fish may live for decades.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">GIGANTISM</span>
+                    <h3 class="species-name">Why are some deep-sea animals so big?</h3>
+                    <p>Deep-sea gigantism is a recurring pattern — giant squid, colossal squid, giant isopods, giant tubeworms. Cold temperatures and slow growth may allow some species to reach much larger sizes than their shallow relatives.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">CHEMOSYNTHESIS</span>
+                    <h3 class="species-name">Life without sunlight</h3>
+                    <p>At hydrothermal vents and cold seeps, bacteria turn hydrogen sulfide and other chemicals into food — the base of entire food webs that need no sunlight. Tubeworms, vent crabs, and yeti crabs depend on this.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">TRAPS &amp; TRICKS</span>
+                    <h3 class="species-name">Catching what little comes</h3>
+                    <p>Enormous mouths (gulper eel), hinged jaws (dragonfish), long sticky tentacles (jellyfish), and needle-like teeth (viperfish) all help deep-sea predators grab scarce prey on the first attempt.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 8 · DIET ======================= -->
+        <section class="section" id="diet" aria-labelledby="dietHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">05 · Food webs</p>
+                <h2 id="dietHeading">What deep-sea animals eat</h2>
+                <p class="lead">Without sunlight, deep-sea food webs start with particles falling from above — or with chemistry at the seafloor.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile">
+                    <span class="fact-num">MARINE SNOW</span>
+                    <h3 class="species-name">The deep-sea rain</h3>
+                    <p>Marine snow is a continuous drift of dead plankton, faecal pellets, and other organic debris from the sunlit zone. It is the main food source for a huge number of deep-sea animals.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">PREDATORS</span>
+                    <h3 class="species-name">Armed ambush</h3>
+                    <p>Many deep-sea fish are ambush predators. They wait, motionless, for prey to drift within reach — relying on lures, huge mouths, or expandable stomachs to make the most of every meal.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">SCAVENGERS</span>
+                    <h3 class="species-name">A meal the size of a whale</h3>
+                    <p>A dead whale can support an entire ecosystem for decades, from sharks and hagfish to bone-eating worms. Whale falls are one of the great events of the deep sea.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">CHEMOSYNTHETIC WEBS</span>
+                    <h3 class="species-name">Food from chemistry</h3>
+                    <p>At hydrothermal vents and cold seeps, chemosynthetic bacteria use hydrogen sulfide instead of sunlight. Vent animals — tubeworms, crabs, clams, shrimp — depend on those bacteria, often living inside their own bodies.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 9 · REPRODUCTION ======================= -->
+        <section class="section" id="reproduction" aria-labelledby="reproductionHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">06 · Life cycle</p>
+                <h2 id="reproductionHeading">How deep-sea animals reproduce</h2>
+                <p class="lead">Finding a mate in the dark, featureless open ocean is not easy. Some deep-sea animals have evolved extraordinary solutions.</p>
+            </header>
+
+            <div class="profile-panel" data-reveal>
+                <div class="profile-facts-grid">
+                    <article class="fact-tile">
+                        <span class="fact-num">PARASITIC MALES</span>
+                        <h3 class="species-name">Fused for life</h3>
+                        <p>In many anglerfish species, the male is a tiny dwarf that swims to a female, bites into her body, and fuses — his tissues merge with hers, and he lives the rest of his life as a sperm source attached to her side.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">LONG BROODING</span>
+                        <h3 class="species-name">Patient parents</h3>
+                        <p>Some deep-sea octopuses brood their eggs for years — <em>Graneledone boreopacifica</em> was recorded brooding for 53 months. In cold, stable water, slow development is normal.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">LOW FECUNDITY</span>
+                        <h3 class="species-name">Few but large young</h3>
+                        <p>Many deep-sea animals produce relatively few, well-provisioned offspring rather than millions of tiny larvae. This suits a food-poor world but makes recovery from disturbance slow.</p>
+                    </article>
+                    <article class="fact-tile">
+                        <span class="fact-num">LARGE EGGS</span>
+                        <h3 class="species-name">Starting big</h3>
+                        <p>Deep-sea fish often have larger eggs than their shallow relatives. Some hatch as advanced juveniles — bypassing a fragile larval stage entirely.</p>
+                    </article>
+                </div>
+                <p class="profile-note">The sequence above covers patterns, not rules. Reproductive strategies vary widely among deep-sea animals, and many remain unstudied.</p>
+            </div>
+        </section>
+
+        <!-- ======================= 10 · FACTS ======================= -->
+        <section class="section" id="facts" aria-labelledby="factsHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">07 · Did you know?</p>
+                <h2 id="factsHeading">Six facts to take to the surface</h2>
+                <p class="lead">The deep sea is stranger than any fiction — and much of it has never been seen.</p>
+            </header>
+
+            <div class="profile-facts-grid" data-reveal-group>
+                <article class="fact-tile">
+                    <span class="fact-num">FACT · 01</span>
+                    <h3 class="species-name">The deepest fish</h3>
+                    <p>A juvenile snailfish (Pseudoliparis) was filmed in 2022 at about 8,336 m in the Izu-Ogasawara Trench. At that depth, the pressure is over 800 times what we feel at the surface.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">FACT · 02</span>
+                    <h3 class="species-name">The largest eyes ever</h3>
+                    <p>Giant squid eyes reach roughly 27 cm across — larger than a dinner plate. They may help the animal spot the faint bioluminescent wake of a diving sperm whale.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">FACT · 03</span>
+                    <h3 class="species-name">The vampire's diet</h3>
+                    <p>Vampire squid eat marine snow — dead plankton and organic scraps drifting down from above. They are the ocean's patient cleaners, not predators of the living.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">FACT · 04</span>
+                    <h3 class="species-name">A transparent head</h3>
+                    <p>The barreleye fish <em>Macropinna microstoma</em> has a transparent, dome-like head. The green lenses that are its eyes can rotate within the dome, tracking prey above it.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">FACT · 05</span>
+                    <h3 class="species-name">Light is common</h3>
+                    <p>An estimated 76% of deep-sea animals can produce light. The open deep sea is not a black void — it sparkles with flashes, glows, and living lures.</p>
+                </article>
+                <article class="fact-tile">
+                    <span class="fact-num">FACT · 06</span>
+                    <h3 class="species-name">The hadal zone is bigger than it looks</h3>
+                    <p>Trenches deeper than 6,000 m cover less than 1% of the seafloor, but they include the deepest places on Earth — the Mariana Trench reaches about 10,935 m.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ======================= 11 · CONSERVATION ======================= -->
+        <section class="section" id="conservation" aria-labelledby="conservationHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">08 · A changing deep</p>
+                <h2 id="conservationHeading">Deep-sea life under pressure</h2>
+                <p class="lead">The deep sea may be remote, but it is not untouched. Fishing, mining, and warming all reach it.</p>
+            </header>
+
+            <div class="profile-panel" data-reveal>
+                <p class="profile-overview">
+                    The main pressures on deep-sea life are bottom trawling (which scrapes the seafloor for fish
+                    and shrimp), deep-sea mining for metals used in batteries, shipwrecks and plastic pollution
+                    that sink to the abyss, and the slow but global effects of climate change. Because deep-sea
+                    animals grow slowly and reproduce slowly, they recover extremely slowly from damage. The deep
+                    sea is also one of the least regulated environments on Earth — a challenge for conservation.
+                </p>
+                <div class="profile-vitals">
+                    <dl class="vital-box">
+                        <dt>Main threat</dt>
+                        <dd>Bottom trawling</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Emerging threat</dt>
+                        <dd>Deep-sea mining</dd>
+                    </dl>
+                    <dl class="vital-box">
+                        <dt>Why recovery is slow</dt>
+                        <dd>Slow growth, low reproduction, cold water</dd>
+                    </dl>
+                </div>
+                <p class="profile-note">
+                    Conservation status is known for only a small fraction of deep-sea species. The IUCN Red List
+                    is actively expanding its coverage of deep-sea life.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================= 12 · SOURCES ======================= -->
+        <section class="section" id="sources" aria-labelledby="sourcesHeading">
+            <header class="section-head" data-reveal>
+                <p class="kicker">09 · References</p>
+                <h2 id="sourcesHeading">Sources and further reading</h2>
+                <p class="lead">The facts on this page draw on taxonomic databases, research institutions, and government species guides.</p>
+            </header>
+
+            <div class="profile-panel" data-reveal>
+                <nav class="footer-links" aria-label="Deep-sea information sources">
+                    <ul>
+                        <li>[1] <a href="https://www.marinespecies.org/" target="_blank" rel="noopener">World Register of Marine Species (WoRMS) — accepted names for deep-sea taxa.</a></li>
+                        <li>[2] <a href="https://www.iucnredlist.org/" target="_blank" rel="noopener">IUCN Red List of Threatened Species — assessments for deep-sea species.</a></li>
+                        <li>[3] <a href="https://oceanexplorer.noaa.gov/" target="_blank" rel="noopener">NOAA Ocean Exploration — deep-sea exploration, species profiles, and mission reports.</a></li>
+                        <li>[4] <a href="https://www.mbari.org/" target="_blank" rel="noopener">Monterey Bay Aquarium Research Institute (MBARI) — deep-sea species research, video, and data.</a></li>
+                        <li>[5] <a href="https://schmidtocean.org/" target="_blank" rel="noopener">Schmidt Ocean Institute — deep-sea expeditions and species discoveries.</a></li>
+                        <li>[6] <a href="https://www.whoi.edu/" target="_blank" rel="noopener">Woods Hole Oceanographic Institution — deep-sea biology and oceanography.</a></li>
+                        <li>[7] <a href="https://www.nature.com/articles/s41586-023-05844-5" target="_blank" rel="noopener">Yancey et al. — pressure tolerance and adaptation in hadal fish (Nature).</a></li>
+                        <li>[8] <a href="https://www.frontiersin.org/journals/marine-science" target="_blank" rel="noopener">Frontiers in Marine Science — deep-sea ecology and bioluminescence research.</a></li>
+                    </ul>
+                </nav>
+                <p class="profile-note">Approximate values are labelled "approx." where sources or populations vary. This page is an educational overview, not a substitute for a taxonomic database or a scientific species assessment.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer" id="contact" style="padding: 40px 24px; text-align: center; border-top: 1px solid rgba(139,233,253,0.15); margin-top: 40px;">
+        <p style="margin: 0 0 12px; color: #9ab3c7; font-size: 0.9rem;">
+            © 2026 OceanAtlas · Made with 💙 for the blue planet · Deep-sea measurements are approximate where noted.
+        </p>
+        <button class="btn btn-ghost back-to-top" id="backToTop" type="button"
+            style="padding: 10px 20px; border-radius: 999px; background: transparent; color: #eaf6ff; border: 1px solid rgba(139,233,253,0.3); cursor: pointer; font-size: 0.9rem;">
+            ↑ Back to the surface
+        </button>
+    </footer>
+
+    <!-- ======================= JS ======================= -->
+    <script>
+    (() => {
+        "use strict";
+
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* Signal that JS is ready so the reveal CSS can hide elements */
+        document.body.classList.add("js-ready");
+
+        /* ---- NAV + DROPDOWN ---- */
+        const nav = document.getElementById("siteNav");
+        const navToggle = document.getElementById("navToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        const closeMenu = () => {
+            if (!navToggle || !navMenu) return;
+            navToggle.classList.remove("is-open");
+            navMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.setAttribute("aria-label", "Open navigation menu");
+        };
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener("click", () => {
+                const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+                navToggle.classList.toggle("is-open", !isOpen);
+                navMenu.classList.toggle("is-open", !isOpen);
+                navToggle.setAttribute("aria-expanded", String(!isOpen));
+                navToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+            });
+            navMenu.querySelectorAll("a").forEach(l => l.addEventListener("click", closeMenu));
+            document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+            document.addEventListener("click", e => { if (nav && !nav.contains(e.target)) closeMenu(); });
+        }
+
+        document.querySelectorAll(".nav-item.has-dropdown > .nav-link").forEach(trigger => {
+            trigger.addEventListener("click", e => {
+                if (window.matchMedia("(max-width: 860px)").matches) {
+                    e.preventDefault();
+                    const parent = trigger.parentElement;
+                    parent.classList.toggle("is-open");
+                    trigger.setAttribute("aria-expanded", parent.classList.contains("is-open") ? "true" : "false");
+                }
+            });
+        });
+
+        /* ---- PROGRESS BAR ---- */
+        const progressFill = document.getElementById("progressFill");
+        const updateScrollUI = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+            if (progressFill) progressFill.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+            if (nav) nav.classList.toggle("is-deep", window.scrollY > 35);
+        };
+        updateScrollUI();
+        window.addEventListener("scroll", updateScrollUI, { passive: true });
+        window.addEventListener("resize", updateScrollUI, { passive: true });
+
+        /* ---- HERO CTA ---- */
+        const exploreButton = document.getElementById("exploreBtn");
+        const countSection = document.getElementById("count");
+        if (exploreButton && countSection) {
+            exploreButton.addEventListener("click", () => {
+                countSection.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+            });
+        }
+
+        /* ---- BACK TO TOP ---- */
+        const backToTop = document.getElementById("backToTop");
+        if (backToTop) {
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+            });
+        }
+
+        /* ---- GLOBAL BUBBLES ---- */
+        const bubbleContainer = document.getElementById("bubbles");
+        if (bubbleContainer && !reducedMotion) {
+            for (let i = 0; i < 16; i++) {
+                const b = document.createElement("span");
+                const s = 5 + Math.round(Math.random() * 15);
+                b.style.width = s + "px";
+                b.style.height = s + "px";
+                b.style.left = Math.round(Math.random() * 100) + "%";
+                b.style.animationDuration = (14 + Math.random() * 18) + "s";
+                b.style.animationDelay = (-Math.random() * 24) + "s";
+                b.style.setProperty("--o", 0.16 + Math.random() * 0.24);
+                b.style.setProperty("--dx", Math.round(Math.random() * 60 - 30) + "px");
+                bubbleContainer.appendChild(b);
+            }
+        }
+
+        /* ---- MARINE SNOW ---- */
+        const snowContainer = document.getElementById("marineSnow");
+        if (snowContainer && !reducedMotion) {
+            for (let i = 0; i < 30; i++) {
+                const f = document.createElement("span");
+                f.className = "snow-flake";
+                const s = 1 + Math.random() * 2.5;
+                f.style.width = s + "px";
+                f.style.height = s + "px";
+                f.style.left = (Math.random() * 100) + "%";
+                f.style.top = (-10 - Math.random() * 20) + "%";
+                f.style.opacity = 0.2 + Math.random() * 0.4;
+                f.style.animationDuration = (10 + Math.random() * 16) + "s";
+                f.style.animationDelay = (-Math.random() * 22) + "s";
+                snowContainer.appendChild(f);
+            }
+        }
+
+        /* ---- SCENE BUBBLES ---- */
+        const buildSceneBubbles = (id, count) => {
+            const c = document.getElementById(id);
+            if (!c || reducedMotion) return;
+            for (let i = 0; i < count; i++) {
+                const b = document.createElement("span");
+                const s = 3 + Math.random() * 7;
+                b.style.width = s + "px";
+                b.style.height = s + "px";
+                b.style.left = (Math.random() * 100) + "%";
+                b.style.animationDuration = (9 + Math.random() * 9) + "s";
+                b.style.animationDelay = (-Math.random() * 12) + "s";
+                c.appendChild(b);
+            }
+        };
+        buildSceneBubbles("lureBubbles", 14);
+        buildSceneBubbles("giantBubbles", 12);
+
+        /* ---- REVEALS ---- */
+        const revealTargets = document.querySelectorAll("[data-reveal], [data-reveal-group]");
+        if (revealTargets.length) {
+            if ("IntersectionObserver" in window && !reducedMotion) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-revealed");
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+
+                revealTargets.forEach(el => io.observe(el));
+            } else {
+                revealTargets.forEach(el => el.classList.add("is-revealed"));
+            }
+        }
+
+        /* ---- NEWSLETTER ---- */
+        const newsletterForm = document.getElementById("newsletterForm");
+        const emailInput = document.getElementById("emailInput");
+        const formMessage = document.getElementById("formMsg");
+        if (newsletterForm && emailInput && formMessage) {
+            newsletterForm.addEventListener("submit", e => {
+                e.preventDefault();
+                if (!emailInput.checkValidity()) {
+                    emailInput.setAttribute("aria-invalid", "true");
+                    formMessage.textContent = "Please enter a valid email address.";
+                    formMessage.classList.remove("is-success");
+                    formMessage.classList.add("is-error");
+                    emailInput.focus();
+                    return;
+                }
+                emailInput.removeAttribute("aria-invalid");
+                formMessage.textContent = "Thanks! This front-end demo does not send or store email addresses.";
+                formMessage.classList.remove("is-error");
+                formMessage.classList.add("is-success");
+                newsletterForm.reset();
+            });
+        }
+
+        /* ---- CURSOR ---- */
+        const cursorDot = document.getElementById("cursorDot");
+        const cursorRing = document.getElementById("cursorRing");
+        if (!reducedMotion && window.matchMedia("(pointer: fine)").matches && cursorDot && cursorRing) {
+            document.body.classList.add("has-cursor");
+            document.addEventListener("mousemove", e => {
+                cursorDot.style.transform = `translate3d(${e.clientX - 4}px, ${e.clientY - 4}px, 0)`;
+                cursorRing.style.transform = `translate3d(${e.clientX - 19}px, ${e.clientY - 19}px, 0)`;
+            });
+            document.querySelectorAll("a, button, input").forEach(el => {
+                el.addEventListener("mouseenter", () => cursorRing.classList.add("is-active"));
+                el.addEventListener("mouseleave", () => cursorRing.classList.remove("is-active"));
+            });
+            document.addEventListener("mousedown", () => cursorRing.classList.add("is-down"));
+            document.addEventListener("mouseup", () => cursorRing.classList.remove("is-down"));
+        }
+    })();
+    </script>
+
+</body>
+
+</html>
